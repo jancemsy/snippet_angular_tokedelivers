@@ -1,0 +1,14 @@
+@import 'src/app/styles/core/variables';
+.tier-icon {
+  background-color: $primary;
+  height: 33px;
+  width: 35px;
+  line-height: 30px;
+  text-align: center;
+  color: $white;
+  border-radius: 4.125px;
+  font-size: 18px;
+  svg {
+      transform: scale(0.7);
+  }
+}

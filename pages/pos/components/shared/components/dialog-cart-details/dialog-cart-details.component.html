@@ -1,0 +1,97 @@
+<div class="pos-dialog" *ngIf="( cartSummary$ | async ) as summary">
+  <div class="d-flex horizontal-padding">
+    <img
+      (click)="dialogRef.close()"
+      class="ml-auto close"
+      src="../../../../../../../assets/icons/close.svg"
+      alt="close">
+  </div>
+
+
+  <!-- Product list section -->
+  <div class="cart-sections margin-top">
+    <div class="cart-section-header horizontal-padding">
+      <p>Subtotal</p>
+      <span>{{ summary.subTotal | currency }}</span>
+    </div>
+    <div class="cart-section-body horizontal-padding">
+      <table *ngIf="( cartItem$ | async ) as carItems" class="table">
+        <tr *ngFor="let item of carItems" >
+          <td style="width: 25%;"><img [src]="item.img_src" alt=""></td>
+          <td>
+            <p class="product-name">{{ item.name }}</p>
+            <p>Lemon, {{ item.measurement }}{{ item.unit }}</p>
+          </td>
+          <td>
+            Qty {{ item.quantity }}
+          </td>
+          <td class="text-right">
+            {{ item.price | currency }}
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Discount list sections -->
+  <div class="cart-sections">
+    <div class="cart-section-header horizontal-padding">
+      <p>Discounts</p>
+      <span>-{{ summary.discount | currency }}</span>
+    </div>
+    <div class="cart-section-body horizontal-padding">
+      <table class="table no-border table-discounts">
+        <tr class="cart-success">
+          <td><b>Holiday Discount</b> - 10% of all products</td>
+          <td colspan="2" class="text-right"><small>-$8.99</small> </td>
+        </tr>
+        <tr class="cart-success">
+          <td><b>Holiday Discount</b> - 10% of all products</td>
+          <td colspan="2" class="text-right"><small>-$8.99</small> </td>
+        </tr>
+        <tr class="cart-warning">
+          <td><b>Holiday Discount</b> - 10% of all products</td>
+          <td colspan="2" class="text-right"><small>-$8.99</small> </td>
+        </tr>
+        <tr class="cart-error">
+          <td><b>Holiday Discount</b> - 10% of all products</td>
+          <td colspan="2" class="text-right"><small>-$8.99</small> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Sales tax -->
+  <div class="cart-sections">
+    <div class="cart-section-header horizontal-padding">
+      <p>Sales Tax</p>
+      <span>{{ summary.salesTax | currency }}</span>
+    </div>
+
+    <div class="cart-section-body horizontal-padding">
+      <table class="table no-border">
+        <tr>
+          <td style="width: 25%;"><img src="https://toke-products.s3.us-east-2.amazonaws.com/users/153/products/1/images/hLSwljUOJGqcvkuBrgAGpVuOtg1mpbR2KDLOZAlA.png" alt=""></td>
+          <td>
+            <p class="product-name">Organic Test name</p>
+            <p>Lemon, 10pack</p>
+          </td>
+          <td>
+            Qty 1
+          </td>
+          <td class="text-right">
+            $19.99
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Total -->
+  <div class="cart-sections margin-top">
+    <div class="cart-section-header horizontal-padding">
+      <p class="emphasized">TOTAL</p>
+      <span class="emphasized">{{ summary.total | currency }}</span>
+    </div>
+  </div>
+</div>

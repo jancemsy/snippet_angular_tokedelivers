@@ -1,0 +1,36 @@
+@import 'src/app/styles/core/variables';
+.discount-group-add {
+  cursor: pointer;
+}
+
+.group-content {
+  padding: 0 15px;
+}
+
+::ng-deep .discount-list {
+  margin-top: 30px;
+  .list-group-item {
+    margin: 5px 0;
+
+    background: linear-gradient(180deg, #F5FCEC 0%, #EDF3E5 100%);
+    border-radius: 10px;
+
+    &.promo {
+      background: linear-gradient(180deg, #FFF9F9 0%, #FEF2F2 100%);
+      border-radius: 10px;
+    }
+
+    &:hover {
+      .remove-item {
+        visibility: visible;
+      }
+    }
+
+    .remove-item {
+      visibility: hidden;
+      &:hover {
+        fill: $gray;
+      }
+    }
+  }
+}

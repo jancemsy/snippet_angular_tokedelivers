@@ -1,0 +1,13 @@
+<div class="center-accross-hw">
+  <div class="card center-accross-hw">
+    <div class="card-header w-100">
+      <app-stepper
+        [items]="stepperItems"
+        (itemClicked)="stepperStatus($event)">
+      </app-stepper>
+    </div>
+    <div class="card-body w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

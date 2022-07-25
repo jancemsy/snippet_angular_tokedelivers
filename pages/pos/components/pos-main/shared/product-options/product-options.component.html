@@ -1,0 +1,12 @@
+<div *ngIf="settings" class="group-options" [ngClass]="{ 'active' : isOpen }">
+  <button class="btn btn-white btn-option btn-oval large" (click)="toggleOption()">
+    {{ current.text }}
+  </button>
+  <ul class="option-list">
+    <ng-container *ngFor="let option of settings; let i = index">
+      <li *ngIf="current.value != option.value" (click)="chooseOption(option, i)">
+          {{ option.text }}
+      </li>
+    </ng-container>
+  </ul>
+</div>

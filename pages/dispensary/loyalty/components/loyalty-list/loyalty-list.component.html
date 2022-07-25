@@ -1,0 +1,34 @@
+<div class="loyalty table-responsive card shadow mb-4 full-height">
+  <table class="table mgt-table" *ngIf="(loyaltyOffers$ | async) as loyaltyOffers">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Start Date</th>
+        <th>Description</th>
+        <th>Dispensaries</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr (click)="onEditLoyalty(item)" *ngFor="let item of loyaltyOffers" class="custom">
+        <td>
+          <div class="promo-type" [ngClass]="item.type.abbr">
+            {{ item.type.name }}
+          </div>
+        </td>
+        <td>
+          <a class="promo-name" [ngClass]="item.type.abbr">{{ item.name }}</a>
+        </td>
+        <td>{{ item.timingLocationConfig.startDate | date:'MM/dd/yyyy' }}</td>
+        <td>{{ item.description }}</td>
+        <td>
+          <div class="dispensary-item text-truncate"
+            [title]="dispensary.name"
+            *ngFor="let dispensary of item.timingLocationConfig.dispensaries" >
+            {{ dispensary.name }}
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

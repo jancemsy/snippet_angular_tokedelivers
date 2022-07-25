@@ -1,0 +1,38 @@
+@import 'src/app/styles/core/variables';
+.pos-alert {
+  position: fixed;
+  width: 26vw;
+  padding: 3vh 3vw;
+  background-color: $white;
+  top: 4.5vh;
+  border-radius: 2vh;
+  font-family: Open Sans;
+  font-size: 1.5vw;
+  line-height: 2.5vw;
+  left: 50%;
+  margin-left: -13vw;
+  z-index: 99;
+  box-shadow: 0.1vw 0.2vw 0.6vw $xlight-gray !important;
+  transform: translateY(-200%);
+  transition: transform 0.3s ease-in-out;
+
+  &.show {
+    transform: translateY(0);
+  }
+
+  .pos-alert-icon {
+    width: 2.5vw;
+    height: 2.5vw;
+    text-align: center;
+    border-radius: 50%;
+    color: $white;
+    background-color: $jade-green;
+    margin-right: 1vw;
+  }
+
+  p {
+    font-weight: 600;
+    color: $black;
+  }
+
+}

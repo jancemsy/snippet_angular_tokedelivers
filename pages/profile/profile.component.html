@@ -1,0 +1,147 @@
+<div id="edit-profile-container" class="center-accross-hw no-p"  >
+   
+   <div class="container">
+      <!-- Start of Account Information -->
+      <div class="form-header">
+         <h1>Account Information</h1>
+      </div>   
+
+      <div class="form-body">
+         <form [formGroup]="accountForm" (ngSubmit)="onSubmitAccountForm()"> 
+            <div class="form-row p-10">
+               <div class="col-md-6">
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                        <label for="first_name">First Name</label>
+                        <input type="text" class="form-control" formControlName="first_name" id="first_name">
+                     </div>
+                     <div class="form-group col-md-6">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" class="form-control" formControlName="last_name" id="last_name">
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-6">
+                        <label for="email">E-mail Address</label>
+                        <input type="email" class="form-control" formControlName="email" id="email">
+                     </div>
+                     <div class="form-group col-md-6">
+                        <label for="phone_number">Phone Number</label>
+                        <input type="text" class="form-control" formControlName="phone_number" id="phone_number">
+                     </div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="form-group">
+                     <label for="address_line_1">Address Line 1</label>
+                     <input type="text" class="form-control" formControlName="address_line_1" id="address_line_1">
+                  </div>
+                  <div class="form-group">
+                     <label for="address_line_2">Address Line 2</label>
+                     <input type="text" class="form-control" formControlName="address_line_2" id="address_line_2">
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-9">
+                        <label for="city">City</label>
+                        <input type="text" class="form-control" formControlName="city" id="city">
+                     </div>
+                     <div class="form-group col-md-3">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" formControlName="state" id="state">
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-9">
+                        <label for="zip">Zip Code</label>
+                        <input type="text" class="form-control" formControlName="zip" id="zip">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+      <!-- End of Account Information -->
+
+      <!-- Start of Identification -->
+      <div class="form-header">
+         <h1>Identification</h1>
+      </div>
+
+      <div class="form-body">
+         <form [formGroup]="identificationForm" (ngSubmit)="onSubmitIdForm()">
+            <div class="form-row p-10">
+               <div class="col-md-6">
+                  <div class="form-row">
+                     <div class="form-group col-md-9">
+                        <label for="license">Driver's License #</label>
+                        <input formControlName="number" name="number" type="text" class="form-control" id="license" required>
+                     </div>
+                     <div class="form-group col-md-3">
+                        <label for="state">State</label>
+                        <input formControlName="state" name="state" type="text" class="form-control" id="state" required>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-9">
+                        <div class="d-flex " (click)="identificationFile.click()">
+                           <i class="fa fa-upload fa-prop"></i>
+                           <label class="label-prop" for="driverLicenseFile">&nbsp; Upload Driver's License</label>
+                         </div>
+                         <input class="form-control" hidden name="identificationFile" #identificationFile
+                           type="file"
+                           ng2FileSelect
+                          
+                           (change)="onFileSelected($event)">
+                     </div>
+                     <div class="form-group col-md-3">
+                        <button type="submit" class="btn btn-primary btn-prop" [disabled]="!identificationForm.valid" >
+                           Add ID
+                         </button>
+                     </div>
+                  </div>
+                  <div class="form-row">
+                     <div class="form-group col-md-12" *ngFor="let id of identifications">
+                        <span> 
+                           {{ id.file.name }}, uploaded on {{ id.file.created_at | date:'longDate' }} by {{ _responseDATA.first_name }} {{ _responseDATA.last_name }}
+                        </span>
+                        <i data-toggle="tooltip" title="Delete" class="fa fa-times-circle icon-prop" (click)="deleteID(id)"></i>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </form>
+      </div>
+      <!-- End of Identification -->
+
+      <!-- Start of Roles -->
+      <div class="form-header">
+         <h1>Your Roles</h1>
+      </div>
+
+      <div class="form-body">
+         <table class="tbl-roles" mat-table [dataSource]="dataSource">
+            <!-- Position Column -->
+            <ng-container matColumnDef="Dispensary">
+               <th mat-header-cell *matHeaderCellDef> Dispensary </th>
+               <td mat-cell *matCellDef="let element"> {{element.dispensary.dispensary_name}} </td>
+            </ng-container>
+            <!-- Position Column -->
+            <ng-container matColumnDef="Role">
+               <th mat-header-cell *matHeaderCellDef> Role </th>
+               <td mat-cell *matCellDef="let element"> {{element.role.name}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+         </table>
+      </div>
+      <!-- End of Roles -->
+
+      <!-- Start of Page Actions -->
+      <div class="text-right bottom-buttons">
+         <button type="submit" class="btn btn-cancel" (click)="clickCancel()" >Cancel</button>  
+         <button type="submit" class="btn btn-save" (click)="onClickSave()" >Save</button>
+      </div>
+      <!-- End of Page Actions -->
+   </div>
+</div>

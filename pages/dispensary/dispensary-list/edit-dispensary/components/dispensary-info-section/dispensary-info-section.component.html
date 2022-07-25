@@ -1,0 +1,51 @@
+<div class="dispensary-info-section">
+  <form [formGroup]="form" novalidate>
+    <div class="d-flex">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="dispensaryName">Dispensary Name</label>
+          <h2>{{ dispensaryInfo.dispensary_name }}</h2>
+        </div>
+        <div class="form-group col-md-8 pl-0">
+          <label for="exampleInputEmail1">E-mail Address</label>
+          <input type="email" class="form-control"
+            formControlName="email">
+        </div>
+        <div class="form-group col-md-8 pl-0">
+          <label for="exampleInputEmail1">Primary Phone</label>
+          <input type="text" class="form-control"
+            formControlName="phone_number">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="address1">Address Line 1</label>
+          <input type="text" class="form-control"
+            formControlName="dispensary_address_line_1">
+        </div>
+        <div class="form-group">
+          <label for="address1">Address Line 2</label>
+          <input type="text" class="form-control"
+            formControlName="dispensary_address_line_2">
+        </div>
+        <div class="row">
+          <div class="form-group col-md-8 py-0">
+            <label for="address1">City</label>
+            <input type="text" class="form-control"
+              formControlName="dispensary_city">
+          </div>
+          <div class="form-group col-md-4 py-0">
+            <label for="address1">State</label>
+            <input type="text" class="form-control"
+              formControlName="dispensary_state">
+          </div>
+        </div>
+        <div class="form-group col-md-8 pl-0">
+          <label for="address1">Zip Code</label>
+          <input type="text" class="form-control"
+            formControlName="dispensary_zip">
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,551 @@
+@import 'src/app/styles/core/variables';
+
+#customer-account-settings {
+    margin-top: 8rem;
+    padding-left: 120px;
+    padding-right: 120px;
+    padding-bottom: 30px;
+    color: $primary;
+    font-size: 15px;
+  
+    h1 {
+      font-size: 50px;
+      &.main-title { margin-bottom: 40px; }
+    }
+
+    input:focus {
+        outline: none !important;
+    }
+
+    .st-input {
+        background: #EEEEEE;
+        border-radius: 17.5px;
+        border: none;
+    }
+
+    .st-text {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: 0.233333px;
+
+        color: #354C1A;
+    }
+
+    .shipping-type {
+        .round-border-btn {
+            cursor: pointer; 
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            padding-top: 0px; 
+            padding-left:10px; padding-right: 10px;
+            width: auto;
+            height: 28px; 
+            margin-right: 5%;
+
+            font-family: Open Sans;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 600;
+            line-height: 20px;
+            letter-spacing: 0.23333333432674408px;
+            text-align: center; 
+            float:left;
+
+
+            background: #FFFFFF;
+            border: 3px solid #354C1A;
+            border-radius: 13px;
+        }
+
+        .type-selected {
+            background: #ebf4e4;
+        }
+    }
+
+    .discounts-expanded {
+        width: 491px;
+        height: auto;
+
+        background: #FFFFFF;
+        box-shadow: 1px 3px 10px #CBCBCB;
+        border-radius: 20px;
+
+        .discount-total {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px;
+
+            color: #354C1A;
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .discount-details {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px;
+    
+            color: #5EB700;
+            margin-left: 25px;
+            margin-right: 48px;
+        }
+    }
+
+    .custom-card {
+        width: 570px;
+        height: auto;
+        margin-top: 10%;
+        padding-bottom: 5%;
+
+        background: #FFFFFF;
+        box-shadow: 3px 5px 15px #CBCBCB;
+        border-radius: 20px
+    }
+
+    .toggle-icon {
+        color: #929292;
+        margin-top: 11px;
+        cursor: pointer;
+    }
+
+    .align-components {
+        margin-top: 5%;
+    }
+
+    .custom-title {
+        height: 41px;
+        margin-left: 3.78%;
+        right: 69.86%;
+        padding-top: calc(50% - 41px/2 - 250.5px);
+
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 41px;
+        /* identical to box height */
+
+        letter-spacing: 0.466667px;
+
+        color: #354C1A;
+    }
+
+    .lines {
+        padding-top: 10px;
+    }
+
+    .underline-bold {
+        border: 4px solid #354C1A;
+        margin-right: -31px;
+        margin-left: 20%;
+    }
+
+    .underline-light {
+        border: 1px solid #354C1A;
+        margin-top: 3px;
+        margin-right: 6%;
+    }
+
+    .personal-information {
+        margin-top: 10%;
+
+        .id-card-back {
+            position: absolute;
+            z-index: 1;
+            width: 108.39px;
+            height: 66.03px;
+            background: #EBF4E4;
+            box-shadow: 0.622951px 1.86885px 6.22951px #CBCBCB;
+            border-radius: 9.34426px;
+        }
+
+        .id-card-front {
+            position: relative;
+            z-index: 2;
+            margin-left: 10px;
+            width: 108.39px;
+            height: 66.03px;
+            background: #FFFFFF;
+            box-shadow: 0.622951px 1.86885px 6.22951px #CBCBCB;
+            border-radius: 9.34426px;
+
+            .content-text {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 9.33962px;
+                line-height: 13px;
+                margin-top: 25%;
+                /* identical to box height */
+
+                letter-spacing: 0.145283px;
+
+                color: #354C1A;
+                cursor: pointer;
+            }
+
+            .ch-1 {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 7.47541px;
+                line-height: 10px;
+                letter-spacing: 0.116284px;
+                color: #354C1A;
+                padding: 10px;
+            }
+
+            .ch-2 {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 6.22951px;
+                line-height: 8px;
+                /* identical to box height */
+
+                letter-spacing: 0.0969035px;
+
+                color: #354C1A;
+                padding: 10px;
+
+            }
+
+            .chip {
+                width: 14.33px;
+                height: 10.59px;
+                background: #2D4D0F;
+                border-radius: 5.29508px;
+
+
+                .chip-text {
+                    font-family: Open Sans;
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 4.98361px;
+                    line-height: 7px;
+                    /* identical to box height */
+
+                    letter-spacing: 0.0775228px;
+                    margin-top: 1px;
+                    color: #FFFFFF;
+                }
+            }
+
+        }
+
+        .save-personal-info {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px;
+            border-radius: 17.5px;
+        }
+    }
+
+    .address-content {
+        margin-left: 4%;
+        padding-top: 5%;
+        bottom: 53.09%;
+
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: 0.233333px;
+
+        color: #354C1A;
+    }
+
+    .change {
+        margin-right: 4%;
+        cursor: pointer;
+
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 20px;
+        text-align: right;
+        letter-spacing: 0.233333px;
+
+        color: #354C1A;
+    }
+
+    .payment-card {
+        margin-left: 4%;
+        width: 380px;
+        height: 134px;
+
+        background: #FFFFFF;
+        box-shadow: 1px 3px 10px #CBCBCB;
+        border-radius: 15px;
+
+        .logo-img {
+            height: 40px;
+            margin: 3%;
+            margin-left: 4%;
+        }
+    }
+
+    .payment-content {
+        margin-left: 4%;
+        padding-top: 5%;
+        bottom: 53.09%;
+
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: 0.233333px;
+
+        color: #354C1A;
+    }
+
+    .review-order {
+        left: 52.08%;
+        right: 10.42%;
+        top: 24.47%;
+        bottom: 30.98%;
+        width: 540px;
+        height: auto;
+        padding-bottom: 20px;
+
+        background: #FFFFFF;
+        box-shadow: 3px 5px 15px #CBCBCB;
+        border-radius: 20px;
+
+        .item-img {
+            width: 150px;
+            height: 150px;
+            margin-left: -35%;
+        }
+
+        .product-name{
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px;
+            color: #354C1A;
+        }
+
+        .cart-items {
+            width: 75%;
+            height: auto;
+            border-bottom: 1px solid #354C1A;
+        }
+
+        select.item-select {
+            width: 75px !important;
+        }
+
+        .qty {
+            margin-top: 3%;
+            margin-left: 3%;
+        }
+
+        .decrement-btn,
+        .increment-btn, 
+        .update-btn{ 
+            width:auto; 
+            min-width: auto;
+            padding:0px;
+            text-transform: capitalize; 
+            background: none;  
+            font-weight: bold; 
+            font-size: 12px;   
+            text-align: right; 
+            letter-spacing: 0.198333px;  
+            color: #354C1A; 
+        }
+
+        .delete-btn{ 
+            width:auto; 
+            min-width: auto;
+            padding:0px;
+            text-transform: capitalize; 
+            background: none;  
+            font-weight: bold; 
+            font-size: 12px;   
+            text-align: right; 
+            letter-spacing: 0.198333px;  
+            color: #ca3d3d; 
+        }
+
+        .actions {
+            margin-top: 4%;
+        }
+
+        .qty-input {
+            max-width: 24px;
+            margin-left: -12px;
+            margin-right: 2px;
+            font-size: 0.75rem;
+        }
+    }
+
+    .promo-card {
+        margin-top: 4%;
+        width: 540px;
+        height: 112px;
+        background: #FFFFFF;
+        box-shadow: 3px 5px 15px #CBCBCB;
+        border-radius: 20px;
+
+        .promo-input {
+            margin-top: 7.5%;
+            margin-left: 5%;
+
+            .icon-prop {
+                font-weight: bold;
+                font-size: 30px;
+                line-height: 20px;
+                letter-spacing: 0.233333px;
+
+                color: #354C1A;
+                margin-top: 2px;
+            }
+
+            .use-rewards {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 15px;
+                line-height: 20px;
+                letter-spacing: 0.233333px;
+
+                color: #354C1A;
+                margin-top: 8px;
+            }
+
+            .error-txt {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0.233333px;
+
+                color: #C01919;
+                margin-top: -0.75rem !important;
+
+            }
+
+            .info-txt {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0.233333px;
+
+                color: #28a745;
+                margin-top: -0.75rem !important;
+            }
+        }
+
+        .input-group-add {
+            border: none;
+            background: #EEEEEE;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px;
+            border-top-left-radius: 17.5px !important;
+            border-bottom-left-radius: 17.5px !important;
+
+            color: #333333;
+            opacity: 0.5;
+        }
+
+        .append-prop {
+            height: 36px;
+            border: none;
+            border-top-right-radius: 17.5px !important;
+            border-bottom-right-radius: 17.5px !important;
+            font-family: 'Open Sans';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.466667px;
+            background: #EEEEEE;
+            
+            color: #354C1A;
+            opacity: 0.5;
+
+            cursor: pointer;
+
+        }
+    }
+
+    .total-card {
+        background: #FFFFFF;
+        box-shadow: 3px 5px 15px #CBCBCB;
+        border-radius: 20px;
+        width: 540px;
+        height: auto;
+        margin-top: 4%;
+
+        .subtotal {
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px;
+
+            color: #354C1A;
+        }
+        .card-content {
+            padding: 6% 9% 6% 9%;
+            color: #354C1A;
+
+            .tax {
+                padding-bottom: 3%;
+                border-bottom: solid 1px #354C1A;
+            }
+
+            .total {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 27px;
+                letter-spacing: 0.311111px;
+
+                color: #354C1A;
+            }
+
+            span.text {
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: bold;
+                font-size: 15px;
+                line-height: 20px;
+                text-align: center;
+                letter-spacing: 0.233333px;
+
+                color: #FFFFFF;
+            }
+        }
+    }
+  
+}

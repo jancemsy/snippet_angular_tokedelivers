@@ -1,0 +1,215 @@
+*:not(.fa) {
+  font-family: ProximaNova Regular;
+}
+.margin-top-20 {
+  margin-top: 20px;
+}
+.padding-top-40 {
+  margin-top: 40px;
+}
+.padding-2 {
+  padding: 18px;
+}
+
+.save-profiles-btn {
+  margin: 10px 0 10px 0px;
+}
+.form-header {
+  background: #3e5538;
+  color: #fff;
+  margin-top: 20px;
+  padding: 10px;
+  h1 {
+    font-size: 14px;
+  }
+  .form-toggle {
+    font-size: 20px;
+    margin-top: -30px;
+    button {
+      width: 30px;
+      height: 30px;
+      padding: 1px;
+      border: none;
+      color: #eee;
+      background: none;
+      outline: none;
+      opacity: 0.1;
+    }
+    button:hover {
+      opacity: 1;
+      color: #fff;
+    }
+  }
+}
+.form-header.inactive h1 {
+  color: rgb(104, 121, 121);
+}
+.section {
+  margin: 10px;
+}
+
+.form-body {
+  ::ng-deep .mat-form-field-infix {
+    border: 0px solid #fff !important;
+    margin: 0px !important;
+    padding: 0px 0px 2px 0px;
+  }
+
+  ::ng-deep .mat-form-field-infix input {
+    padding: 5px !important;
+    height: 35px;
+  }
+
+  .ul-animation {
+    padding: 0px;
+    li {
+      padding: 0px;
+      list-style: none;
+    }
+    li.selected {
+      animation: blinkingFocus 0.5s infinite;
+      background: #eee;
+    }
+    @keyframes blinkingFocus {
+      from {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.8;
+      }
+    }
+  }
+
+  .errors {
+    ul {
+      border: 1px solid #eee;
+      border-radius: 5px;
+      background: #fff;
+      box-shadow: 2px 2px 8px #888888;
+      padding: 20px;
+      padding-left: 50px;
+    }
+  }
+
+  .row {
+    ///.no-spacing{border:1px solid red;}
+    .percentage-item {
+      padding-top: 10px;
+      font-size: 18px;
+    }
+    .input-number {
+      width: 60px;
+      text-align: center;
+      padding: 5px;
+      height: 35px;
+    }
+    font-size: 14px;
+    margin: 10px 0px 10px 0px;
+    .no-spacing {
+      margin: 0px;
+      padding: 2px;
+      input {
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+    .small-button-icons {
+      display: block;
+      background: none;
+      color: #85bd40;
+      padding: 0px;
+      min-width: 20px;
+      font-size: 20px;
+    }
+    span.active,
+    span.inactive {
+      text-transform: uppercase;
+      background: #85bd40;
+      color: #fff;
+      padding: 4px;
+      border-radius: 5px;
+      font-size: 12px;
+    }
+    span.inactive {
+      background: #962e05;
+    }
+    .add-variation-button {
+      display: block;
+      margin-top: 27px;
+      background: none;
+      color: #85bd40;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 20px;
+      .fa {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+    }
+
+    .upload-image-button {
+      .fa-upload {
+        margin-right: 5px;
+      }
+      margin-top: 10px;
+      color: #85bd40;
+    }
+    input,
+    select,
+    textarea {
+      background: #fff;
+      width: 100%;
+      text-align: left;
+      padding: 5px !important;
+      border: rgba(151, 151, 151, 1) 1px solid;
+      border-radius: 5px;
+    }
+    select {
+      display: block;
+      width: 100%;
+      padding: 6px;
+    }
+    .product-textarea {
+      height: 100px;
+    }
+    .product-image-box {
+      background-color: #fff;
+      background-size: cover;
+      background-position: center center;
+      border: 1px solid #eee;
+      object-fit: cover;
+      border-radius: 10px;
+      padding: 10px;
+      display: block;
+      width: 100px;
+      height: 100px;
+    }
+  }
+  margin-top: 10px;
+  background: #f3f8ec;
+  padding: 20px;
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  .disable-overlay {
+    display: none;
+  }
+}
+
+.form-body.disabled {
+  overflow: hidden;
+  position: relative;
+
+  .disable-overlay {
+    top: 0px;
+    display: block;
+    z-index: 99;
+    left: 0px;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.5;
+  }
+}

@@ -1,0 +1,250 @@
+@import "src/app/styles/core/variables"; 
+
+.blink_me { opacity: 0.5; animation: blinker 2s linear infinite; } 
+@keyframes blinker { 50% { opacity: 0.1; } }  
+
+@media only screen and (min-width: 1500px) {   
+  .search-box{ width: calc( ( (100vw - 195px) / 4  - 108px)  ); }
+  .filter-select{ width: calc( ( (100vw - 195px) / 4  - 108px) * 0.66  )!important; }
+
+  .main-container{ 
+        float:right!important; width: calc( 100% - 195px )!important;  position: relative;  overflow: hidden;    
+      .product-list{    
+        .product-item{  
+          ::ng-deep {          
+          .box-container{  
+            width:calc( ( (100vw - 195px) / 4  - 108px)  ) !important;      
+            }    
+          } 
+        }
+
+          .product-item:nth-child(4),.product-item:nth-child(8),.product-item:nth-child(12){    
+            ::ng-deep {    .box-container{   .recommendation-container {   margin-left:-160px;   } }  }
+          }
+
+        }  
+    } 
+}
+
+
+@media only screen and (max-width: 1500px) {     
+   .search-box{ width: calc( ( (100vw - 195px) / 3  - 138px)  ); }
+   .filter-select{ width: calc( ( (100vw - 195px) / 3  - 138px) * 0.66  )!important; }
+
+   .main-container{ float:right!important;     
+    width: calc( 100% - 195px )!important;   position: relative;  overflow: hidden;  
+    .product-list{   
+      .product-item{  ::ng-deep { .box-container{  width:calc( ( (100vw - 195px) / 3  - 138px)  ) !important;     }    } }  
+      .product-item:nth-child(3),.product-item:nth-child(6),.product-item:nth-child(9),.product-item:nth-child(12){    
+        ::ng-deep {    .box-container{   .recommendation-container {   margin-left:-160px;   } }  }
+      } 
+  }
+  }
+ 
+}
+
+
+
+@media only screen and (max-width: 1300px) {     
+  .search-box{ width: calc( ( (100vw - 195px) / 2  - 198px)  ); }
+  .filter-select{ width: calc( ( (100vw - 195px) / 2  - 198px) * 0.66  )!important; }
+  .main-container{ float:right!important;     
+    left:0px;
+   width: calc( 100% - 195px )!important;   
+   
+   position: relative;  overflow: hidden;  
+   .product-list{        
+     .product-item{  ::ng-deep { .box-container{  width:calc( ( (100vw - 195px) / 2  - 198px)  ) !important;  }    } }
+     
+     .product-item:nth-child(2),.product-item:nth-child(4),.product-item:nth-child(6),.product-item:nth-child(8), 
+     .product-item:nth-child(10),.product-item:nth-child(12){    
+      ::ng-deep {    .box-container{   .recommendation-container {   margin-left:-160px;   } }  }
+    }
+  
+  
+  }
+ } 
+}
+
+
+
+@media only screen and (max-width: 900px) {   
+  
+  #products-container {   
+    h1{ margin-left:20px!important;}
+    width:100vw;
+    margin:0px!important;
+    padding-right: 10px!important; 
+  }
+
+  .filter-select{ display:none!important;}
+  .search-box{ width:100%!important; } 
+  .main-container{  
+    padding-right:20px!important;
+    width:100vw!important; 
+    float:left!important;  
+    position: relative;  overflow: hidden;  
+    
+   .product-list{   
+     width:100%!important; 
+     .product-item{  ::ng-deep { 
+       .box-container{   
+        width:calc(90vw / 2 - 10px) !important;      
+   }    } }  }
+ }
+ .sidebar-container { display:none!important; } 
+}
+
+ 
+
+
+
+@media only screen and (max-width: 650px) {    
+  .search-box{ float:left!important; width:calc(100vw - 70px)!important; } 
+  .main-container{        
+   .product-list{    
+     .product-item{  ::ng-deep {  
+       .dispensary{ right: 20px!important;   bottom: 20px!important; } 
+       .box-container{   
+        width:calc(100vw - 90px) !important;      
+   }    } }  }
+ } 
+}
+ 
+ 
+
+.small-indicator{ z-index:555; display:block; margin: auto; position: absolute; top: -80px!important; left: 30px; bottom: 0; right: 0;} 
+
+#products-container { 
+  *:not(.fa) { font-family : 'Open Sans' ; } 
+
+  width: auto; margin-left:150px; margin-right:150px;  
+  padding: 80px 10px 200px 0px;   
+
+  .row{ margin:0px!important; } 
+  ::ng-deep { 
+    *:not(.fa) { font-family : 'Open Sans' ; }
+    .search-icon{ margin-left:-10px;   } 
+  }
+
+  
+  .product-container-body{ margin:0px!important;}
+   
+  position: relative; 
+    
+  
+  .main-container{        
+    display:block;
+    padding-left:23px; 
+    float:right;
+    width:945px; 
+
+    .product-list.loading{
+      opacity: 0.7;
+    }
+
+    .product-list{
+      margin-top:26px; margin-bottom: 20px; 
+      padding:0px!important; 
+      //margin-right: -10px !important; 
+    } 
+  }
+
+  .sidebar-container {   
+    float:left;
+    margin:0px!important; 
+    display:block;  
+    max-width: 192.2px;
+    min-width: 192.2px;
+    padding: 0px;
+  }
+
+
+  .pagination {
+    float:right; 
+    margin-bottom:50px;
+    display: block;
+  }
+  
+  .pagination a {
+    cursor: pointer;
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+  }
+  
+  .pagination a.active {
+    background-color: #354C1A;
+    color: white;
+    border: 1px solid $primary;
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}
+
+ 
+  
+  .filter-select, .filter-select option { 
+    width: 133px;
+    height: 27px;
+    border: 1px solid #d0d0d0;  
+    font-size: 12px!important; 
+    padding: 5px;  
+    background: #F9F9F9;
+    border-radius: 3px; 
+    font-family: Open Sans;
+    font-style: normal!important; 
+    font-weight: 600!important; 
+    line-height: 16px;
+    letter-spacing: 0.186667px; 
+    color: #354C1A; 
+    padding-top:2px;    
+  }
+
+  .filter-select:hover {
+    background: #fff;
+  }
+  
+  .main-container-top-menu{ margin-top: 20px; margin-bottom: 20px; width:auto; padding-left:15px; } 
+  .main-container-top-menu.product-not-ready{ opacity: 0.2; } 
+
+  h1 {
+    color: #354C1A;  
+    font-family: Open Sans; 
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600; 
+    line-height: 41px; 
+    letter-spacing: 0.46666666865348816px; 
+    text-align: left; 
+    margin-bottom: 28px; 
+  }
+
+   .blink_me .product-item{
+    ::ng-deep {          
+      .box-container{ 
+        height: 400px!important;
+      }
+    }
+     
+   }
+  .product-item { 
+    float:right;
+    margin-bottom: 20px;    
+    margin-left:20px;
+  }
+
+  .topline{   
+    width: 100%;
+    height: 1px;
+    background:none;
+    display: block;
+    opacity: 0.5;
+    border-bottom: 1px solid #354c1a;
+  }
+  
+ 
+}

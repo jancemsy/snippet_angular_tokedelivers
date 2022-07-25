@@ -1,0 +1,75 @@
+@import 'src/app/styles/core/variables';
+.pos-dialog {
+  width: 60vw;
+  font-family: Open Sans;
+  font-size: 2vh;
+
+  .customer-new {
+    padding: 0.5vw 2vw;
+    h2 {
+      font-size: 2.5vw;
+      font-weight: 600;
+      &::after {
+        content: '';
+        position: relative;
+        display: block;
+        border-bottom: 0.2vw solid $primary;
+        width: 10vw;
+        margin-top: 1.5vh;
+        margin-bottom: 3vh;;
+      }
+    }
+
+    form {
+      font-size: 2vh;
+
+      label {
+        margin-top: 2vh;
+        display: block;
+      }
+
+      input {
+        border-radius: 20vh;
+        padding: 1vh 2vw;
+        background-color: $gray;
+        border: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .customer-details {
+        width: 45%;
+      }
+
+      .customer-ids {
+        width: 45%;
+        .card {
+          height: 13vw;
+          width: 100%;
+          background-color: $lighter-gray;
+          border-radius: 3vh;
+          .add-icon img {
+            width: 4vw;
+          }
+        }
+      }
+    }
+
+
+  }
+
+  .horizontal-padding {
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+  .margin-top {
+    margin-top: 5vh;
+  }
+
+  .pos-shadow {
+    box-shadow: 0.1vw 0.2vw 0.6vw $xlight-gray;
+  }
+}

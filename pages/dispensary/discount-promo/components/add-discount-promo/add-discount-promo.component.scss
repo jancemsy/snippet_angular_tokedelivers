@@ -1,0 +1,53 @@
+@import 'src/app/styles/core/variables';
+.add-discount-promo{
+
+    .close-button{
+        background: none;
+        border: none;
+        outline: none;
+        padding-top: 10px !important;
+        padding-right: 15px;
+    }
+
+
+    .hidden{
+        visibility: hidden;
+    }
+
+    .modal-body{
+        padding: 0px 33px 50px;
+        position: relative;
+
+        .back-button{
+            position: absolute;
+            background: none;
+            top: 16px;
+            left: 33px;
+            border: none;
+            outline: none;
+        }
+        .main{
+
+            .card-container{
+                padding-top: 100px;
+                padding-bottom: 160px;
+                .title{
+                    font-family: Open Sans;
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 30px;
+                    line-height: 41px;
+                    /* identical to box height */
+
+                    letter-spacing: 0.233333px;
+
+                    color: $primary;
+                }
+            }
+
+
+        }
+
+
+    }
+}

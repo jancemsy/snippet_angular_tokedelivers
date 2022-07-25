@@ -1,0 +1,164 @@
+@import "src/app/styles/core/variables";
+
+
+.effect {
+  color: #006fc4;  
+  font-size: 10px;
+  display: inline-block;
+  padding: 5px; 
+  border: 1.53px solid #006FC4;
+  border-radius: 11.475px;  
+  font-weight: 600;
+  line-height: 13px;
+  width: auto;
+  letter-spacing: 0.14874999225139618px;
+  text-align: center;  
+  margin-bottom:16.85px;
+}
+
+
+.title {
+  text-transform: capitalize;
+  font-weight: 700; 
+  font-size: 28px;  
+  font-style: normal; 
+  font-weight: 700;
+   font-size: 20px; 
+   line-height: 27px; 
+   letter-spacing: 0.311111px; 
+  color: #354C1A;
+  margin-bottom: 12.53px; 
+  text-align: left;
+}
+
+
+.brand {
+  color: #fff; 
+  border-radius: 13px;
+  font-size: 10px;
+  display: inline-block;
+  padding: 2px 10px 5px 10px;  
+  width: auto;
+  height: 17.21px;  
+  background: #354C1A;
+  border-radius: 8.60625px; 
+  font-size: 10px; 
+  text-transform: uppercase;
+  font-weight: 700;
+  line-height: 14px;
+  letter-spacing: 0.15555556118488312px;
+  text-align: center; 
+  margin-bottom: 28px; 
+}
+
+.thc-cbd {
+  background: url(//cdn.tokedelivers.com/images/products/thc-cbd.svg) no-repeat;
+  background-position: 0px 0px; 
+  background-size:100%; 
+  margin-bottom: 30.38px; 
+  margin-left: 12px; 
+} 
+
+.thc-btn,
+.cbd-btn {
+  display: block;
+  float: left;   
+  padding: 0px 10px 6px 37px;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+  width: 80px;
+  text-align: left; 
+}
+.thc-btn{ margin: 7px 2px 5px 6px; }
+.cbd-btn{ margin: 7px 2px 5px 14px; }
+
+
+
+.weight { 
+  font-size: 14px;
+  margin-bottom: 24px;
+  select{
+    color:#354C1A;
+    width:81.63px; height: 17.21px;
+    background: #F6F6F6; 
+
+    border:1px solid #7B8A6A;
+    border-radius: 4px;
+    padding-left:5px;
+    padding-right:5px; 
+
+    font-weight: 600;
+    font-size: 10px;
+    line-height: 14px;
+    text-align: center; 
+  }
+}
+
+.price { 
+  margin-bottom: 32px;
+  font-style: normal;
+  font-weight: 700;
+
+  span {
+    vertical-align: text-top;
+    padding: 0px;
+    line-height: 20px;
+    height: 50px;
+    font-size: 16px;
+    display: inline-block;
+    margin: 1px;
+  }
+
+  .currency {     
+    padding-top: 0px; 
+    font-size: 23px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 31px;
+    letter-spacing: 0.3569999933242798px;
+    text-align: left; 
+  }
+
+  .amount {
+    padding-top: 0px;
+    margin-top: -7px;   
+    font-size: 40px; 
+    line-height: 55px;
+    letter-spacing: 0.6247499585151672px;
+    text-align: left; 
+  }
+  .decimal {
+    padding-top: 0px; 
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+    letter-spacing: 0.2677500247955322px;
+    text-align: left; 
+  }
+}
+
+
+.add-cart-button {
+
+
+  button:hover {
+    color: #eee;
+  }
+  button {
+    box-shadow: 1px 4px 6px #CBCBCB; 
+    border-radius: 9px; 
+    width: 270px; 
+    height:38px;
+    font-weight: 700;
+    color:#d8e1ce;     
+    letter-spacing: 0.186667px;
+
+    i {
+      margin-right: 10px;
+    }
+  }
+
+  .remove-cart-btn{ background: #b7beaf; color:#fff; }
+}

@@ -1,0 +1,37 @@
+@import 'src/app/styles/core/variables';
+.price {
+  font-weight: bold;
+  // margin-bottom: 20px;
+  span {
+    vertical-align: text-top;
+    padding: 0px;
+    display: inline-block !important;
+    margin: 1px;
+    vertical-align:top;
+  }
+
+  .currency {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.5vw;
+    letter-spacing: 0.311111px;
+    color: $primary;
+    margin-top: 1vw;
+  }
+
+  .amount {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 3.5vw;
+    letter-spacing: 0.544444px;
+    color: $primary;
+  }
+
+  .decimal {
+    font-size: 1.2vw;
+    letter-spacing: 0.233333px;
+    color: $primary;
+    margin-top: 1vw;
+  }
+}

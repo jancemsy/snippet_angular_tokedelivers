@@ -1,0 +1,81 @@
+<div id="edit-design-container" class="center-accross-hw no-p"  >
+    <div class="container">
+        <div class="form-group col-md-4">
+            <!-- <label for="exampleFormControlSelect1">Example select</label> -->
+            <select (change)="onDispensarySelect($event)" class="form-control select-l" id="exampleFormControlSelect1">
+              <option *ngFor="let dispensary of dispensaries; let i = index" [value]="dispensary.id"> {{ dispensary.dispensary_name }} </option>
+            </select>
+        </div>
+        <h1>Edit Web Store Design - {{ currentWebStore?.name }}</h1>
+
+        <!-- Start of Store Information -->
+        <div class="form-header">
+            <h1 class="title">Store Information</h1>
+        </div>
+
+        <div class="form-body">
+            <form [formGroup]="storeForm" (ngSubmit)="onSubmitStoreForm()">
+                <div class="form-row p-10">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">Store Name</label>
+                            <h4>{{storeForm.value.name}}</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check align-center position-static">
+                            <input class="form-check-input" type="checkbox" formControlName="show_special_deals" id="show_special_deals">
+                            <label class="form-check-label" for="show_special_deals">
+                                Show Special Deals
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-check align-center position-static">
+                            <input class="form-check-input" type="checkbox" formControlName="show_recommendation_strains" id="show_recommendation_strains">
+                            <label class="form-check-label" for="show_recommendation_strains">
+                                Show Recommended Strains
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row p-10">
+                    <div class="col-md-3">
+                        <img *ngIf="!imgURL" src="../../../../assets/images/app/your-logo-here.png" class="img-thumbnail img-prop" id="logo" alt="" width="150" height="150">
+                        <img *ngIf="imgURL" [src]="imgURL" class="img-thumbnail img-prop" id="logo" alt="" width="150" height="150">
+                    </div>
+                    <div class="col-md-9">
+                        <label for="about">About</label>
+                        <textarea class="form-control" formControlName="about" id="about" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="form-row p-10 upload-action">
+                    <div *ngIf="!selectLogo" class="form-group col-md-3">
+                        <div class="d-flex " (click)="identificationFile.click()">
+                           <i class="fa fa-upload fa-prop"></i>
+                           <label class="label-prop" for="driverLicenseFile">&nbsp; Select Logo</label>
+                         </div>
+                         <input #file accept="image/*" class="form-control" hidden name="identificationFile" #identificationFile
+                           type="file"
+                           ng2FileSelect
+                           (change)="onFileSelected(file.files)">
+                     </div>
+                    <div *ngIf="selectLogo" class="form-group col-md-3">
+                        <div class="d-flex btn-upload">
+                            <button type="button" class="btn btn-primary btn-prop" (click)="uploadLogo()">
+                            Upload Logo
+                            </button>
+                            <i (click)="selectLogo = false; imgURL = null" class="fa fa-close fa-close-prop" data-toggle="tooltip" title="Cancel"></i>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Start of Page Actions -->
+                <div class="text-right bottom-buttons">
+                    <button type="submit" class="btn btn-save">Save</button>
+                </div>
+                <!-- End of Page Actions -->
+            </form>
+        </div>
+        <!-- End of Store Information -->
+    </div>
+</div>

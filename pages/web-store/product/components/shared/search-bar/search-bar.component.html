@@ -1,0 +1,11 @@
+<div  class="search-box"  > 
+      <div class="row"    >
+         
+        <input autocomplete="off" type="text"  placeholder="Search" [(ngModel)]="_search"  (keyup.enter)="clickSearch()" (input)="enterSearch()"    /> 
+       
+        <span class="search-icon">
+            <i class="fa fa-search" (click)="clickSearch()"  ></i>
+        </span>  
+  </div>
+  <div class="clearfix"></div>
+</div>

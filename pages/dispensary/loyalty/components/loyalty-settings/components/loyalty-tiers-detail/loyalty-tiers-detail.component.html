@@ -1,0 +1,100 @@
+<div class="loyalty-tiers-detail">
+  <form *ngIf="(tier$ | async) as tier" action="" class="d-flex flex-column">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <div>
+        <app-custom-input
+          [value]="tier.name"
+          (onChange)="tier.name = $event"
+          placeholder="Enter tier name">
+        </app-custom-input>
+      </div>
+    </div>
+
+    <div class="form-group mt-4">
+      <label for="icon">Icon</label>
+      <div class="icons-selection d-flex justify-content-start align-items-center">
+        <div class="custom-control custom-radio mr-3">
+            <input
+                type="radio"
+                id="icon-number"
+                name="icon"
+                [checked]="tier.icon == 1"
+                (change)="tier.icon = 1"
+                class="custom-control-input">
+            <label
+              class="custom-control-label"
+              for="icon-number"
+              [ngStyle]="{'background-color': tier.color}">
+              <app-loyalty-icon
+                [color]="tier.color"
+                [type]="1"
+                [label]="tier.sequence">
+              </app-loyalty-icon>
+            </label>
+        </div>
+        <div class="custom-control custom-radio">
+            <input
+                type="radio"
+                id="icon-image"
+                name="icon"
+                [checked]="tier.icon == 2"
+                (change)="tier.icon = 2"
+                class="custom-control-input">
+            <label
+              class="custom-control-label"
+              for="icon-image"
+              [ngStyle]="{'background-color': tier.color}">
+              <app-loyalty-icon
+                [color]="tier.color"
+                [type]="2">
+              </app-loyalty-icon>
+            </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mt-4">
+      <div class="d-flex">
+        <div class="upgrade-input">
+          <label>Upgrade</label>
+          <div>
+            <app-custom-input
+              type="number"
+              (onChange)="tier.upgrade = $event"
+              [value]="tier.upgrade">
+            </app-custom-input>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap mt-3">
+          <div class="custom-control custom-radio mr-2" *ngFor="let type of upgradeTypes">
+              <input
+                  type="radio"
+                  [id]="type.value"
+                  name="upgrade-type"
+                  [checked]="tier.upgrade_type == type.value"
+                  (change)="tier.upgrade_type = type.value"
+                  class="custom-control-input">
+              <label class="custom-control-label" [for]="type.value">{{ type.text }}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mt-4">
+      <label for="preview">Preview</label>
+      <p class="preview">Upgrade to {{ tier.name }} after placing {{ tier.upgrade }} {{ getUpgradeType(tier.upgrade_type) }}.</p>
+    </div>
+
+    <div class="form-group mt-auto">
+      <div class="actions">
+        <button
+            class="btn btn-save"
+            [disabled]="isSaving"
+            (click)="onSave()">
+            Save
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

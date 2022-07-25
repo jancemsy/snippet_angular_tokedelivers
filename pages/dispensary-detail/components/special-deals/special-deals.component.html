@@ -1,0 +1,21 @@
+<div class="special-deals">
+    <div class="card shadow" *ngIf="specialDeals">
+      <div class="card-body">
+        <h5 class="special-deals-header mb-5">Special Deals</h5>
+        <owl-carousel-o [options]="customOptions" class="special-deals-carousel">
+          <ng-template *ngFor="let specialdeal of specialDeals" carouselSlide >
+            <div class="special-deal-card" alt="slide 1">
+              <div class="special-deal-image">
+                <img class="card-image-top" [src]="specialdeal.thumbnail_url" alt="Card image cap">
+              </div>
+              <div class="special-deal-promo-label">{{ specialdeal.promo }}</div>
+              <div class="special-deal-details">
+                <h6 class="special-deal-title font-weight-bold">{{ specialdeal.title }}</h6>
+                <p class="special-deal-desc text-muted">{{ specialdeal.detail }}</p>
+              </div>
+            </div>
+          </ng-template>
+        </owl-carousel-o>
+      </div>
+    </div>
+  </div>

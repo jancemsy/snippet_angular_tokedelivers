@@ -1,0 +1,28 @@
+<div class="pos-dialog">
+  <div class="d-flex">
+    <img
+      (click)="dialogRef.close()"
+      class="ml-auto close"
+      src="../../../../../../../assets/icons/close.svg"
+      alt="close">
+  </div>
+  <div class="pos-promo-code">
+    <div class="input-group mb-3">
+      <input
+        [(ngModel)]="promo"
+        (ngModelChange)="onChanging()"
+        type="text"
+        class="form-control"
+        placeholder="Enter promo code">
+      <div class="input-group-append">
+        <button
+          [disabled]="isDisabled || isVerifying"
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="onApply()">
+          {{ isVerifying ? 'Verifying' : 'Apply' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

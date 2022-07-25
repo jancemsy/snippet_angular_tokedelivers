@@ -1,0 +1,124 @@
+
+
+ 
+ 
+<div class="lds-ripple" *ngIf="is_saving" ><div></div><div></div></div>
+
+
+<div class="form-header" [ngClass]="is_open ?  'active' : 'inactive'">
+    <h1>Product Information</h1>
+       <div class="d-flex pull-right  form-toggle"  > 
+      <button   (click)="is_open = !is_open; "   > 
+         <i class="fa " [ngClass]="is_open ?  'fa-angle-up' : 'fa-angle-down'   " ></i>
+      </button>  
+    </div> 
+ </div>
+
+
+<div class="form-body" *ngIf="product && is_open"   [@fadeAnimation]="is_open ? 'in' : 'leave'" >
+
+   <div class="errors" *ngIf="errors.length > 0" (click)="errors = [];" >
+      <ul><li *ngFor="let item of errors">{{item.message}}</li></ul>
+   </div>
+
+   
+    <div class="row"> 
+       <div class="form-group col-md-3" >
+          Product Name
+          <input class="form-control"  [(ngModel)]="product.product_name" placeholder="Product Name" type="text" > 
+       </div>
+
+       <div class="form-group col-md-3"  >
+          Product Category
+          <select  [(ngModel)]="product.category_id" (change)="changeCategory()" > 
+               <option *ngFor="let item of categories; let i = index" [value]="item.id"> {{ item.name }} </option> 
+             </select>
+       </div>
+       <div class="form-group col-md-3"  > 
+               Sub Category
+               <select [(ngModel)]="product.sub_cateogry_id" [disabled]="filteredProductSubCategory && filteredProductSubCategory.length == 0">
+                  <option *ngFor="let item  of filteredProductSubCategory  ; let i = index" [value]="item.id"> {{ item.name }} </option> 
+               </select> 
+     </div>
+     <div class="form-group col-md-3" >
+        Producer/Cultivator
+        <input  [(ngModel)]="product.producer" class="form-control" placeholder="Producer/Cultivator" type="text" > 
+     </div>
+    </div>
+
+    <div class="row"> 
+        <div class="form-group col-md-3" >
+           Supplier Name
+           <input  [(ngModel)]="product.supplier_name" class="form-control"   placeholder="Supplier Name" type="text" > 
+        </div>
+ 
+        <div class="form-group col-md-3"  >            
+        </div>
+
+        <div class="form-group col-md-3"  >
+         Cannabis Type
+         <select  [(ngModel)]="product.cannabis_type">
+            <option>Indica</option>
+            <option>Sativa</option>
+            <option>Hybrid</option>
+         </select>
+        </div>
+
+      <div class="form-group col-md-3" >
+        <label> <input  [(ngModel)]="product.is_medical" value="true"   type="checkbox" style=" width:20px; margin-top:10px;" >&nbsp;Medical Only </label>
+      </div>
+     </div>
+
+     <div class="row"> 
+        <div class="form-group col-md-3" >
+           Supplier License
+           <input  [(ngModel)]="product.supplier_license"  class="form-control"  placeholder="Supplier License" type="text" > 
+        </div>
+ 
+        <div class="form-group col-md-3"  >            
+        </div>
+
+        <div class="form-group col-md-3"  >
+         Strain
+         <input  [(ngModel)]="product.strain"  class="form-control"  placeholder="Strain" type="text"   > 
+        </div>
+
+      <div class="form-group col-md-3" >        
+      </div>
+     </div>
+
+
+     
+
+     <div class="row" style="margin-top:40px;"> 
+        <div class="form-group col-md-3" >
+           
+           Product Image  
+           <div class="product-image-box"    for="imageUpload"  style="background-image:url({{product.product_image}});" >   
+           </div>
+           <div class="d-flex  upload-image-button"  >                        
+              <div class="d-flex " >
+                  <i class="fa fa-upload"></i>  
+                  <label for="imageUpload">{{file_upload_caption}}</label>  
+             </div> 
+            </div>
+
+            <input class="form-control" hidden id="imageUpload"  
+            type="file" ng2FileSelect [attr.accept]="allowedMimeTypes" [uploader]="uploader"   
+            (onFileSelected)="onFileUpload($event)">  
+        </div>
+ 
+        <div class="form-group col-md-9"  >            
+            Product Description
+           <textarea   [(ngModel)]="product.description"  class="form-control product-textarea" name="product_description" placeholder="Product Name" type="text" ></textarea>
+        </div> 
+     </div>
+
+     <button type="submit" [disabled]="is_saving || !has_changes" (click)="clickSave()" class="btn btn-sm add-variation-button float-right"   >Save Product Information</button>
+
+
+     <div class="clearfix"></div>
+
+
+     
+</div>

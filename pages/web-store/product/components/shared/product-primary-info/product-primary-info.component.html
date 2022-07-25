@@ -1,0 +1,48 @@
+<div class="effect">INDICA</div>
+<div class="title">
+  {{ product.name }}
+</div>
+<div class="brand">
+  {{ product.brand }}
+</div>
+
+<div class="row">
+  <div class="thc-cbd">
+    <div class="thc-btn">{{ product.thc }}%</div>
+    <div class="cbd-btn">{{ product.cbd }}%</div>
+  </div>
+</div>
+
+<div class="weight">
+  <select
+    [(ngModel)]="product.selected_variation_index"
+    (change)="clickChangeVariation()"
+  >
+    <ng-container *ngFor="let item of product.variations; let index = index">
+      <option [ngValue]="index">
+        {{ item.weight }}
+      </option>
+    </ng-container>
+  </select>
+</div>
+
+<div class="price">
+  <span class="currency">{{ currency }}</span>
+  <span class="amount">{{ amount }}</span>
+  <span class="decimal">{{ decimal }}</span>
+</div>
+
+<div class="add-cart-button">
+  
+  <button class="btn btn-lg" (click)="clickAddCart()" *ngIf="!is_added_to_cart">
+    <i class="fa fa-plus"></i>
+    Add To Cart
+  </button>
+
+  <button class="btn btn-lg remove-cart-btn" (click)="clickRemoveCart()" *ngIf="is_added_to_cart">
+    <i class="fa fa-minus"></i>
+    Remove From Cart
+  </button>
+
+
+</div>

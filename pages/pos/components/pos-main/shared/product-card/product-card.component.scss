@@ -1,0 +1,31 @@
+@import 'src/app/styles/core/variables';
+:host {
+  width: 16vw;
+  height: auto;
+  position: relative;
+  // flex: 1 1 auto;
+}
+.product-card {
+  height: 97%;
+  margin: 0.4vw;
+  color: $primary;
+  border-radius: 1.2vh;
+  box-shadow: 0.1vw 0.2vw 0.6vw $xlight-gray !important;
+  border: 0;
+  cursor: pointer;
+  z-index: 1;
+
+  img {
+    max-height: 20vh;
+    object-fit: cover;
+    width: 100%;
+  }
+
+  .product-title { margin-top: 4%; font-size: 1.3vw; }
+  .product-weight { font-size: 1vw; }
+
+  // fix issue on scale in POS
+  .card-body {
+    padding: 1vw;
+  }
+}

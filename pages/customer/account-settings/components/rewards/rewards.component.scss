@@ -1,0 +1,81 @@
+.rewards-container {
+  padding: 15px 5px;
+
+  .card-list {
+    .card-list-container {
+      height: 380px;
+      max-height: none;
+    }
+
+    .carousel-control-prev {
+      left: -1.7rem;
+      top: 8.5rem;
+    }
+
+    .carousel-control-next {
+      right: -1.7rem;
+      top: 8.5rem;
+    }
+  }
+}
+
+.rewards-card {
+  background: #FFFFFF;
+  box-shadow: 1px 3px 10px #CBCBCB;
+  border-radius: 20px;
+  width: 245px;
+  padding: 25px 28px;
+  margin-right: 10px;
+
+  &.--last {
+    margin-right: 0;
+  }
+
+  .dispensary-name {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 15px;
+    color: #354C1A;
+  }
+
+  .section {
+    font-family: Open Sans;
+    font-weight: 600;
+
+    &:not(:first-child) {
+      margin-top: 30px;
+    }
+
+    .section-title {
+      font-size: 10px;
+      color: #354C1A;
+      text-transform: uppercase;
+
+      p {
+        margin-bottom: 7px;
+      }
+    }
+
+    .section-content {
+      display: inline-flex;
+
+      .points {
+        font-size: 50px;
+        letter-spacing: 0.777778px;
+        line-height: 50px;
+        color: #5EB700;
+      }
+
+      .icon {
+        width: 40px;
+        height: 50px;
+        margin-left: 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img { width: 100%; }
+      }
+    }
+  }
+}

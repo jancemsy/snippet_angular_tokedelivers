@@ -1,0 +1,123 @@
+<div class="form-header" [ngClass]="is_open ?  'active' : 'inactive'" >
+    <h1>Product Variations</h1>
+    <div class="d-flex pull-right  form-toggle"  > 
+      <button   (click)="is_open = !is_open"   > 
+         <i class="fa " [ngClass]="is_open ?  'fa-angle-up' : 'fa-angle-down'   " ></i>
+      </button>  
+    </div> 
+ </div>
+ 
+
+ <div class="form-body "  [ngClass]="{'disabled': is_disabled }"   *ngIf="is_open" [@fadeAnimation]="is_open ? 'in' : 'leave'">
+   <div class="disable-overlay"  ></div>
+
+    <div class="errors" *ngIf="errors.length > 0" (click)="errors = [];" >
+       <ul><li *ngFor="let item of errors">{{item.message}}</li></ul>
+    </div>
+
+    <div class="row" *ngIf="variation"> 
+        <div class="form-group col-md-2" >
+           SKU Number
+           <input class="form-control"  [(ngModel)]="variation.sku_number"   placeholder="SKU Number" type="text" > 
+        </div>
+ 
+        <div class="form-group col-md-2"  >
+           MERTC Tag 
+           <input class="form-control" [(ngModel)]="variation.metrc_tag" placeholder="MERTC Tag" type="text" > 
+        </div>
+
+        <div class="form-group col-md-2" >
+            Measurement
+            <input class="form-control"  [(ngModel)]="variation.measurement" placeholder="Measurement" type="text" > 
+         </div>
+
+         <div class="form-group col-md-2" >
+            Units
+            <input class="form-control" [(ngModel)]="variation.units" placeholder="Units" type="text" > 
+         </div>
+
+         <div class="form-group col-md-2" >
+            Price
+            <input class="form-control" [(ngModel)]="variation.price" placeholder="Price" type="number" > 
+         </div>
+
+         <div class="form-group col-md-2" > 
+            <button type="submit" class="btn btn-sm add-variation-button"  (click)="clickAdd()"  [disabled]="is_saving"  style="margin-top:10px;"  >                
+               <i class="fa " [ngClass]="variation.id  === -1 ?  'fa-plus-circle' : 'fa-check'   "></i>  
+
+               {{ variation.id  === -1 ?  "Add Variation" : "Update Variation" }} 
+            </button>
+         </div>           
+     </div>
+
+
+     
+    <div class="row"> 
+        <div class="form-group col-md-2" >
+           SKU Number 
+        </div>
+ 
+        <div class="form-group col-md-2"  >
+           MERTC Tag  
+        </div>
+
+        <div class="form-group col-md-2" >
+            Measurement 
+         </div>
+
+         <div class="form-group col-md-2" >
+            Units 
+         </div>
+
+         <div class="form-group col-md-2" >
+            Price 
+         </div>
+
+         <div class="form-group col-md-1" > 
+            Edit 
+         </div>           
+         <div class="form-group col-md-1" > 
+            Delete
+         </div>  
+     </div>
+
+
+     <ul class="ul-animation" [@listAnimation]="product.variations.length" >
+      <li  class="item" *ngFor="let item of product.variations" [ngClass]="variation.id === item.id ?  'selected' : ''   "  > 
+            <div class="row" >
+               <div class="form-group col-md-2" >
+                  {{item.sku_number}}
+               </div>
+
+               <div class="form-group col-md-2" >
+                  {{item.metrc_tag}}
+               </div>
+
+               <div class="form-group col-md-2"  >
+                  {{item.measurement}}
+               </div>
+
+               <div class="form-group col-md-2" >
+                  {{item.units}}
+               </div>
+
+               <div class="form-group col-md-2" >
+                  ${{item.price}}.00
+               </div> 
+
+               <div class="form-group col-md-1" > 
+                  <button type="submit" class="btn btn-sm small-button-icons"  (click)="clickEdit(item)"  >
+                     <i class="fa fa-edit"></i> 
+                  </button>
+               </div>           
+               <div class="form-group col-md-1" > 
+                  <button type="submit" class="btn btn-sm small-button-icons" (click)="clickDelete(item)"    >
+                     <i class="fa fa-trash"></i>
+                  </button> 
+               </div>           
+         </div>        
+     </li> 
+   </ul>
+
+      
+</div>

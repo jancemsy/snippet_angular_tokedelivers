@@ -1,0 +1,157 @@
+ 
+ 
+ <div class="form-body profile-item"   > 
+
+    <div class="errors" *ngIf="errors.length > 0" (click)="clickCloseError()" >
+        <ul><li *ngFor="let item of errors">{{item.message}}</li></ul>
+     </div>
+
+     
+    <div class="section">
+    <div class="row"> 
+        <div class="form-group col-md-4" >
+           Batch Number
+           <input class="form-control" disabled   [(ngModel)]="profile.batch_number" name="product_name" placeholder="SKU Number" type="text" > 
+        </div>
+ 
+        <div class="form-group col-md-2"  >
+           Batch Date
+           <input class="form-control" disabled  [(ngModel)]="profile.batch_date" name="product_name" placeholder="Batch Date" type="text" > 
+        </div>
+
+        <div class="form-group col-md-2" >
+            Exp Date
+            <input class="form-control" disabled [(ngModel)]="profile.exp_date"  name="product_name" placeholder="Exp Date" type="text" > 
+         </div>
+
+         <div class="form-group col-md-2" > 
+         </div>
+ 
+
+         <div class="form-group col-md-2" >  
+         </div>           
+     </div>
+    </div>
+
+    
+    
+
+
+     <div class="section"> 
+    <strong>Terpenes</strong>
+    
+    <div class="row"> 
+        <div class="form-group col-md-3" >
+           Primary  <br/>          
+              <mat-form-field class="auto-complete-field"  style="padding:0px!important;" >
+                <input  type="text" placeholder="" [(ngModel)]="profile.terpenses.primary" matInput  (input)="renderEffectsFlavours()"    [matAutocomplete]="auto1">
+                <mat-autocomplete #auto1="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptionTerpenes[0]" [value]="option.Terpene" (click)="renderEffectsFlavours()">{{option.Terpene}}</mat-option>
+                </mat-autocomplete>
+              </mat-form-field> 
+        </div>
+ 
+        <div class="form-group col-md-3"  >
+           Secondary <br/>
+           <mat-form-field class="auto-complete-field" >
+            <input type="text" placeholder=""  [(ngModel)]="profile.terpenses.secondary" matInput   (input)="renderEffectsFlavours()"   [matAutocomplete]="auto2">
+            <mat-autocomplete #auto2="matAutocomplete">
+                <mat-option *ngFor="let option of filteredOptionTerpenes[1]" [value]="option.Terpene" (click)="renderEffectsFlavours()">{{option.Terpene}}</mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+        </div>
+
+        <div class="form-group col-md-3" >
+            Tertiary <br/>
+
+            <mat-form-field class="auto-complete-field" >
+                <input type="text" placeholder=""  [(ngModel)]="profile.terpenses.tertiary" matInput (input)="renderEffectsFlavours()"  [matAutocomplete]="auto3">
+                <mat-autocomplete #auto3="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptionTerpenes[2]" [value]="option.Terpene" (click)="renderEffectsFlavours()">{{option.Terpene}}</mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+
+         </div>
+
+         <div class="form-group col-md-1"   >
+            CBD % 
+            <input class="form-control" [(ngModel)]="profile.terpenses.cbd"  placeholder="" type="number" > 
+         </div>
+
+         <div class="form-group col-md-1"  >
+            THC %
+            <input class="form-control" [(ngModel)]="profile.terpenses.thc" placeholder="" type="number" > 
+         </div> 
+     </div>
+    </div>
+
+    <div class="section" *ngIf="filteredOptionCannaboids.length > 0">
+            <strong>Cannabinoids</strong>
+            
+            <div class="row padding-2" style="  padding-left:30px;">  
+                <ng-container *ngFor="let item of  profile.cannabinoids  let index = index; ">  
+                    <div style="width:25%; "     >
+                        <div class="row" style="margin-bottom:20px; padding-right:2px;  "> 
+                                <div class="col-md-8 no-spacing"   >                                    
+                                    <mat-form-field class="auto-complete-field" style="width:100%;" >
+                                        <input type="text" placeholder="" [(ngModel)]="profile.cannabinoids[index].name" (input)="renderEffectsFlavours()"  matInput   [matAutocomplete]="cannaboid_auto"  >
+                                        <mat-autocomplete #cannaboid_auto="matAutocomplete">
+                                            <mat-option *ngFor="let option of filteredOptionCannaboids[index] " [value]="option.Cannaboid" (click)="renderEffectsFlavours()">{{option.Cannaboid}}</mat-option>
+                                        </mat-autocomplete>
+                                      </mat-form-field>  
+                                </div>
+                                <div class="col-md-4  no-spacing"     >  
+                                   <input class="form-control input-number" [(ngModel)]="profile.cannabinoids[index].percent"  style="display:block;float:left;" placeholder="" type="number" >  
+                                   <span  style="display:block;float:left; padding-top:5px;">%</span> 
+                                </div>  
+                            </div>
+                    </div>    
+                </ng-container> 
+            </div>
+   </div>
+
+   <div class="section">
+     <strong>Expected Effects Profile</strong>
+     <div class="row padding-2"  >  
+            <ng-container *ngFor="let effect of profile.expected_effects; let index = index;">  
+                <div class="col-md-4" style="margin-bottom:20px; padding-right:50px;" >
+                    <div class="row">
+                        <div class="col-md-8 no-spacing" >
+                            Effects
+                            <input class="form-control" placeholder="" type="text"  [(ngModel)]="profile.expected_effects[index].effect"   > 
+                        </div>
+                        <div class="col-md-4 no-spacing" >
+                            Score
+                            <input class="form-control" placeholder="" type="number" [(ngModel)]="profile.expected_effects[index].score" > 
+                        </div> 
+                    </div> 
+                </div> 
+
+            </ng-container> 
+       </div>    
+   </div>
+
+   <div class="section">
+    <strong>Expected Flavor Profile</strong>
+    <div class="row padding-2">  
+        <ng-container *ngFor="let effect of profile.expected_flavours; let index = index;">  
+            <div class="col-md-4" style="margin-bottom:20px; padding-right:50px;" >
+                   <div class="row">
+                       <div class="col-md-8 no-spacing" >
+                           Flavour
+                           <input class="form-control" placeholder="" type="text" [(ngModel)]="profile.expected_flavours[index].flavour"   > 
+                       </div>
+                       <div class="col-md-4 no-spacing" >
+                           Score
+                           <input class="form-control" placeholder="" type="number"  [(ngModel)]="profile.expected_flavours[index].score"   > 
+                       </div> 
+                   </div> 
+               </div> 
+
+           </ng-container> 
+      </div>    
+  </div>
+
+  <button type="submit"  [disabled]="is_saving || !has_changes"  class="btn btn-sm float-right  save-btn" (click)="clickSave()"   >Save Profile</button> 
+      
+</div>

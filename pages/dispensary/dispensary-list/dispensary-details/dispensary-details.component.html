@@ -1,0 +1,52 @@
+<div class="dispensary-info">
+  <div class="card shadow">
+    <div class="card-header">
+      <div class="d-flex align-items-center">
+        <button class="btn btn-pill">See Profile</button>
+        <button class="btn btn-pill"
+          [class.btn-danger]="dispensaryInfo.status === 1"
+          [class.btn-success]="dispensaryInfo.status === 0"
+          (click)="onStatusDispensary()">
+          {{ statusLabel }}
+        </button>
+        <button class="btn icon btn-danger badge"
+          *ngIf="dispensaryInfo.status === 1">
+          <i class="fa fa-question"></i>
+        </button>
+      </div>
+    </div>
+    <div class="card-body container d-flex">
+      <div class="col-md-7 pl-0">
+        <div class="card">
+          <div class="card-header">
+            <h1>Employees</h1>
+          </div>
+          <div class="content card-body py-0">
+            <app-custom-data-table
+              *ngIf="dispensaryInfo && dispensaryInfo.details?.employees"
+              [headers]="employeesHeader"
+              [data]="dispensaryInfo.details?.employees">
+            </app-custom-data-table>
+          </div>
+        </div>
+        <div class="mt-3">
+          <button class="btn btn-pill" (click)="editDispensary()">Edit Dispensary</button>
+        </div>
+      </div>
+      <div class="col-md-5 pr-0">
+        <div class="card">
+          <div class="card-header">
+            <h1>Working Hours</h1>
+          </div>
+          <div class="content card-body py-0">
+            <app-custom-data-table
+              *ngIf="dispensaryInfo && dispensaryInfo.details?.working_hours"
+              [headers]="workHoursHeader"
+              [data]="dispensaryInfo.details?.working_hours">
+            </app-custom-data-table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

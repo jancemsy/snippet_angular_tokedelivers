@@ -1,0 +1,40 @@
+<div class="popup-cart-container"  >
+    <h3>Cart</h3> 
+
+    <div *ngIf="cart.length === 0" style="padding-top:100px;">
+         <center>Your cart is empty! </center>
+    </div>
+
+
+    <ul>
+        
+            <ng-container *ngFor="let item of cart">
+                <li> 
+                        <div class="row"> 
+                            <div class="col-md-4 col-sm-4 col-4">
+                            <div class="thumb"><img src="{{item.thumb}}" /></div>
+                            </div>
+
+                            <div class="col-md-8 col-sm-8 col-8">
+                                <div class="title">{{item.title}}</div>
+                                <div class="price">${{item.amount}}</div>                                
+                                
+                                <div class="measurement">{{item.measurement}}</div>   
+                            </div>
+                        </div>   
+                    </li>
+        </ng-container>
+        
+    </ul>
+
+    <div class="bottom-container">
+        <div class="subtotal-container row">
+            <div class="col-md-9 col-sm-9  col-9 subtotal"><strong>Subtotal</strong> ({{cart_count}} items)</div>
+            <div class="col-md-3 col-sm-3 col-3 total-price"> ${{cart_total_amount}}</div> 
+        </div> 
+        <div class="checkout-container">
+            <button type="submit" class="btn btn-md view-cart-btn" (click)="clickViewCart()"   >View Cart</button>
+            <button type="submit" class="btn btn-md checkout-btn"  (click)="clickCheckOut()" >Checkout</button>
+        </div>
+    </div>
+</div>

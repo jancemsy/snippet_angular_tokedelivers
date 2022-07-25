@@ -1,0 +1,88 @@
+.cart-item-container:hover{
+  box-shadow: 3px 5px 15px #eee;
+}
+
+.cart-item-container{
+  background: #FFFFFF;
+  box-shadow: 3px 5px 15px #CBCBCB;
+  border-radius: 20px;
+  padding:10px 10px 30px 10px;
+  margin-bottom: 30px;
+
+  .top-content{
+    margin-top:42px;
+  }
+
+  .bottom-content{
+    margin-top:42px;
+  }
+
+
+  .thumb img{ } 
+  .title{  text-transform: capitalize; font-weight: bold; font-size: 18px; line-height: 25px;  letter-spacing: 0.233333px;  color: #354C1A;  }
+  .brand{   
+    display:inline-block; padding:1px 8px 1px 8px;  width: auto; height: 20px; background: #354C1A; border-radius: 10.115px; 
+    font-weight: bold; font-size: 12px; line-height: 16px; text-align: center; letter-spacing: 0.19798px;    color: #FFFFFF;
+  }
+
+  .sold_by{   
+    display:block;  font-weight: bold; font-size: 12px; line-height: 27px; letter-spacing: 0.233333px;  color: #354C1A; 
+  }
+
+  .price{ font-weight: bold; font-size: 20px; line-height: 27px; letter-spacing: 0.233333px;  color: #354C1A; }
+
+ .measurement select{
+   margin-top:0px;
+  background: #F6F6F6;
+  border: 0.5px solid #354C1A;
+  border-radius: 5px;
+  width: 108px;
+  height: 22px;
+  font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.198333px;  color: #354C1A;
+  }
+
+ .quantity{  
+  .caption{  
+    margin-right: 20px;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 0.198333px; 
+    color: #354C1A;
+    font-style: normal;
+    font-weight: 600;
+  }
+ }
+ 
+ 
+
+ .text-box input{ 
+   width:32px; height: 20px; padding:5px; text-align: center; background: #FFFFFF;
+   border: 0.5px solid #354C1A; border-radius: 5px; font-size: 12px; line-height: 16px; letter-spacing: 0.198333px; 
+   color: #354C1A; 
+  }
+
+ .decrement-btn,
+ .increment-btn, 
+ .delete-btn{ 
+  width:auto; 
+  min-width: auto;
+  padding:0px;
+   text-transform: capitalize; background: none;  font-weight: bold; font-size: 12px;   text-align: right; letter-spacing: 0.198333px;  color: #354C1A; }
+
+  .delete-btn:hover{ text-decoration: underline;}
+  .decrement-btn:hover,
+ .increment-btn:hover{  border:1px solid #333; } 
+
+ .btn.decrement-btn,
+ .btn.increment-btn{ 
+   font-size: 12px;
+  line-height: 1px; 
+  width:32px; height: 20px;
+  padding:0px 5px;
+  margin:0px; 
+   text-align: center;
+   width:auto; 
+   min-width: auto;
+  }
+
+}

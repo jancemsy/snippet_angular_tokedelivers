@@ -1,0 +1,30 @@
+<div class="group-list slide-content">
+  <app-custom-input
+    [value]="searchText"
+    placeholder="Add discount to group"
+    style="display: block"
+    (onSelected)="onAddingItem($event)"
+    [searchList]="searchList"
+    #discountSearch>
+  </app-custom-input>
+  <div class="discount-list list-group">
+    <button
+      type="button"
+      *ngFor="let discount of group.promos; let i = index"
+      href="#"
+      class="list-group-item d-flex align-items-center text-left"
+      [ngClass]="{ 'promo' : discount.type == 'promo' }">
+        {{ discount.name }}
+        <img
+          class="remove-item ml-auto"
+          width="10"
+          height="10"
+          src="assets/icons/close.svg"
+          alt="remove item"
+          (click)="onRemoveItem(i)">
+    </button>
+
+    
+  </div>
+</div>
+<a (click)="onSaveGroup()" class="btn save-button" >Save</a>

@@ -1,0 +1,145 @@
+
+<div class="pos-side" *ngIf="posMode != 'scan'">
+    <div class="container-flex h-100">
+        <div class="h-100 d-flex flex-column justify-content-between" *ngIf="posMode == 'register'">
+            <div class="top-section">
+                <div class="cart-section d-flex justify-content-between align-items-center">
+                    <a class="clear-label" (click)="onConfirmClearCart()">
+                        Clear
+                    </a>
+                    <span class="cart-label">
+                        Cart
+                    </span>
+                    <a class="promo-label" (click)="onEnterPromoCode()">
+                        Promo
+                    </a>
+                </div>
+                <!-- <div class="verification-section">
+                    <div class="verification-label">
+                        <i class="fas fa-check"></i> State ID Verified
+                    </div>
+                </div> -->
+
+            </div>
+
+            <div class="mid-section" cdkDropList (cdkDropListDropped)="drop($event)" [@listAnimation]="cartItems.length">
+                <div class="product-card" *ngFor="let item of cartItems ; let i = index"  [ngClass]="item.status == 1 ? 'add-motion' : (item.status == -1 ? 'remove-motion' : '')">
+                    <div class="option-container position-absolute d-flex">
+                        <i class="add-button" (click)="addProductQuantity(i,item)"></i>
+                        <i class="remove-button" (click)="removeProductQuantity(i,item)"></i>
+                    </div>
+
+                    <div class="product-detail-layer" [cdkDragPreviewContainer]="previewContainer" cdkDrag cdkDragLockAxis="x" [cdkDragStartDelay]="50">
+                        <div class="product-image unselectable">
+                            <img [src]="item.img_src" alt="">
+                        </div>
+                        <div class="product-name unselectable">
+                            {{ item.name }}
+                        </div>
+                        <div class="product-measurement unselectable">
+                            {{ item.measurement }} {{ item.unit }} x {{ item.quantity }}
+                        </div>
+                        <div class="product-sku unselectable">
+                            {{ item.package.sku }}
+                        </div>
+
+                        <div class="product-price unselectable">
+                            {{ item.price | currency }}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="bottom-section" (click)="onShowCartDetails()">
+                <div class="calculation-box">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td class="text-right">{{ cartSummary.subTotal | currency }}</td>
+                            </tr>
+                            <tr>
+                                <td>Discounts</td>
+                                <td class="text-right">{{ cartSummary.discount | currency }}</td>
+                            </tr>
+                            <tr>
+                                <td>Sales Tax</td>
+                                <td class="text-right">{{ cartSummary.salesTax | currency }}</td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="font-weight-bold">Total</td>
+                                <td class="font-weight-bold text-right">{{ cartSummary.total | currency }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="onCheckout()" class="checkout-button">Checkout</button>
+            </div>
+
+        </div>
+
+
+        <div *ngIf="posMode == 'checkout'">
+            <div class="summary-section" [class]="isTransactionComplete ? 'bg-finished' : ''">
+                <div class="items-section">
+                    <table class="table table-borderless">
+                        <thead>
+                            <tr>
+                              <th scope="col">Item</th>
+                              <th class="text-center" scope="col">Quantity</th>
+                              <th class="text-right" scope="col">Price</th>
+                            </tr>
+                          </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cartItems ; let i = index">
+                                <td style="width: 50%" class="font-weight-bold">{{ item.name }}<br><small>{{ item.measurement }} {{ item.unit }} - {{ item.package.sku }}</small></td>
+                                <td class="text-center">{{ item.quantity }}</td>
+                                <td class="text-right font-weight-bold">{{ (item.price * item.quantity) | currency }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="total-section">
+                    <table class="table table-borderless">
+                        <tbody>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td class="text-right">{{ cartSummary.subTotal | currency }}</td>
+                            </tr>
+                            <tr>
+                                <td>Discounts</td>
+                                <td class="text-right">{{ cartSummary.discount | currency }}</td>
+                            </tr>
+                            <tr>
+                                <td>Sales Tax</td>
+                                <td class="text-right">{{ cartSummary.salesTax | currency }}</td>
+                            </tr>
+                            <tr>
+                                <td> </td>
+                                <td> </td>
+                            </tr>
+
+                            <tr>
+                                <td class="font-weight-bold">Total</td>
+                                <td class="font-weight-bold text-right">{{ cartSummary.total | currency }}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>

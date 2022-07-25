@@ -1,0 +1,34 @@
+<div class="card shadow">
+  <div class="card-header d-flex justify-content-between">
+    <div class="col-md-8 px-0">
+      <h1>{{ finishLabel || activeStepper?.stepTitle }}</h1>
+    </div>
+    <div class="col-md-4 px-0">
+      <app-stepper [items]="stepperItems" (itemClicked)="stepperActions($event)"></app-stepper>
+    </div>
+  </div>
+  <div class="card-body pt-0">
+    <div *ngIf="!isFinished">
+      <app-dispensary-info-form
+        [hidden]="activeStepper.value !== 1"
+        [values]="dispensaryInfo"
+        (next)="onNext($event)"
+        (cancel)="onCancel($event)">
+      </app-dispensary-info-form>
+      <app-dispensary-employees
+        [hidden]="activeStepper.value !== 2"
+        (next)="onNext($event)"
+        (back)="onBack($event)">
+      </app-dispensary-employees>
+      <app-operation-times
+        [hidden]="activeStepper.value !== 3"
+        (next)="onNext($event)"
+        (back)="onBack($event)">
+      </app-operation-times>
+    </div>
+    <app-completion-page
+      [hidden]="!isFinished"
+      (complete)="onComplete($event)">
+    </app-completion-page>
+  </div>
+</div>

@@ -1,0 +1,207 @@
+<div class="cannuser-information-form">
+  <form [formGroup]="form" novalidate (ngSubmit)="proceed()">
+    <div class="card border-0">
+      <div class="card-body p-0">
+        <div class="account-info mb-3">
+          <div class="form-header">
+            <h1>Account Information</h1>
+          </div>
+          <p class="text-center">What type of Cannabis User are you?</p>
+          <div class="center-accross-hw">
+            <button class="btn btn-sm inverted"
+              (click)="isMedicalUse = true;  $event.preventDefault();"
+              [class.active]="isMedicalUse">
+              Medical
+            </button>
+            <button class="btn btn-sm inverted"
+              (click)="isMedicalUse = false;  $event.preventDefault();"
+              [class.active]="!isMedicalUse">
+              Adult Use
+            </button>
+          </div>
+        </div>
+
+        <br>
+        <div class="contact-info">
+          <div class="form-header">
+            <h1>Contact Information</h1>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6" [class.is-invalid]="firstNameInvalid">
+              <input class="form-control" name="first_name"
+                placeholder="First Name"
+                type="text"
+                formControlName="first_name"
+                [class.is-invalid]="firstNameInvalid">
+              <!-- error notifications -->
+              <div class="invalid-feedback" ngxErrors="first_name" #firstNameErrors="ngxErrors">
+                <span ngxError="required" when="touched">First name is required</span>
+              </div>
+            </div>
+
+            <div class="form-group col-md-6" [class.is-invalid]="lastNameInvalid">
+              <input class="form-control" name="lastName"
+                placeholder="Last Name"
+                type="text"
+                formControlName="last_name"
+                [class.is-invalid]="lastNameInvalid">
+
+                <!-- error notifications -->
+                <div class="invalid-feedback" ngxErrors="last_name" #lastNameErrors="ngxErrors">
+                  <span ngxError="required" when="touched">Last name is required</span>
+                </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-7" [class.is-invalid]="address1Invalid">
+              <input class="form-control" name="address_line_1"
+                placeholder="Address Line 1"
+                type="text"
+                formControlName="address_line_1"
+                [class.is-invalid]="address1Invalid">
+              <!-- error notifications -->
+              <div class="invalid-feedback" ngxErrors="address_line_1" #address1Errors="ngxErrors">
+                <span ngxError="required" when="touched">Address is required</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-7">
+              <input class="form-control" name="address_line_2"
+                placeholder="Address Line 2"
+                type="text"
+                formControlName="address_line_2">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6" [class.is-invalid]="cityInvalid">
+              <input class="form-control" name="city"
+                placeholder="City"
+                type="text"
+                formControlName="city"
+                [class.is-invalid]="cityInvalid">
+              <!-- error notifications -->
+              <div class="invalid-feedback" ngxErrors="city" #cityErrors="ngxErrors">
+                <span ngxError="required" when="touched">City is required</span>
+              </div>
+            </div>
+            <div class="form-group col-md-3" [class.is-invalid]="stateInvalid">
+              <input class="form-control" name="state"
+                placeholder="State"
+                type="text"
+                formControlName="state"
+                [class.is-invalid]="stateInvalid">
+              <!-- error notifications -->
+              <div class="invalid-feedback" ngxErrors="state" #stateErrors="ngxErrors">
+                <span ngxError="required" when="touched">State is required</span>
+              </div>
+            </div>
+            <div class="form-group col-md-3" [class.is-invalid]="zipInvalid">
+              <input class="form-control" name="zip"
+                placeholder="Zip"
+                type="text"
+                formControlName="zip"
+                [class.is-invalid]="zipInvalid">
+              <!-- error notifications -->
+              <div class="invalid-feedback" ngxErrors="zip" #zipErrors="ngxErrors">
+                <span ngxError="required" when="touched">Zip code is required</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="contact-info">
+          <div class="form-header">
+            <h1>Idenfication Verification</h1>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-md-6" [class.is-invalid]="licenseNumberInvalid">
+              <input class="form-control" name="license_number"
+                placeholder="Driver's License #"
+                type="text"
+                formControlName="identification_number"
+                [class.is-invalid]="licenseNumberInvalid">
+              <!-- error notifications -->
+              <div class="invalid-feedback" ngxErrors="identification_number" #licenseNumberErrors="ngxErrors">
+                <span ngxError="required" when="touched">Identification Number is required</span>
+              </div>
+            </div>
+
+            <div class="form-group col-md-6" [class.is-invalid]="licenseStateInvalid">
+              <input class="form-control" name="drivers_license_state"
+                placeholder="State"
+                type="text"
+                formControlName="identification_state"
+                [class.is-invalid]="licenseStateInvalid">
+
+                <!-- error notifications -->
+                <div class="invalid-feedback" ngxErrors="identification_state" #licenseStateErrors="ngxErrors">
+                  <span ngxError="required" when="touched">Identification State issued is required</span>
+                </div>
+            </div>
+          </div>
+
+          <div class="px-3">
+            <div class="row mb-3">
+              <div class="form-group col-md-10 m-0">
+                <div class="d-flex " (click)="driverLicenseFileEllm.click()">
+                  <i class="fa fa-upload"></i>
+                  <label for="driverLicenseFile">&nbsp; Upload Driver's License</label>
+                </div>
+                <input class="form-control" hidden id="driverLicenseFile" #driverLicenseFileEllm
+                  type="file"
+                  ng2FileSelect
+                  [attr.accept]="allowedMimeTypes"
+                  [uploader]="uploader"
+                  (onFileSelected)="onFileUpload($event, 'drivers_license_photo')">
+
+                <div class="text-left w-100">
+                  <p class="text-muted" *ngIf="!!dlFileName">
+                    <span class="pr-2">
+                      <i class="fa fa-paperclip"></i>
+                    </span>
+                    <span>{{ dlFileName }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="isMedicalUse">
+              <div class="form-group col-md-10 m-0">
+                <div class="d-flex " (click)="prescriptionFileElm.click()">
+                  <i class="fa fa-upload"></i>
+                  <label for="prescriptionFile">&nbsp; Upload Cannabis Prescription Card</label>
+                </div>
+                <input class="form-control" hidden id="prescriptionFile" #prescriptionFileElm
+                  type="file"
+                  ng2FileSelect
+                  [attr.accept]="allowedMimeTypes"
+                  [uploader]="uploader"
+                  (onFileSelected)="onFileUpload($event, 'prescription_photo')">
+
+                <div class="text-left w-100">
+                  <p class="text-muted" *ngIf="!!prescriptionFileName">
+                    <span class="pr-2">
+                      <i class="fa fa-paperclip"></i>
+                    </span>
+                    <span>{{ prescriptionFileName }}</span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer border-0 w-100 text-right">
+        <button type="submit" class="btn btn-sm"  [disabled]="form.invalid">Finish</button>
+      </div>
+    </div>
+  </form>
+</div>

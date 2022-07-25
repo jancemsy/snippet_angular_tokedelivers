@@ -1,0 +1,21 @@
+<div class="product-profile d-flex">
+
+  <div class="profile-left">
+    <h6>Flavor Profile</h6>
+    <ul class="flavor-profile">
+      <li *ngFor="let flavor of flavors" class="d-flex align-items-center">
+        <app-circle-bar [item]="flavor"></app-circle-bar>
+        <span class="flavor-name" [style]="'color:' + getFlavorColor(flavor.icon)">{{ flavor.name }}</span>
+      </li>
+    </ul>
+  </div>
+
+  <div class="profile-right">
+    <h6>Effects Profile</h6>
+    <div class="effect-profile">
+      <ng-container *ngFor="let effect of effects">
+        <app-percent-bar [item]="effect"></app-percent-bar>
+      </ng-container>
+    </div>
+  </div>
+</div>

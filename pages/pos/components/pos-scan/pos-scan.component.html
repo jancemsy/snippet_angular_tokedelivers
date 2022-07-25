@@ -1,0 +1,23 @@
+<div class="pos-scan" *ngIf="( scanner$ | async ) as scanner">
+
+    <div class="camera-section" (click)="tmpScanned()">
+        <a (click)="onBack()">
+            <svg class="back-svg" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="25" cy="25" r="25" fill="#354C1A"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M18.746 23.7455L27.4885 14.9731C27.9975 14.494 28.7759 14.494 29.255 14.9731C29.734 15.4521 29.734 16.2605 29.255 16.7395L21.3807 24.6138L29.255 32.488C29.734 32.997 29.734 33.7754 29.255 34.2545C28.7759 34.7335 27.9975 34.7335 27.4885 34.2545L18.746 25.512C18.267 25.003 18.267 24.2245 18.746 23.7455Z" fill="white"/>
+            </svg>
+        </a>
+    </div>
+
+    <div class="id-selector-section">
+        <div class="selector">
+            <button (click)="onSelectId('medical')" class="medical-id" [class]="selectedId == 'medical' ? 'id-active' : ''">
+                Medical ID
+            </button>
+            <button (click)="onSelectId('state')" class="state-id"  [class]="selectedId == 'state' ? 'id-active' : ''">
+                State ID
+            </button>
+        </div>
+
+    </div>
+</div>

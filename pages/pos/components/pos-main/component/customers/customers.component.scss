@@ -1,0 +1,109 @@
+@import 'src/app/styles/core/variables';
+
+.customers {
+
+  background-color: $off-white-2;
+
+  padding: 1vw;
+  font-family: Open sans;
+  font-size: 1.5vw;
+
+  .form-search {
+    width: 35vw;
+    &:before {
+      border-radius: 0 3vw 3vw 0;
+    }
+    &:after {
+      right: 1.5vw;
+    }
+    .input-search {
+      width: 100%;
+      height: 100%;
+      padding: 0.5vw 2vw;
+      border-radius: 3vw;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  .btn-new-customer {
+    background-color: $white;
+    color: $primary;
+    font-size: 1.5vw;
+    border-radius: 3vw;
+    padding: 1vh 3vw;
+  }
+
+  .customer-list {
+
+    .customer-list-item {
+      background-color: $white;
+      border-radius: 2vh;
+      margin: 1.5vh 0;
+
+      .icon {
+        border-radius: 50%;
+        height: 5vw;
+        width: 5vw;
+        margin-left: 2vw;
+        border: 0.4vw solid $white;
+        img {
+          width: 100%;
+          border-radius: 50%;
+        }
+      }
+      .name {
+        font-weight: 600;
+      }
+
+      .name, .email {
+        width: 30%;
+        padding-top: 3.5vh;
+        padding-bottom: 3.5vh;
+      }
+
+      .type {
+        width: 18%;
+        padding-top: 3.5vh;
+        padding-bottom: 3.5vh;
+        text-align: center;
+        font-weight: 600;
+        border-radius: 1.5vh;
+        &.type-toke {
+          background-color: $light;
+        }
+      }
+
+      // customer color item
+      &.color-green {
+        .icon { box-shadow: 0 0 0 0.4vw $primary; }
+        .name { color: $primary; }
+      }
+      &.color-orange {
+        .icon { box-shadow: 0 0 0 0.4vw $faded-orange; }
+        .name { color: $faded-orange; }
+      }
+      &.color-purple {
+        .icon { box-shadow: 0 0 0 0.4vw $finn; }
+        .name { color: $finn; }
+      }
+    }
+  }
+
+  .pos-shadow {
+    box-shadow: 0.1vw 0.2vw 0.6vw $xlight-gray;
+  }
+
+  .pos-margin-tb {
+    margin-top: 1.5vh;
+    margin-bottom: 2.5vh;
+  }
+}
+
+.pos-scanner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+}

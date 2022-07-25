@@ -1,0 +1,56 @@
+.payment-box{
+    margin:30px 0px 30px 0;
+    width: 351px;
+    height: 350px; 
+    box-shadow: 1px 3px 10px 0px #CBCBCB;
+    padding:30px 10px 30px 30px;
+
+ 
+    
+    .price-title{
+        margin-bottom:30px;
+        .dolar{
+            font-family: Open Sans; 
+            font-weight: bold;
+            font-size: 25px;
+            line-height: 34px;  
+            letter-spacing: 0.135725px; margin-top:0px;   float:left;  }
+
+        .amount{ font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 40px;
+            line-height: 54px;
+            letter-spacing: 0.135725px; 
+             margin-top:8px; 
+             float:left;  
+              line-height:30px; }
+
+        .month{font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 20px;
+
+            letter-spacing: 0.135725px;
+            margin-top:20px; float:left;
+            } 
+    } 
+
+
+     ul{
+         padding:0px; 
+         li{
+             margin-bottom: 12px;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.135725px;
+            list-style: none;
+            padding:0px;
+            svg{ margin-right:5px; }
+        }
+     } 
+}

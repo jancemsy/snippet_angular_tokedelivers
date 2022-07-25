@@ -1,0 +1,23 @@
+<div class="info-box" *ngIf="productInfo !== null">
+    <div class="top-header">
+        product info 
+        <div class="product-count">{{productInfo.length}} items</div>
+    </div>
+    <div class="box-body"> 
+        <ng-container *ngFor="let item of productInfo"> 
+                <div class="row">
+                    <div class="col-3">
+                    <img src="{{item.thumbnail}}" />
+                    </div> 
+                    <div class="col-6">
+                    <strong>{{item.name}}</strong>
+                    <div class="grams">{{item.weight}}</div>
+                    </div> 
+                    <div class="col-3">
+                        <div class="amount pull-right">${{item.amount}}</div>
+                        <div class="code pull-right">{{item.sku}}</div>
+                    </div> 
+                </div> 
+          </ng-container>   
+    </div>
+</div>

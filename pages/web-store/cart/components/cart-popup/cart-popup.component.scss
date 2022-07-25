@@ -1,0 +1,94 @@
+@import "src/app/styles/core/variables";
+  
+.popup-cart-container:hover {
+    ::-webkit-scrollbar {
+        opacity: 1;
+        display:block;
+    }
+  }
+
+.popup-cart-container{  
+    *:not(.fa) {    font-family: Open Sans;}
+    ::-webkit-scrollbar {
+        width: 5px;
+        opacity: 0!important;
+        display:block;
+      }
+    
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+    
+      ::-webkit-scrollbar-thumb {
+        background: $secondary;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: $primary;
+      }
+    
+
+    padding:0px; 
+    width:100%;
+    height:auto; 
+
+    h3{  
+        margin:26px 0px 0px 26px;  font-weight: bold; font-size: 25px;
+         line-height: 34px; letter-spacing: 0.388889px; color: #354C1A; }
+
+    ul{ 
+        padding:0px 26px!important; 
+        list-style: none;  
+        height:250px; 
+        overflow-y: auto;
+        overflow-x:hidden;    
+        li{              
+             padding-top:30px; 
+             list-style: none;  
+             border-bottom: 1px solid #b3bea6;  
+        }
+
+        li:first{
+            padding-top:0px!important;
+        }  
+     }
+    
+    .thumb{ img{ width: 100px; height:100px; } }
+    .title{  
+        width: 138px; height: 64px; display:block; float:left;  
+        font-weight: bold;font-size: 12px;line-height: 16px;  letter-spacing: 0.186667px;  color: #354C1A;   
+    }
+    .price{ float:left; display:block; font-weight: bold; font-size: 12px; line-height: 16px; letter-spacing: 0.186667px; }
+    .measurement{  
+        clear:both; font-weight: 600; font-size: 10px; line-height: 14px; letter-spacing: 0.155556px; color: #354C1A; 
+    }
+    
+    .bottom-container{ 
+            height:120px; 
+            bottom:0px; 
+            background: #F4F4F4; padding:10px;
+
+            .subtotal-container{
+               padding:12px;
+               color: #354C1A;  font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.186667px;
+               strong{ font-weight: bold; font-size: 15px; line-height: 20px; letter-spacing: 0.233333px; } 
+              .total-price{ font-weight: bold; font-size: 15px; line-height: 20px; text-align: right; letter-spacing: 0.233333px; color: #354C1A; }
+            }   
+
+        .checkout-container{
+            padding-top: 18px;
+            text-align: center; 
+            .btn{ 
+                box-shadow: 1px 3px 10px #CBCBCB;
+                border-radius: 11px 11px 10px 10px; 
+                font-weight: bold; font-size: 12px; line-height: 16px; text-align: center; letter-spacing: 0.186667px; 
+            }
+
+            .view-cart-btn{  background:#fff; color: #354C1A; } 
+            .checkout-btn{  background: #354C1A; color: #fff; }
+        
+        }   
+   }
+
+ 
+    
+}

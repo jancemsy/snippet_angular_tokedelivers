@@ -1,0 +1,118 @@
+@import 'src/app/styles/core/variables';
+
+.loyalty-settings{
+    font-family: Open Sans;
+    font-style: normal;
+    .close-button{
+        background: none;
+        border: none;
+        outline: none;
+        padding-top: 10px !important;
+        padding-right: 15px;
+    }
+    .back-button{
+        position: absolute;
+        background: none;
+        top: 16px;
+        left: 10px;
+        border: none;
+        outline: none;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+
+        color: $primary;
+    }
+
+
+
+    .hidden{
+        visibility: hidden;
+    }
+
+    .modal-header{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 24px;
+        text-align: left;
+        line-height: 33px;
+        margin-left: 30px;
+        margin-right: 30px;
+        /* identical to box height */
+
+    }
+
+    .modal-body{
+        margin-left: 30px;
+        margin-right: 30px;
+        min-height: 420px;
+        position: relative;
+        padding-left: 0;
+        padding-right: 0;
+        ::ng-deep .list-group-item {
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+            color: $black;
+            background-color: transparent;
+            display: flex;
+            align-items: center;
+            // &:hover {
+            //     background-color: $light;
+            // }
+
+            &.next {
+                &:after {
+                    content: '';
+                    display: inline;
+                    width: 15px;
+                    height: 15px;
+                    background-image: url('/assets/icons/chevron-right.svg');
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: auto;
+                    margin-left: auto;
+                }
+            }
+        }
+
+        ::ng-deep .actions {
+            .btn {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                box-shadow: 1px 3px 10px $xlight-gray;
+                background: $myrtle;
+                border-radius: 10px;
+                font-size: 12px;
+                font-family: Open Sans;
+
+                &:hover {
+                    color: $white;
+                }
+            }
+        }
+
+        ::ng-deep .tier-icon {
+            background-color: $primary;
+            height: 33px;
+            width: 35px;
+            line-height: 30px;
+            text-align: center;
+            color: $white;
+            border-radius: 4.125px;
+            font-size: 18px;
+            &.tier-icon-image {
+                svg {
+                    transform: scale(0.7);
+                }
+            }
+        }
+
+
+    }
+}

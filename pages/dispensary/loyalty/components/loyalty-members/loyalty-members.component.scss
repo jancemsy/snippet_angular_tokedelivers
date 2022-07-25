@@ -1,0 +1,44 @@
+@import 'src/app/styles/core/variables';
+
+.loyalty {
+  .label {
+    font-family: Open Sans;
+    font-weight: 600;
+  }
+
+  .tier {
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Open Sans;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5rem;
+    width: 8.375rem;
+    border-radius: 1.25rem;
+  }
+
+  .points-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .points {
+      font-family: Open Sans;
+      font-weight: 600;
+      font-size: 20px;
+      color: $jade-green;
+    }
+
+    .grass-icon {
+      margin-left: 10px;
+    }
+  }
+
+  .content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

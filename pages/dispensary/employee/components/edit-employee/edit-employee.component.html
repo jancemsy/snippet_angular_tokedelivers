@@ -1,0 +1,219 @@
+<div  id="edit-employe-container" class="container full-height center-accross-hw">
+  
+
+
+
+   <div >
+      
+      
+      <div class="errors errors-container" *ngIf="errors !== null">
+         <h2>Please fix the following errors:  </h2>
+         <ul>
+         <li *ngFor="let item of errors" > 
+             {{item.field}} - {{item.message}}
+         </li>
+      </ul>
+      </div>
+   
+
+            <div class="form-header">
+               <h1>Employee Information</h1>
+            </div>
+
+            
+            <div class="form-body">
+                  <div class="row">
+                           <div class="col-md-6" > 
+                                    <div class="row">
+                                       <div class="form-group col-md-6" >
+                                          First Name:
+                                       <input class="form-control" [(ngModel)]="form.first_name" name="first_name" placeholder="First Name" type="text" > 
+                                       </div>
+
+                                       <div class="form-group col-md-6"  >
+                                          Last Name:
+                                       <input class="form-control"   [(ngModel)]="form.last_name" name="last_name" placeholder="Last Name" type="text"   > 
+                                       </div>
+                                    </div>
+                                    
+
+                                    <div class="row"> 
+                                       <div class="form-group col-md-6" >
+                                          Email Address: 
+                                       <input class="form-control"  [(ngModel)]="form.email" name="email" placeholder="Email Address" type="text" > 
+                                       </div>
+
+                                       <div class="form-group col-md-6"  >
+                                          Phone Number
+                                       <input class="form-control"  [(ngModel)]="form.phone" name="phone" placeholder="Phone Number" type="text"   > 
+                                       </div> 
+                                    </div>
+                           </div>
+
+                           <div class="col-md-6" > 
+
+                                    <div class="row">
+                                       <div class="form-group">
+                                          Address Line 1:
+                                          <input class="form-control"  [(ngModel)]="form.address_1" name="address1" placeholder="Address Line 1" type="text"   > 
+                                       </div>
+                                    </div> 
+
+                                    <div class="row"> 
+                                       <div class="form-group"  >
+                                          Address Line 2:
+                                          <input class="form-control"  [(ngModel)]="form.address_2" name="address2" placeholder="Address Line 2" type="text"   > 
+                                       </div>
+                                    </div>
+                                    
+
+                                    <div class="row">
+                                       <div class="form-group col-md-6 adjust-padding"  >
+                                          City:
+                                          <input class="form-control"  [(ngModel)]="form.city" name="city" placeholder="city" type="text"   > 
+                                       </div>
+
+                                       <div class="form-group col-md-6"  >
+                                          State:
+                                          <input class="form-control"  [(ngModel)]="form.state" name="state" placeholder="state" type="text"   > 
+                                       </div>
+                                    </div>
+
+                                    <div class="form-group row"  >
+                                       Zip:
+                                       <input class="form-control input-text-right-adjustment"  [(ngModel)]="form.zip" name="zip" placeholder="zip" type="text"   > 
+                                    </div>
+
+                           </div> 
+                              
+                  </div> <!-- /content-row employee information-->
+            </div>
+    
+
+
+
+            <div class="form-header">
+               <h1>Employee Identification</h1>
+            </div>   
+            <div class="form-body"> 
+             <div class="row ">
+                           <div class="form-group col-md-6 " >
+                                <input class="form-control" name="identification_number" (input)="validate_id($event)"  [(ngModel)]="form.identification_number" placeholder="License #" type="text"  /> 
+                           </div>
+                           <div class="form-group col-md-6 adjust-padding" >
+                                <input class="form-control input-text-right-adjustment" name="identification_state_issue" (input)="validate_id($event)" [(ngModel)]="form.identification_state_issue" placeholder="State of Issue" type="text"  /> 
+                           </div> 
+               </div>           
+               <div class="row ">
+                         <div class="form-group col-md-6 drivers-license-area " >
+                           <div class="d-flex "  >
+                                   
+                                 <div class="d-flex " >
+                                    <i class="fa fa-upload"></i>
+                                    <label for="driverLicenseFile">{{file_upload_caption}}</label> 
+                                  </div>
+
+                            </div>
+                           </div>    
+                           <div class="form-group col-md-6 ">
+
+  
+                              
+                               <input class="form-control" hidden id="driverLicenseFile" #driverLicenseFileEllm2
+                                 type="file"
+                                 ng2FileSelect
+                                 [attr.accept]="allowedMimeTypes"
+                                 [uploader]="uploader"    (onFileSelected)="onFileUpload($event)">
+
+                              
+                              
+                              <!--<button type="submit" class="btn btn-sm"   [ngClass]="{'disable':   !can_add_id }"   >Add ID</button> -->
+
+                          </div> 
+                </div>   
+            </div>                  
+ 
+
+            
+            <div class="form-header">
+               <h1>Employee Roles</h1>
+            </div>   
+
+            <div class="employee-roles  form-body">
+               <div class="row ">
+                              <div class="form-group col-md-4 " >
+                                 <form> 
+         
+                                    <mat-form-field appearance="fill">
+                                    <mat-label>Dispensary  Name (location)</mat-label>
+                                    <mat-select [(ngModel)]="selected_dispensary" name="selected_dispensary" (selectionChange)="validate_role($event)">
+                                       <mat-option *ngFor="let item of dispensaryList" [value]="item.value">
+                                          {{item.caption}}
+                                       </mat-option>
+                                    </mat-select>
+                                    </mat-form-field> 
+                                 </form> 
+
+                              </div>
+                              <div class="form-group col-md-4 adjust-padding" >
+                                 <form> 
+         
+                                    <mat-form-field appearance="fill">
+                                    <mat-label>Employee Roles</mat-label>
+                                    <mat-select [(ngModel)]="selected_role" name="selected_role" (selectionChange)="validate_role($event)">
+                                       <mat-option *ngFor="let item of EmployeeRoleList" [value]="item.value">
+                                          {{item.caption}}
+                                       </mat-option>
+                                    </mat-select>
+                                    </mat-form-field> 
+                                 </form> 
+                              </div>
+
+                              <div class="form-group col-md-4 " >
+                                 <button type="submit" class="btn btn-sm  add-role-btn"  [ngClass]="{'disable':   !can_add_role }"  (click)="clickAddRole()" >Add Role</button>
+                              </div> 
+               </div>
+         
+
+            <div class="row employee-roles-title ">
+                
+                  <div class="form-group col-md-4 "  style="padding:0px!important;">
+                     Dispensaries
+                  </div>
+                  <div class="form-group col-md-4 " >
+                     Roles
+                  </div>
+                  <div class="form-group col-md-4 " > 
+                  </div>  
+            </div>
+
+
+            <div class="row employee-roles-content " *ngFor="let item of employeeRolesTablegridData" >
+               <div class="form-group col-md-4 " >
+                  {{item.dispensary}}
+               </div>
+               <div class="form-group col-md-4 " >
+                  {{item.role}}
+               </div>
+               <div class="form-group col-md-4 " >
+                   
+                  <button type="submit" class="delete-btn" title="delete" (click)="clickDeleteRole(item.id)" > <i class="fa fa-trash"></i> </button> 
+               </div> 
+            </div>
+         </div>
+
+
+         <div class="text-right bottom-buttons" >
+    
+
+            
+            <button type="submit" class="btn btn-cancel" (click)="clickCancel()" >Cancel</button>  
+            <button type="submit" class="btn btn-save" (click)="clickSave()" >Save</button>
+         </div>
+
+   </div><!-- /container row-->
+
+
+
+</div>
+

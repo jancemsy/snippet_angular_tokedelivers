@@ -1,0 +1,15 @@
+.section-subtitle {
+  font-family: ProximaNova Thin;
+  font-size: .75rem;
+}
+
+table.table {
+  > tbody {
+    tr {
+      td {
+        padding-bottom: .25rem;
+        vertical-align: baseline;
+      }
+    }
+  }
+}

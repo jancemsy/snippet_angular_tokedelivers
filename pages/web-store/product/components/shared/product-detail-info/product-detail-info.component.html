@@ -1,0 +1,33 @@
+<div class="product-detail-info-container-overlay"></div>
+
+<div class="product-detail-info-container" *ngIf="product">
+ 
+  <div  class="pop-detail-content">
+
+    <div class=" close-btn" (click)="clickClose()">
+      <i class="fa fa-close"></i>
+    </div>
+ 
+    <div class="row pop-detail-content-body">
+      <div class="col-md-4 first-box">
+        <div class="thumb" [ngStyle]="{ 'background-image': 'url(' + product.image + ')' }" ></div>
+      </div>
+      <div class="col-md-4 col-sm-4 col-4 second-box">
+        <app-product-primary-info [product]="product"  ></app-product-primary-info>
+      </div>
+
+      <div class="col-md-4 col-sm-0 third-box">
+        <app-profile-stats [product]="product"></app-profile-stats>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-md-12 more-button">
+      <a href="/products/detail"
+        ><i class="fa fa-chevron-down button" title="more info"></i
+      ></a>
+    </div>
+  </div>
+</div>

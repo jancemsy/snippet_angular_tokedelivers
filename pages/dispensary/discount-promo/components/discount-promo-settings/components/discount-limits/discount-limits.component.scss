@@ -1,0 +1,32 @@
+.discount-limits {
+  font-family: Open Sans;
+
+  .row {
+    margin-top: 15px;
+  }
+  .form-check {
+    font-size: 12px;
+    padding-top: 12px;
+  }
+
+  .has-input-1 {
+    padding-left: 30px;
+  }
+
+  .has-input-2 {
+    padding-left: 18px;
+  }
+
+  .or {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  app-custom-input {
+    width: 50px;
+  }
+
+  ::ng-deep app-custom-input input {
+    text-align: center;
+  }
+}

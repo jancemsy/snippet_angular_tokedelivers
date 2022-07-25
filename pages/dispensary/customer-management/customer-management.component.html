@@ -1,0 +1,83 @@
+<div class="lds-ripple" *ngIf="isLoading" ><div></div><div></div></div>
+
+<div class="customer-management list-page">
+  <div class=" header pb-4">
+    <div class="d-flex">
+      <div class="page-title">
+        Customer Management
+      </div>
+      <div class="action-container">
+        <button type="button" class="btn btn-action" (click)="onSettings()">
+          <img src="../../../../assets/icons/cog.svg" alt="cog">
+          <label>Settings</label>
+        </button>
+      </div>
+    </div>
+
+    <div class="d-flex">
+      <div class="mr-4">
+        <div class="form-group action">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </div>
+      <!-- <div>
+        <button class="btn discount-promo-button mr-4" (click)="onAddDiscountPromo()">
+          <i>
+              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="15" cy="15" r="15" fill="#3A471E"/>
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2255 9.22554C16.2255 8.72129 15.8167 8.3125 15.3125 8.3125C14.8083 8.3125 14.3995 8.72129 14.3995 9.22554V14.3995H9.22554C8.72129 14.3995 8.3125 14.8083 8.3125 15.3125C8.3125 15.8167 8.72129 16.2255 9.22554 16.2255H14.3995V21.3995C14.3995 21.9037 14.8083 22.3125 15.3125 22.3125C15.8167 22.3125 16.2255 21.9037 16.2255 21.3995V16.2255H21.3995C21.9037 16.2255 22.3125 15.8167 22.3125 15.3125C22.3125 14.8083 21.9037 14.3995 21.3995 14.3995H16.2255V9.22554Z" fill="#FBFBFB"/>
+              </svg>
+          </i>
+          Create New
+        </button>
+      </div> -->
+    </div>
+  </div>
+
+  <div class="table-responsive card shadow mb-4">
+    <table class="table mgt-table">
+      <thead>
+        <tr style="line-height: 30px">
+          <th>Name</th>
+          <th>Email</th>
+          <th>Since</th>
+          <th>Type</th>
+          <th>Orders</th>
+          <th>Spend</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="(customers$ | async) as customers">
+        <tr (click)="onSelectCustomer(item)" *ngFor="let item of customers" class="custom">
+          <td class="pl-3 py-3">
+            <div class="d-flex">
+              <div class="profile-container">
+                <div class="img-container --sm tier-{{item.tier}}">
+                  <img src="../../../../../../assets/icons/top-nav/fa-user.svg" alt="img" *ngIf="!item.user.imgUrl">
+                  <img [src]="item.user.imgUrl" alt="img" *ngIf="item.user.imgUrl">
+                </div>
+                <div class="label tier-{{item.tier}} --text">
+                  {{ item.user.first_name }}&nbsp;{{ item.user.last_name }}
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="text-center">
+            {{ item.user.email }}
+          </td>
+          <td class="text-center text-bold">
+            {{ item.memberSince | date:'MM/dd/yyyy' }}
+          </td>
+          <td class="text-center text-capitalize text-bold" [ngClass]="item.memberType">
+            {{ item.memberType }}
+          </td>
+          <td class="text-center">
+            {{ item.orders }}
+          </td>
+          <td class="text-center">
+            {{ item.totalSpent | currency:"USD" }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

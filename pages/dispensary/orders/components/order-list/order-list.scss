@@ -1,0 +1,111 @@
+.order-list-container{
+    *:not(.fa) { font-family: Open Sans;}
+    h1{font-weight: 600; font-size: 30px; line-height: 41px;   letter-spacing: 0.466; color: #3A471E; margin-bottom: 27px;}
+
+    
+
+    .search-box{
+    background: #F0F0F0;
+    border-radius: 22.5px;
+    height:38px;
+    width:263px;
+    border:none; 
+    padding-left:20px;
+    outline: none;
+    }
+
+    .search-box:focus{
+        background:#eeeeee!important;
+        border:1px solid #cfcfcf;
+    }
+    input:focus::-webkit-input-placeholder {
+        opacity: 0;
+    }
+    
+
+    thead th.number{ width:10%; }
+    thead th.name{ width:30%; } 
+    thead th.date{ width:10%; } 
+    thead th.revenue{ width:10%; } 
+    thead th.type{ width:20%; } 
+    thead th.status{ width:20%; } 
+
+    thead th{ 
+        cursor: pointer;
+        .sorter{   
+            position:absolute;  
+            margin-top:-3px;  
+            margin-left:10px;
+            display:inline-block; 
+            height:20px; width: 20px;
+            background: url(/assets/images/orders/table-sort.svg) no-repeat;
+            background-position: 0px 5px;   
+        }
+    }
+    tbody td{ 
+        font-weight: normal;
+        text-align: center;
+        .field-outer-box{ width:300px;   display:block; text-align: left;  margin:auto; }
+    }
+    tbody td.bold{
+        font-weight: bold;
+    }
+
+
+
+    .thumbnail{ margin-right: 20px; width:40px; height: 40px; filter: drop-shadow(1px 3px 10px #CBCBCB);}
+
+
+
+
+    .type-pick-up,
+    .type-delivery,
+    .type-in-store{  
+        font-weight: 600; font-size: 15px; line-height: 20px; letter-spacing: 0.186667px;
+        width:100px;  display: block; text-align: left; margin:auto;
+        padding-left:30px;  text-transform: capitalize;
+    } 
+
+    .type-pick-up{  
+        background: url('/assets/images/orders/type-pick-up.svg') no-repeat;
+    }
+
+    .type-delivery{  
+        background: url('/assets/images/orders/type-delivery.svg') no-repeat;
+    }
+
+    .type-in-store{ 
+        background: url('/assets/images/orders/type-in-store.svg') no-repeat; 
+    }
+
+
+
+
+    .status-ready-for-pick-up,
+    .status-pending,
+    .status-payment-processed{
+        font-weight: bold; font-size: 15px!important; line-height: 20px;  letter-spacing: 0.186667px;
+        width:200px;  display: block; text-align: left; margin:auto;
+        padding-left:30px; 
+        display:block;
+        height:30px;
+        text-transform: capitalize;
+        cursor: pointer;
+    }
+
+
+    .status-ready-for-pick-up{
+        color:#FE5E00; 
+        background: url('/assets/images/orders/status-ready-for-pick-up.svg') no-repeat;
+    }
+
+    .status-pending{
+        color:#077E8C; 
+        background: url('/assets/images/orders/status-pending.svg') no-repeat; 
+    }
+
+    .status-payment-processed{
+        color:#5EB700;
+        background: url('/assets/images/orders/status-payment-processed.svg') no-repeat;
+    }
+}

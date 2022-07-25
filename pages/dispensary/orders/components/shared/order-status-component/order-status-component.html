@@ -1,0 +1,18 @@
+<div class="order-box">
+    <div class="top-header">
+       order status
+    </div>
+    <div class="box-body" [ngClass]="'status-' + orderInfo.status"> 
+        <b class="order-status"  >{{ statusClass(orderInfo.status)}}</b> 
+        <div>{{orderInfo.dateTime}}</div> 
+        <div>
+            <button (click)="clickNext()"> 
+                <i class="fas fa-plus"></i>
+                Next </button>
+        </div>
+
+        <div class="cancel-container" (click)="clickCancel()">
+            <a>Cancel Order</a>
+        </div>
+    </div>
+</div>

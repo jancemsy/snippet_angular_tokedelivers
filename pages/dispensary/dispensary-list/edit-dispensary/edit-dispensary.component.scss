@@ -1,0 +1,42 @@
+@import 'src/app/styles/core/variables';
+
+.card {
+  .card-header {
+    background: none;
+    border-bottom: none;
+  }
+
+  .card-header {
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+
+  .card-footer {
+    background: none;
+    border-top: none;
+  }
+}
+
+section {
+  margin-bottom: 1rem;
+  font-family: ProximaNova Thin;
+  font-size: .75rem;
+
+  .section-tab {
+    background: $primary;
+    padding: 10px;
+    color: $white;
+
+    h2 {
+      font-family: ProximaNova Bold;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .section-content {
+    padding: 10px;
+    background: $bg-light;
+  }
+}

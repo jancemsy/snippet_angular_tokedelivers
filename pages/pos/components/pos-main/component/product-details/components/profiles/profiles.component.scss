@@ -1,0 +1,124 @@
+@import 'src/app/styles/core/variables';
+.product-profile {
+
+  font-size: 1.5vw;
+
+  h6 { font-size: 1.5vw; }
+
+  .flavor-profile {
+    position: relative;
+    padding: 0;
+    margin: 0;
+    padding-top: 1.5vw;
+    padding-left: 0.5vw;
+
+    li {
+      position: relative;
+      > * {
+        position: relative;
+      }
+      .flavor-name {
+        font-size: 1.5vw;
+        font-weight: 900;
+        margin-top: -5%;
+        margin-left: 5%;
+      }
+    }
+
+    // override responsive of circle bar
+    ::ng-deep .circle-bar {
+      width: 6vw;
+      height: 6vw;
+
+      .secondary-box {
+        width: 6vw;
+        height: 6vw;
+        left: 0%;
+        svg {
+          width: 85%;
+          height: 105%;
+          top: 0%;
+          display: block;
+          position: relative;
+        }
+      }
+      .third-box {
+        width: 6vw;
+        height: 6vw;
+        margin: 0!important;
+
+        .caption {
+          display: none!important;
+        }
+        .tabon {
+          margin: 0;
+          .svg {
+            margin-top: 0!important;
+            margin-left: 0!important;
+            width: 100% !important;
+            height: 100% !important;
+          }
+        }
+      }
+    }
+
+  }
+
+  .effect-profile {
+    padding-left: 2vw;
+    padding-top: 1.5vw;
+
+    > * {
+      position: relative;
+      margin: 1vw 0;
+      width: 100%;
+      display: inline-block;
+    }
+
+    ::ng-deep .percent-bar {
+      display: flex;
+      // height: 1.2vw;
+      width: 100%;
+      height: 2.5vw;
+      max-height: 2.5vh;
+      .row {
+        width: 100%;
+        > * {
+          width: 100%;
+          padding: 0;
+          margin: 0;
+        }
+      }
+
+      .first-box {
+        font-size: 1.5vw!important;
+        line-height: 1.2;
+        position: relative;
+        flex: auto;
+      }
+
+      .third-box, .second-box {
+        width: 100%;
+        margin-top: 0;
+        margin-left: 0;
+        border-radius: 2vh;
+        padding: 0 0.5vw;
+        height: 1.3vw;
+      }
+    }
+
+  }
+
+  .profile-left {
+    padding-right: 1.5vw;
+    border-right: 2px solid lighten($primary, 20%);
+    width: 25vw;
+  }
+
+  .profile-right {
+    padding-left: 4vw;
+    border-left: 1px solid $light-black-gray;
+    width: 100%;
+  }
+
+}

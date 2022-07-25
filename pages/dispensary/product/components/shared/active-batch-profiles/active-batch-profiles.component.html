@@ -1,0 +1,19 @@
+<div class="form-header" [ngClass]="is_open ?  'active' : 'inactive'">
+    <h1>Active Batch Profiles</h1>
+      
+    <div class="d-flex pull-right  form-toggle"  > 
+      <button   (click)="is_open = !is_open"   > 
+         <i class="fa " [ngClass]="is_open ?  'fa-angle-up' : 'fa-angle-down'   " ></i>
+      </button>  
+    </div> 
+ </div>
+
+ <div class="form-body  " [ngClass]="{'disabled': is_disabled }"  *ngIf="is_open"  [@fadeAnimation]="is_open ? 'in' : 'leave'" >
+    <div class="disable-overlay"  ></div>
+
+    <ng-container *ngFor="let profile of profiles">  
+       <app-product-batch-profile [profile]="profile"></app-product-batch-profile>
+    </ng-container> 
+      
+      
+</div>

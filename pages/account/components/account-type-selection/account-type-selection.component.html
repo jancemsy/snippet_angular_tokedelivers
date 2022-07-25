@@ -1,0 +1,9 @@
+<div class="container full-height center-accross-hw">
+  <app-card-dialog
+    header="Let's Get Started!"
+    bodyMessage="Tell us what type of account you would like to set up."
+    [buttons]="['Dispensary', 'Cannabis User']"
+    [links]="links"
+    (clickEvent)="handleDialogClick($event)"
+  ></app-card-dialog>
+</div>

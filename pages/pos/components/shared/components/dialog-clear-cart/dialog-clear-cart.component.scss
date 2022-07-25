@@ -1,0 +1,19 @@
+@import 'src/app/styles/core/variables';
+:ng-host {
+  width: 40vw;
+  display: block;
+  height: 20vh;
+  background: $lighter-grey;
+}
+
+.pos-dialogs {
+  margin: 5vw 7vw;
+  min-height: 18vh;
+
+  .cart-message {
+    font-size: 2vw;
+    font-weight: 700;
+    text-align: center;
+    color: $primary;
+  }
+}

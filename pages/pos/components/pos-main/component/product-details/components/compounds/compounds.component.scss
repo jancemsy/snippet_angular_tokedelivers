@@ -1,0 +1,64 @@
+@import 'src/app/styles/core/variables';
+.product-compound {
+  h6 { font-size: 1.5vw; }
+}
+.compound-terpenes {
+
+  .tarpenese-item {
+    font-size: 1.4vw;
+    margin-left: 1.6vw;
+    margin-top: 3vw;
+    border-top: 0.8vw solid;
+    padding-top: 0.4vw;
+    &.tarpense-pink { color: pink; border-color: pink; }
+    &.tarpense-yellow { color: yellow; border-color: yellow; }
+    &.tarpense-green { color: green; border-color: green; }
+    &.tarpense-blue { color: blue; border-color: blue; }
+    &.tarpense-grey { color: grey; border-color: grey; }
+  }
+}
+
+.compound-cannabinoids {
+  h6 { margin-bottom: 2vw; }
+  .cann-hover:hover {
+    background: $light;
+    span {
+      display: inline-block;
+    }
+  }
+  .cann-hover {
+    margin: 0.5vw;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0 0.5vw;
+    margin-right: 0.5vw;
+    font-family: Open Sans;
+    font-size: 1.4vw;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: 0.23333333432674408px;
+    text-align: center;
+    float:left;
+    background: $white;
+    border: 0.2vw solid $primary;
+    border-radius: 1.4vw;
+
+    span {
+      display: none;
+    }
+  }
+}
+
+.compound-left {
+  border-right: 2px solid lighten($primary, 20%);
+  padding-right: 2vw;
+  width: 20vw;
+}
+
+.compound-right {
+  flex-grow: 1;
+  padding-left: 4vw;
+  border-left: 1px solid $light-black-gray;
+}

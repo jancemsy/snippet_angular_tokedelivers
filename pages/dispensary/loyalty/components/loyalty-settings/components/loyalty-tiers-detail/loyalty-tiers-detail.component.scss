@@ -1,0 +1,45 @@
+@import 'src/app/styles/core/variables';
+
+.loyalty-tiers-detail {
+  font-family: Open sans;
+  font-size: 12px;
+  height: 100%;
+
+  form {
+    height: 100%;
+
+    .upgrade-input {
+      width: 120px;
+      margin-right: 1rem;
+    }
+
+    .icons-selection {
+      .custom-radio .custom-control-label {
+        cursor: pointer;
+        border-radius: 4px;
+        &:after, &:before {
+          margin-top: 5px;
+        }
+      }
+
+      .custom-control-input ~ .custom-control-label {
+        opacity: 0.5;
+      }
+
+      .custom-control-input:checked ~ .custom-control-label {
+        opacity: 1;
+      }
+    }
+
+    .preview {
+      padding: 8px;
+      border-radius: 20px;;
+      background-color: $light;
+    }
+
+    .btn-save {
+      width: 100%;
+      border-radius: 10px;
+    }
+  }
+}

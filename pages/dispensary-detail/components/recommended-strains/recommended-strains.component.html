@@ -1,0 +1,35 @@
+<div class="recommended-strains">
+    <div class="card" *ngIf="recommendedStrains">
+      <div class="card-body" >
+        <h2 class="recommended-strains-header">Recommended Strains</h2>
+        <div class="recommended-strains-container" #strainCarousel>
+            <owl-carousel-o [options]="customOptions" class="recommended-strains-carousel" id="recommended-strains-carousel">
+                <ng-template carouselSlide *ngFor="let recommendedStrain of recommendedStrains">
+                    <div class="recommended-strain-card" alt="slide 1">
+                        <div class="recommended-strain-image">
+                            <img class="card-image-top" [src]="recommendedStrain.product.images[0].file.path" alt="Card image cap">
+                        </div>
+                        <div class="recommended-strain-logo">
+                            <div  class="recommendation-container" *ngIf="recommendedStrain.product.reviews">
+                                <div class="thumb">
+                                    <div class="avatar" [style.background]=" 'url(' + recommendedStrain.product.reviews[0].profile_picture_url + ')'">
+                                        <i class="heart"></i>
+                                    </div>
+                                </div>
+                                <p class="message">"{{ recommendedStrain.product.reviews[0].review }}"</p>
+                                <h6 class="name">~{{ recommendedStrain.product.reviews[0].user.full_name }}</h6>
+                            </div>
+                        </div>
+                        <div class="recommended-strain-details">
+                            <h2 class="recommended-strain-title font-weight-bold">{{ recommendedStrain.product.name }}</h2>
+                            <div class="recommended-strain-desc" ><span [ngClass]="recommendedStrain.product.type">{{ recommendedStrain.product.type }}</span></div>
+                        </div>
+                    </div>
+                </ng-template>
+            </owl-carousel-o>
+        </div>
+      </div>
+    </div>
+  </div>
+
+

@@ -1,0 +1,49 @@
+.percent-bar {
+  
+  width: 250px;
+  height: 20px;
+  display: block;
+  position: relative;
+  color: #354c1a;
+  text-transform: capitalize;
+
+  .first-box {
+    position: absolute;
+    margin: 5px 0px;
+    width: 100px;
+    display: block;
+    white-space: nowrap; 
+    overflow: hidden; 
+    font-size: 15px; 
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.23333333432674408px;  
+  }
+
+  .second-box {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 100px;
+    width: 190px;
+    height: 12px;
+    border-radius: 8px;
+    background: #b7beaf;
+  }
+
+  .third-box {
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 100px;
+    width: 100px;
+    height: 12px;
+    border-radius: 8px;
+    background: #354c1a;
+    animation: line-percent-anim 1s reverse;
+  }
+
+  @keyframes line-percent-anim {
+    to {
+      width: 0px;
+    }
+  }
+}

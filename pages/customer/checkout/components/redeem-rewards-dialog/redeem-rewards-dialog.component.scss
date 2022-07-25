@@ -1,0 +1,28 @@
+@import 'src/app/styles/core/variables';
+
+.rewards-dialog {
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    /* identical to box height */
+
+    letter-spacing: 1.27157px;
+
+    color: #354C1A;
+    padding: 5%;
+
+    .reward-points {
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 82px;
+        line-height: 112px;
+        letter-spacing: 1.26795px;
+
+        color: #5EB700;
+    }
+
+}

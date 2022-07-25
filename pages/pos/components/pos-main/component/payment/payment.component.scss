@@ -1,0 +1,102 @@
+@import 'src/app/styles/core/variables';
+
+.pos-payment{
+    height: 90vh;
+    width: 65vw;
+    position: relative;
+
+    .cash-button{
+        position: absolute;
+        height: 23vh;
+        width: 45vw;
+        background: $light;
+        border-radius: 1vw;
+        top : 5vh;
+        bottom : 65vh;
+        left: 10vw;
+        right: 10vw;
+        box-shadow: 1px 3px 10px $light-black-gray;
+        cursor: pointer;
+        text-align: center;
+        .cash-label{
+            position: relative;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            color : $primary;
+            font-size: 2.5vw;
+            top: 8vh;
+        }
+    }
+
+
+    .debit-button{
+        position: absolute;
+        height: 23vh;
+        width: 45vw;
+        background: $light-aqua-blue;
+        border-radius: 1vw;
+        top : 30vh;
+        bottom : 40vh;
+        left: 10vw;
+        right: 10vw;
+        box-shadow: 1px 3px 10px $light-black-gray;
+        cursor: pointer;
+        text-align: center;
+        .debit-label{
+            position: relative;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            color : $black;
+            font-size:  2.5vw;
+            top: 8vh;
+        }
+
+
+    }
+
+    .can-pay-button{
+        position: absolute;
+        height: 23vh;
+        width: 45vw;
+        background: $white;
+        border-radius: 1vw;
+        top : 55vh;
+        bottom : 15vh;
+        left: 10vw;
+        right: 10vw;
+        box-shadow: 1px 3px 10px $light-black-gray;
+        text-align: center;
+        cursor: pointer;
+        .can-pay-svg{
+            position: relative;
+            img {
+                width: 10vw;
+                margin-top: 7vh;
+            }
+        }
+
+    }
+
+    .discount-button{
+        position: absolute;
+        background: $white;
+        border-radius: 2vw;
+        bottom : 2vh;
+        left: 5vw;
+        box-shadow: 1px 3px 10px $light-black-gray;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        color: $primary;
+        border: none;
+        font-size: 1vw;
+        padding: 0.5vw 1.5vw;
+    }
+
+    .discount-button:focus{
+        border: none;
+        outline: none;
+    }
+}

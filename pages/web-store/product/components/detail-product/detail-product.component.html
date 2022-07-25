@@ -1,0 +1,60 @@
+<div id="product-detail-container" *ngIf="product">
+  <div class="top-box">
+    <div class="row">
+      <div class="col-md-2 small-thumbnails">
+        <ul>
+          <ng-container *ngFor="let item of product.thumbnails; let index = index" >
+            <li (click)="clickSelected(item)" [ngClass]="{ selected: item.selected }" >
+              <div class="small-thumb" [ngStyle]="{ 'background-image': 'url(' + item.image + ')' }" ></div>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+
+      <div class="col-md-5 large-thumb">
+        <div class="thumb" [ngStyle]="{ 'background-image': 'url(' + product.image + ')' }" ></div>
+      </div>
+
+      <div class="col-md-5 padding-left-100">
+        <app-product-primary-info
+          [product]="product"
+        ></app-product-primary-info>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-box">
+    <div class="row">
+      <div class="col-md-6 content-left">
+        <app-profile-stats [product]="product"></app-profile-stats>
+      </div>
+
+      <div class="col-md-6 content-right">
+        <h2>Product Description</h2>
+        <div class="description">
+          {{ product.description }}
+        </div>
+
+        <h2>Terpenes</h2>
+        <div class="terpense-list row">
+          <ng-container *ngFor="let item of product.terpenes">
+            <div class="col-sm-3 {{ item.color }}">{{ item.name }}</div>
+          </ng-container>
+        </div>
+
+        <h2>
+          cannabinoids
+          <span class="small" style="display:none;">Hover over to see the %</span>
+        </h2>
+        <div class="cannabinoid-list">
+          <ng-container *ngFor="let item of product.cannabinoids">
+            <div class="cann-hover">
+              {{ item.name }}
+              <span class="percent-hover">{{ item.percent }}%</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

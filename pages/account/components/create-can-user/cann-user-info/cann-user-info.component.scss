@@ -1,0 +1,25 @@
+@import 'src/app/styles/core/variables';
+
+.cannuser-information-form {
+  width: 20rem;
+  margin: auto;
+
+  .card {
+    width: 90%;
+    margin: auto;
+  }
+}
+
+@media (min-width: 576px) {
+  .cannuser-information-form {
+    width: 30rem;
+
+    .card {
+      width: 100%;
+
+      .card-footer {
+        background-color: $white;
+      }
+    }
+  }
+}

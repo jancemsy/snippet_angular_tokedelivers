@@ -1,0 +1,42 @@
+@import 'src/app/styles/core/variables';
+:ng-host {
+  width: 45vw;
+  display: block;
+  height: 20vh;
+  background: $lighter-grey;
+}
+
+.pos-dialog {
+
+  .pos-promo-code {
+    margin: 5vh 5vh 8vh;
+  }
+  .input-group {
+    background-color: $white;
+    border-radius: 20vh;
+    input {
+      background: none;
+      outline: none;
+      border: none;
+      padding: 3.5vh 1vh;
+      padding-left: 2vw;
+      font-size: 2vw;
+      text-align: left;
+      &:focus {
+        outline: none!important;
+        border-color: inherit;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+      }
+    }
+    .btn {
+      width: auto;
+      border-radius: 20vh!important;
+      padding: 0 2vw;
+      margin: 0.5vh;
+      font-size: 1.5vw;
+      background-color: $primary;
+      color: $white;
+    }
+  }
+}

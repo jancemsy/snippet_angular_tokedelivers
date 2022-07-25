@@ -1,0 +1,97 @@
+#edit-employe-container{
+
+  *:not(.fa) {   font-family: ProximaNova Regular; }
+
+  .add-role-btn{ width:80px; padding:10px;}
+
+  .employee-roles-title{  
+      width:98%; 
+      height: 40px;
+      margin-left:5px;
+      margin-bottom:10px; 
+      padding:10px; 
+      font-size: 14px;
+      background:#eee;
+  }
+
+  .employee-roles-content{
+    padding-left:10px; 
+    font-size: 12px;
+  }
+
+
+  
+  .col-md-6.adjust-padding{
+    padding:0px!important;
+  }
+
+  .form-header{ background: #3e5538; color:#fff; 
+    margin-top:20px;
+    padding:10px;
+    h1{ 
+      font-size: 14px;       
+    }
+  }
+
+  .input-text-right-adjustment{ width:97%;}
+
+  .form-body{
+    margin-top:10px;
+    background: #f3f8ec;
+    padding:20px;  
+    border-radius: 15px;
+ }
+
+  
+  .btn-sm{
+    border-radius: 10px;
+    font-size: 10px;
+    font-weight: normal;  
+    padding:2px;
+    min-width: 50px; 
+    background: #6a9733;
+ }
+
+
+ .btn-sm.disable{
+    cursor: auto;
+    background-color:grey;
+  }
+  .btn-sm.disable:hover{
+    color:#fff;
+  }
+
+
+ .drivers-license-area{
+  color: #6a9733;
+  .fa-upload{ margin-right:10px; }  
+ }
+ 
+ .delete-btn{
+  border:none!important; background: none!important;
+} 
+
+  .bottom-buttons{
+    margin-top:20px;
+  }
+
+  .btn-save, .btn-cancel{
+    background: #6a9733;  
+    color:#fff;
+    padding:10px; 
+    width:50px;
+  }
+
+  .btn-cancel{
+    background: none;  
+    color: red;
+  }
+
+  .errors-container{
+    margin:10px;
+    width:100%;
+    text-align:left!important; padding:20px; border-radius: 10px;
+    border:1px solid red; 
+    color:red;
+  }
+}

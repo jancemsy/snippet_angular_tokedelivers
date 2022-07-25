@@ -1,0 +1,203 @@
+
+<div class="dispensary-container">
+    <form [formGroup]="regForm" (ngSubmit)="submitForm()">
+    <div class="row">
+       <div class="dispensary-left col-md-6"> 
+             
+       </div>
+       <div class="dispensary-right col-md-6">
+        
+
+            <app-register-pillbox (new_step)="new_step($event)" [step]="step"></app-register-pillbox>
+
+            <h2>Join <span>Toke</span></h2>
+
+           <div class="step1" *ngIf="step === 1"> 
+                <h1>Company Information</h1>
+                <div class="description">
+                    Please enter your company's information.
+                    This is not the dispensary's information, but 
+                    your overarching company. 
+                </div>
+
+                <div class="form">
+                    <div class="label">Legal Company Name</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" formControlName="legal_company_name" type="text"/>
+                        
+                    </div>
+
+                    <div class="label">Address Line 1</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" formControlName="address_line_1" type="text"/>
+                    </div>
+
+                    <div class="label">Address Line 2</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" formControlName="address_line_2" type="text"/>
+                    </div>
+
+                    <div class="row">
+                    <div class="col-md-8" >
+                            <div class="label">City</div>
+                            <div class="input">
+                                <input (keyup)="validate_fields()" formControlName="city" type="text"/>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="label">State</div>
+                            <div class="input">
+                                <input (keyup)="validate_fields()" formControlName="state" type="text"/>
+                            </div>
+                        </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="label">Zip Code</div>
+                        <div class="input">
+                            <input (keyup)="validate_fields()" formControlName="zip" type="text"/>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="label">Phone Number</div>
+                        <div class="input">
+                            <input (keyup)="validate_fields()" formControlName="phone_number" type="text"/>
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="label">Email</div>
+                <div class="input">
+                    <input (keyup)="validate_fields()" formControlName="company_email" type="email"/> <br>
+                    <span *ngIf="regForm.controls['company_email'].hasError('pattern')" class="validation-error">Please enter a valid email address.</span>
+                </div> 
+                <button [disabled]="is_step_1_invalid" class="btn btn-continue" (click)="clickContinue()">Continue</button>
+            </div>
+        </div>
+
+            <div class="step2" *ngIf="step === 2"> 
+                <h1>Create Admin Account</h1>
+                <div class="description">
+                    Now that we've captured your company's
+                    information, please enter the fields below
+                    to create your first Toke admin account.
+                </div>
+
+                <div class="form">
+
+                    <div class="row">
+                        <div class="col-md-8" >
+                                <div class="label">First Name</div>
+                                <div class="input">
+                                    <input (keyup)="validate_fields()" formControlName="first_name" type="text"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="label">Last Name</div>
+                                <div class="input">
+                                    <input (keyup)="validate_fields()" formControlName="last_name" type="text"/>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="label">Email</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" type="email" formControlName="email" (focusout)="validateEmail()" /> <br>
+                        <span *ngIf="regForm.controls['email'].hasError('emailExists')" class="validation-error">That email is already associated with a Toke account.</span>
+                        <span *ngIf="regForm.controls['email'].hasError('pattern')" class="validation-error">Please enter a valid email address.</span>
+                    </div>
+
+                    <div class="label">Password</div>
+                    <div class="input">
+                        <div class="input-group">
+                            <input (keyup)="validate_fields()" class="input-pw" [type]="fieldTextType ? 'text' : 'password'" formControlName="password"/>
+
+                            <div class="input-group-append">
+                                <span class="input-group-text show-pw">
+                                <i class="fa"
+                                [ngClass]="{
+                                    'fa-eye-slash': !fieldTextType,
+                                    'fa-eye': fieldTextType
+                                }"
+                                (click)="toggleFieldTextType()"></i>
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- <svg class="show-password" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.5 0C4.48442 0 1.78929 1.60114 0 4.11533C1.78929 6.62967 4.48442 8.23066 7.5 8.23066C10.5154 8.23066 13.2107 6.62967 15 4.11533C13.2107 1.60114 10.5154 0 7.5 0ZM7.50016 6.80822C6.01293 6.80822 4.80711 5.60272 4.80711 4.11533C4.80711 2.62794 6.01293 1.42244 7.50016 1.42244C8.98739 1.42244 10.1926 2.62794 10.1926 4.11533C10.1926 5.60272 8.98739 6.80822 7.50016 6.80822Z" fill="#868686"/>
+                            </svg> -->
+                            
+                        <p class="password-info">8 character or more, including at least one number and one
+                            special character (e.g !#%)
+                        </p>
+                        <span *ngIf="regForm.controls['password'].hasError('pattern')" class="validation-error">Password does not meet the stated requirements.</span>
+                    </div>
+
+                    <div class="label">Confirm Password</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" type="password" formControlName="password_confirmation" /><br>
+                    <span *ngIf="regForm.controls['password_confirmation'].hasError('notMatch')" class="validation-error">Passwords do not match, please check and try again.</span>
+                    </div>
+ 
+                <button class="btn btn-continue" [disabled]="is_step_2_invalid" (click)="clickContinue()">Continue</button>
+            </div>  
+            </div> <!-- step2-->
+
+
+            <div class="step3" *ngIf="step === 3"> 
+                <h1>Payment Information</h1>
+                <div class="description">
+                    Last but not least, please enter your 
+                    payment information below so we can get
+                    you up and running on the platform.
+                </div>
+                
+                <app-register-payment-box></app-register-payment-box>
+
+                <div class="form">
+                    <div class="label">Cardholder Name</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" formControlName="holder_name" type="text"/>
+                    </div>
+
+                    <div class="label">Card Number</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" formControlName="number" type="text"/>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-8" >
+                                <div class="label">Expiration Date</div>
+                                <div class="input">
+                                    <input (keyup)="validate_fields()" formControlName="expiration_date" type="text"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="label">Security Code</div>
+                                <div class="input">
+                                    <input (keyup)="validate_fields()" formControlName="security_code" type="text"/>
+                                </div>
+                            </div>
+                    </div>
+
+                   
+                    <div class="label">Zip Code</div>
+                    <div class="input">
+                        <input (keyup)="validate_fields()" formControlName="zip_code" type="text"/>
+                    </div>
+
+                    <button class="btn btn-complete" [disabled]="is_step_3_invalid" (click)="clickComplete()">Complete</button>
+                </div>
+           </div>     
+
+          
+       </div>   
+    </div>
+</form>
+
+   </div>
+   

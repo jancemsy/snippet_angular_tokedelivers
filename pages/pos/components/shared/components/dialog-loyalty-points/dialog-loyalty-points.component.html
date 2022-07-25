@@ -1,0 +1,35 @@
+<div class="pos-dialog">
+  <div class="d-flex horizontal-padding">
+    <img
+      (click)="dialogRef.close()"
+      class="ml-auto close"
+      src="../../../../../../../assets/icons/close.svg"
+      alt="close">
+  </div>
+
+  <div class="pos-dialog-content">
+    <div class="available-points">
+      <p>AVAILABLE POINTS</p>
+      <div class="points">
+        <span>1000</span>
+        <img src="../../../../../../../assets//images/cart/leaves.svg" alt="">
+      </div>
+    </div>
+
+    <div class="choose-points d-flex flex-wrap">
+      <div *ngFor="let item of availablePoints" class="card">
+        <div>
+          <span class="point-badge">
+            {{ item.points }}
+            <img src="../../../../../../../assets//images/cart/leaves.svg" alt="">
+          </span>
+        </div>
+        <img
+          class="resinate"
+          src="../../../../../../../assets/images/dispensaries/resinate.png" alt="">
+        <h5>{{ item.off }} off</h5>
+        <p class="text-muted">Your order</p>
+      </div>
+    </div>
+  </div>
+</div>

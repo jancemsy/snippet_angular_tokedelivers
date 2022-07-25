@@ -1,0 +1,192 @@
+<div *ngIf="phase">
+
+  <!-- empty layout -->
+  <div *ngIf="phase.layout == 'empty'" class="container">
+    <div class="row">
+      <div class="col-md-4 d-flex align-items-center">
+        <app-info-card [config]="configItem" [isTransparent]="true"></app-info-card>
+      </div>
+      <div class="col-md-4">
+        <app-image-name-form-card
+          [form]="{
+            name:'',
+            image: '',
+            promocode:''
+          }"
+          (onChange)="handleFlow(0, $event)">
+        </app-image-name-form-card>
+      </div>
+    </div>
+  </div>
+
+  <div
+    *ngIf="phase.layout == 'detail'"
+    class="container-fluid"
+    [ngClass]="{ 'loading' : isLoading }"
+    [@fadeAnimation]="phase.layout == 'detail' ? 'in' : 'leave'">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="phase-title d-flex justify-content-between">
+          <h2>{{ phase.title }}</h2>
+          <button
+            *ngIf="isEditing"
+            class="btn inverted btn-icon icon badge button-trash"
+            (click)="onTrash()">
+            <img src="../../../../../../../../assets/icons/icon-trash.svg" alt="trash icon">
+          </button>
+        </div>
+        <app-image-name-form-card
+          (onCard)="onImageNameCardClick()"
+          [form]="{
+            name: _config.name,
+            image: _config.avatar,
+            promocode: _config.code
+          }"
+          [edit]="editMode"
+          [isActive]="isImageNameFormActive"
+          [isConfigActive]="_config.status == 'active'"
+          (onEditing)="isEditing = $event"
+          (onChange)="handleFlow(0, $event)"
+          (onSave)="onSaveImageName($event)"
+        >
+        </app-image-name-form-card>
+      </div>
+      <div class="col-md-8">
+
+        <app-nav-steps-slider
+          [navs]="navoptions"
+          (onChange)="onNavStepChange($event)"
+          [isActive] = "isStepsActive"
+          #navComp>
+        </app-nav-steps-slider>
+
+        <container-element [ngSwitch]="phase.step">
+
+          <!-- Step 1 -->
+          <app-definition-card
+            *ngSwitchCase="1"
+            [isActive] = "isStepsActive"
+            (onCard)="onStepCardClick()"
+            >
+            <div class="definition-container d-flex flex-column">
+              <span class="label-preview">Define</span>
+              <!-- conditions  -->
+              <div class="d-flex">
+                <label for="buy">
+                  Buy
+                  <app-form-multi-select
+                    class="ml-3 mr-3"
+                    [selectedItem]="getItem(0)"
+                    [setOptions]="buyChoices"
+                    (onSelected)="handleFlow(1, $event)">
+                  </app-form-multi-select>
+                </label>
+                <label for="worth" *ngIf="flow > 1">
+                  <app-custom-input
+                    type="number"
+                    class="mr-3"
+                    [value]="getItem(1)"
+                    [placeholder]="_quantityDealState.handlePlaceHolder('worth_of')"
+                    (onChange)="handleFlow(2, $event)">
+                  </app-custom-input> {{ _quantityDealState.showLabel('worth_of') }}
+                </label>
+              </div>
+
+              <!-- get condition -->
+              <div class="d-flex">
+                <label for="get-from" *ngIf="flow > 2">
+                  <app-form-multi-select
+                    class="mr-3"
+                    [wider]="true"
+                    [selectedItem]="getItem(2, true)"
+                    [setOptions]="filterChoices"
+                    (onSelected)="handleFlow(3, $event)">
+                  </app-form-multi-select>
+                </label>
+                <label for="get-to" *ngIf="flow > 3">
+                  , get
+                  <app-custom-input
+                    class="ml-3"
+                    type="number"
+                    [value]="getItem(3)"
+                    placeholder="Enter number"
+                    (onChange)="handleFlow(4, $event)">
+                  </app-custom-input>
+                </label>
+              </div>
+
+
+              <!-- for condition -->
+              <div class="d-flex">
+                <label for="for-from" *ngIf="flow > 4">
+                  <app-form-multi-select
+                    class="mr-3"
+                    [wider]="true"
+                    [selectedItem]="getItem(4, true)"
+                    [setOptions]="filterChoices"
+                    (onSelected)="handleFlow(5, $event)">
+                  </app-form-multi-select>
+                </label>
+                <label for="for-to-type" *ngIf="flow > 5">
+                  for
+                  <app-form-multi-select
+                    class="ml-3"
+                    [setOptions]="forChoices"
+                    [selectedItem]="_quantityDealState.getSelectForType()"
+                    (onSelected)="handleFlow(6, $event)">
+                  </app-form-multi-select>
+                </label>
+                <label for="for-to" *ngIf="!selectForFree && flow > 6">
+                  <app-custom-input
+                    type="number"
+                    class="ml-3"
+                    [value]="getItem(6)"
+                    [placeholder]="_quantityDealState.handlePlaceHolder('for_to')"
+                    (onChange)="handleFlow(7, $event)">
+                  </app-custom-input>
+                </label>
+              </div>
+
+              <!-- preview -->
+              <app-alert-preview
+                class="mt-auto"
+                label="preview"
+                [message]="_quantityDealState.previewMsg">
+              </app-alert-preview>
+            </div>
+          </app-definition-card>
+
+          <!-- Step 2 -->
+          <app-timing-location-card
+            *ngSwitchCase="2"
+            [isActive] = "isStepsActive"
+            [config] = "_config.timingLocationConfig"
+            (onCard)="onStepCardClick()"
+            (onConfigChange)="handleFlow(8, $event)"
+            ></app-timing-location-card>
+
+          <!-- Step 3 -->
+          <app-other-settings-card
+            *ngSwitchCase="3"
+            [isActive] = "isStepsActive"
+            [config]="otherSettingsConfig"
+            (onCard)="onStepCardClick()"
+            (onConfigChange)="handleFlow(9, $event)"
+            ></app-other-settings-card>
+
+       </container-element>
+      </div>
+    </div>
+  </div>
+
+  <div class="next-button" *ngIf="phase.nav_next">
+    <button
+      class="btn btn-oval"
+      (click)="onNext()"
+      [ngClass]="(phase.nav_button == 'Finish') ? 'btn-highlight' : 'btn-primary'">
+      {{ phase.nav_button }}
+    </button>
+  </div>
+
+  <div class="clearfix"></div>
+</div>

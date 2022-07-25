@@ -1,0 +1,82 @@
+@import 'src/app/styles/core/variables';
+.pos-scan{
+    width: 100vw;
+    height: 100vh;
+    background: black;
+
+    .camera-section{
+        height: 90vh;
+        background: grey;
+        border-bottom-left-radius: 3vw;
+        border-bottom-right-radius: 3vw;
+
+        .back-svg{
+            position: absolute;
+            width: auto;
+            height: 8vh;
+            top: 2vh;
+            left: 2vw;
+        }
+
+        .back-svg:hover{
+            cursor: pointer;
+        }
+    }
+
+    .id-selector-section{
+        height: 10vh;
+        background: $black;
+
+        .selector{
+            position: relative;
+            background: $primary;
+            width: 22vw;
+            height: 5vh;
+            border-radius: 2vw;
+            top: 2.5vh;
+            left: 3vw;
+
+            .medical-id{
+                width: 11vw;
+                height: 5vh;
+                color: $white;
+                font-size :1vw;
+                background: none;
+                border-radius: 2vw;
+                border: none;
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: bold;
+            }
+
+            .medical-id:focus {
+                border: none;
+                outline: none;
+            }
+
+            .state-id{
+                width: 11vw;
+                height: 5vh;
+                color: $white;
+                font-size :1vw;
+                background: none;
+                border-radius: 2vw;
+                border: none;
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: bold;
+            }
+
+            .state-id:focus {
+                border: none;
+                outline: none;
+            }
+
+            .id-active{
+                background: $white;
+                color: $primary;
+            }
+
+        }
+    }
+}

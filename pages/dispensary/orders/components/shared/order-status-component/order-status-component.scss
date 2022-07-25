@@ -1,0 +1,70 @@
+.order-box{ 
+    font-family: Open Sans; font-style: normal; font-weight: bold; font-size: 12px; line-height: 16px; color: #3A471E; 
+    padding:30px 20px;  height:100%;  
+     
+    a{cursor:pointer;}
+    
+
+    .top-header{
+        text-transform: uppercase; 
+        margin-bottom:26px;    
+    }
+       
+    .status-ready-for-pick-up{
+        color:#FE5E00;  
+    }
+
+    .status-pending{
+        color:#077E8C;  
+    }
+
+    .status-payment-processed{
+        color:#5EB700; 
+    }
+
+
+    .box-body{ 
+        font-weight: bold; font-size: 15px; line-height: 20px; letter-spacing: 0.233333px;
+        
+        .order-status{ text-transform: capitalize;}
+
+        
+
+    
+
+        button{ 
+            margin-top:38px;
+            width: 100%; 
+            height: 31px;  
+            background: #F0F0F0; border-radius: 20px;
+            border:none;
+            font-size: 15px;
+            color:#354C1A;
+            .fas.fa-plus{
+                font-size:10px;   
+                 position:absolute;
+                 margin-left:-15px;
+                 margin-top:5px; 
+             }
+        }
+
+        button:hover{
+            border:1px solid rgb(179, 179, 179);
+        }
+        .cancel-container{
+            position:absolute;
+            bottom:25px; 
+            right:32px; 
+            color:red!important;  
+            a{  font-size:12px; font-weight: bold; }
+            a:hover{  
+                text-decoration: underline;
+            }
+        }
+
+
+    }
+
+    
+
+}

@@ -1,0 +1,27 @@
+<div class="info-box" *ngIf="customerInfo != null">
+    <div class="top-header">
+        customer info
+    </div>
+    <div class="box-body">
+        <div class="row">
+          <div class="col-4 label">Name:</div> 
+          <div class="col-8">{{customerInfo.name}}</div> 
+        </div> 
+        
+        <div class="row">
+            <div class="col-4 label">Contact:</div> 
+            <div class="col-8">{{customerInfo.contact}}</div> 
+          </div> 
+
+          <div class="row">
+            <div class="col-4 label">Type:</div> 
+            <div class="col-8">{{customerInfo.type}}</div> 
+          </div> 
+
+          <div class="row"> 
+            <div class="col-12"><a 
+                class=" pull-right"
+                 (click)="clickProfile()">See Profile</a></div> 
+          </div> 
+    </div>
+</div>

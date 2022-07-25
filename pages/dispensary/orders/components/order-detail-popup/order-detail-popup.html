@@ -1,0 +1,42 @@
+<ng-container *ngIf="orderId > 0">
+   <div class="order-detail-popup-overlay"></div> 
+   <div class="order-detail-popup" >  
+         <div class="order-detail-popup-inner">
+            <div class="row"> 
+               <div class="col-10 order-detail-main">
+                              <div class="row order-top-header">
+                                 <div class="col-6 order-heading-item">
+                                       Delivery - Order #{{orderInfo.id}}  <span class="phone" (click)="clickPhone()">
+                                          <i class="fas fa-phone-alt"></i>
+                                          PHONE</span> 
+                                 </div>
+                                 <div class="col-6">
+                                          <div class="row">
+                                             <div class="col-9">Placed by: <a (click)="clickOpenProfile()">{{orderInfo.name}}</a></div>
+                                             <div class="col-3">{{orderInfo.date}}</div> 
+                                          </div>
+                                 </div>     
+                              </div>  
+
+                              <div class="row order-detail-body">
+                                 <div class="col-6 body-inner" > 
+                                          <app-admin-customer-info [customerInfo]="customerInfo"></app-admin-customer-info>  
+                                          <app-admin-address-info [addressInfo]="addressInfo"></app-admin-address-info>
+                                          <app-admin-payment-details [paymentDetails]="paymentDetails"></app-admin-payment-details> 
+                                 </div> 
+                                 <div class="col-6"  > 
+                                    <app-admin-product-info [productInfo]="productInfo"></app-admin-product-info>  
+                                 </div> 
+                              </div>
+               </div>
+
+               <div class="col-2 order-detail-right"   >
+                  <div class="close-popup-button" (click)="clickClosePopup()">
+                     <i class="fa fa-times" aria-hidden="true"></i>
+                  </div>       
+                  <app-admin-order-status [orderInfo]="orderInfo"></app-admin-order-status> 
+               </div>
+            </div>
+         </div>
+   </div>
+</ng-container>

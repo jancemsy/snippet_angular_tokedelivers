@@ -1,0 +1,62 @@
+<div class="license-info-section">
+  <form [formGroup]="form" novalidate>
+    <div class="d-flex">
+      <div class="form-group col-md-4 pl-0">
+        <label for="exampleInputEmail1">Dispensary License #</label>
+        <input type="email" class="form-control"
+          placeholder="License Number"
+          formControlName="license_number">
+      </div>
+      <div class="form-group col-md-2 pl-0">
+        <label for="exampleInputEmail1">State of Issue</label>
+        <input type="text" class="form-control"
+          placeholder="State"
+          formControlName="license_state">
+      </div>
+      <div class="form-group col-md-3 pl-0">
+        <label for="exampleInputEmail1">Issue Date</label>
+        <input class="form-control" name="issueDate"
+          placeholder="Issue Date"
+          type="text"
+          formControlName="license_issue_date"
+          bsDatepicker
+          placeholder="Issue date"
+          [bsValue]="f.license_issue_date.value"
+          [bsConfig]="{ adaptivePosition: true }">
+      </div>
+      <div class="form-group col-md-3 px-0">
+        <label for="exampleInputEmail1">Expiration Date</label>
+        <input class="form-control"
+          placeholder="License Expiration Date"
+          type="text"
+          bsDatepicker
+          [bsValue]="f.license_expiration.value"
+          [bsConfig]="{ adaptivePosition: true }"
+          formControlName="license_expiration">
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="form-group col-md-10">
+        <div class="d-flex text-medium" (click)="licenseFile.click()">
+          <i class="fa fa-upload"></i>
+          <label for="issueDate">&nbsp; Upload Dispensary License</label>
+        </div>
+        <input class="form-control" hidden name="licenseFile" #licenseFile
+          type="file"
+          ng2FileSelect
+          [attr.accept]="allowedMimeTypes"
+          [uploader]="uploader"
+          (onFileSelected)="onLicenseUpload($event)">
+
+        <div class="text-left w-100" *ngIf="dispensaryInfo.license_files">
+          <p class="text-primary mb-0" *ngFor="let file of dispensaryInfo.license_files">
+            <span class="pr-2">
+              <i class="fa fa-paperclip"></i>
+            </span>
+            <span>{{ file.file_name }}</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

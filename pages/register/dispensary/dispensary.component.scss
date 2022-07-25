@@ -1,0 +1,136 @@
+
+::ng-deep{ body{
+    background:#F2F2F2!important;
+    padding-bottom: 100px!important;
+} }
+
+.dispensary-container{ 
+    display:block;
+    width:1430px;
+    height:900px;  
+    margin:auto;
+
+    .input-pw {
+        border-top-right-radius: 0px !important;
+        border-bottom-right-radius: 0px !important;
+        width: 230px !important;
+    }
+
+    .show-pw
+    {
+        border-top-right-radius: 17.5px !important;
+        border-bottom-right-radius: 17.5px !important;
+        background-color: #F1F1F1 !important;
+        border: none !important;
+        cursor: pointer;
+    }
+
+    input:focus {
+        outline: none;
+    }
+  
+    .dispensary-left{ 
+        height:900px; 
+        padding-top:217px;
+        padding-left:127px;    
+        background:url(/assets/images/register/dispensary-left.svg) no-repeat #CCDBB6;  
+    }
+
+    .dispensary-right{   
+            min-height:900px; 
+            background: #fff; 
+            padding:40px; 
+         
+            h2{   
+            margin-top:50px; 
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 27px;
+            letter-spacing: 0.135725px;   }  
+
+            h2 span{ color:#6E9C36;  } 
+
+            h1{ font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 40px;
+            line-height: 54px;
+            letter-spacing: 0.135725px;  } 
+
+            .description{  font-family: Open Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 20px;
+                line-height: 27px;
+                letter-spacing: 0.135725px;} 
+ 
+            .label{ font-family: Open Sans;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px;
+            color: #354C1A;
+            margin-top:14px; 
+            margin-bottom:14px; } 
+
+            .input{ } 
+            .input input{ padding:10px;
+            background: #F1F1F1;
+            border-radius: 17.5px;
+            border:none;
+            width:270px;
+            height:37px;
+            } 
+            svg.show-password{
+                position:absolute;
+                margin:13px 0px 0px -30px;
+                cursor:pointer;
+            }
+            .password-info{
+                font-family: Open Sans;
+                font-style: normal;
+                font-weight: normal;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0.233333px; 
+                color: #354C1A;
+            }
+
+            .form{ margin-top:35px; width:100%;   } 
+            .form .row{   width:100%;  }
+            .form .row input{ width:100%!important;  }
+
+            .btn-continue, .btn-complete{      margin-top:45px;
+            width:182px; height:47px;
+            background: #354C1A;
+            box-shadow: 1px 4px 6px #CBCBCB;
+            border-radius: 23.75px;
+            font-family: Open Sans;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 27px;
+            letter-spacing: 0.135725px;
+            }
+
+            .btn-complete{ background:#6E9C36; }
+            
+            .btn-continue:hover , .btn-complete:hover{ color:#eee;}
+
+
+    }
+
+    .validation-error {
+        font-family: 'Open Sans';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 20px;
+        letter-spacing: 0.135725px;
+
+        color: #C01919;
+    }
+}

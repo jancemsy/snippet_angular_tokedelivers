@@ -1,0 +1,136 @@
+<div class="catalogue full-height">
+  <div class="card shadow">
+    <div class="card-header bg-none">
+      <div class="col-md-12">
+        <h1>{{ activeDispensary.label }}</h1>
+      </div>
+      <div class="d-flex justify-content-between mt-4">
+        <div class="col-md-6">
+          <div class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search w-50">
+            <div class="input-group">
+              <input type="text" class="form-control bg-light border-0 small"
+                placeholder="Search for..."
+                aria-label="Search"
+                aria-describedby="basic-addon2"
+                [(ngModel)]="vm.searchText">
+              <div class="input-group-append">
+                <button class="btn icon" type="button">
+                  <i class="fas fa-search fa-sm"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 text-right">
+          <div class="d-flex justify-content-end">
+            <div class="d-flex align-items-center">
+              <app-custom-numeric
+                (onChange)="onGlobalThresholdChanged($event, vm)"
+                [edit]="vm.threshold.isEditing"
+                [formModel]="vm.threshold.value">
+              </app-custom-numeric>
+              <button class="btn btn-sm btn-secondary"
+                (click)="setThresholdGlobally()">
+                Set Threshold
+              </button>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input chk-sm" id="chkListAll"
+                type="checkbox" [(ngModel)]="vm.listAll"
+                (change)="listAllItems()">
+              <label class="form-check-label" for="chkListAll">List All</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body pt-0">
+      <div class="operating-time-section">
+        <div class="my-2 table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th [ngClass]="column.css" *ngFor="let column of columnNames">
+                  {{ column.label }}
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="item-row"
+                *ngFor="let item of catalogues
+                | searchFilter:vm.searchText
+                | slice: (vm.page - 1) * vm.pageSize : (vm.page - 1) * vm.pageSize + vm.pageSize">
+                <td class="center-vertically">
+                  <app-product-info
+                    [name]="item.producer"
+                    [imageUrl]="item.image_path">
+                  </app-product-info>
+                </td>
+                <td class="center-vertically">
+                  <div class="mb-2"><button class="btn btn-pill btn-sm inverted">{{ item.category.name }}</button></div>
+
+                  <div class="mb-2" *ngIf="item.category?.subcategories && item.category?.subcategories.length">
+                    <button class="btn btn-pill btn-sm inverted"
+                      *ngFor="let subCat of item.category.subcategories">{{ subCat.name  }}</button>
+                  </div>
+                  <div class="mb-2" *ngIf="!item.category?.subcategories || !item.category?.subcategories.length">
+                    <button class="btn btn-pill btn-sm inverted">{{ 'None' }}</button>
+                  </div>
+                </td>
+                <td class="center-vertically text-bold text-secondary text-center">
+                  {{ item.medical_only | useType }}
+                </td>
+                <td class="center-vertically">
+                  <div *ngFor="let skus of item.packages">
+                    {{ skus.sku }}
+                  </div>
+                </td>
+                <td class="center-vertically">
+                  <div *ngFor="let price of item.packages">
+                    {{ price.price | currency:'USD':'$ ':'0.0-2' }}
+                  </div>
+                </td>
+                <td class="center-vertically">
+                  <div *ngFor="let size of item.packages">
+                    {{ size.measurement }} {{ size.unit }}
+                  </div>
+                </td>
+                <td class="center-vertically">
+                  <div class="text-center w-100 mb-1" *ngFor="let threshold of item.packages">
+                    <app-custom-numeric
+                      (onChange)="onThresholdChanged($event, threshold)"
+                      (isEditing)="onQtyEdits($event, threshold)"
+                      [edit]="item.isEditing"
+                      [formModel]="threshold.threshold">
+                    </app-custom-numeric>
+                  </div>
+                </td>
+                <td class="center-vertically">
+                  <div class="form-check" *ngFor="let chk of item.packages">
+                    <input class="form-check-input chk-sm" id="chk{{chk.variant_id}}"
+                      type="checkbox" [(ngModel)]="chk.listed" (click)="chk.isEditing = !chk.isEditing">
+                    <label class="form-check-label" for="chk{{chk.variant_id}}"></label>
+                  </div>
+                </td>
+                <td class="center-vertically">
+                  <button class="btn btn-sm"
+                    (click)="updateSettings(item)">
+                    Update Settings
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="w-100 d-flex justify-content-end">
+          <ngb-pagination *ngIf="catalogues"
+            [collectionSize]="catalogues.length"
+            [pageSize]="vm.pageSize"
+            [(page)]="vm.page">
+          </ngb-pagination>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

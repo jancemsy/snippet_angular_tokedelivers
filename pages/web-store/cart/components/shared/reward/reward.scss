@@ -1,0 +1,155 @@
+.reward-popup-container-overlay{
+  background: #333;
+  opacity: 0.2;  
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: fixed; 
+  z-index:8888!important;  
+}
+
+.reward-popup-container{ 
+  *:not(.fa) { font-family: Open Sans;}
+
+  position: fixed;
+  top:calc((100vh - 460px) / 2) ;  
+  left: 50%; margin-left: -284px; 
+  z-index:8889!important;   
+  width: 568px;
+  height: auto; //460px; 
+
+  padding:24px 24px 20px 0px;
+  background: #FFFFFF;
+  box-shadow: 1px 3px 10px #A7A7A7;
+  border-radius: 20px;
+
+  .close-btn{
+    position:absolute; 
+    right:12px;
+    top:5px;
+    cursor:pointer; 
+  }
+
+  .outer-container{ padding-left:40px; padding-bottom:40px; } 
+
+  .available-points{  
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;  
+    letter-spacing: 1.27157px;
+    
+    color: #354C1A;
+    margin-top:30px; margin-left:20px; 
+
+  }
+
+  .points{
+    font-style: normal;
+    font-weight: 600;
+    font-size: 82px;
+    line-height: 112px;
+    letter-spacing: 1.26795px; 
+    color: #5EB700; 
+    margin-left:20px; margin-bottom:30px;
+  }
+
+.row{
+  width:466px; 
+  margin-left:20px;   
+  padding:0px;
+
+  .col-4{
+    padding:0px!important;
+    margin-bottom:10px;
+  }
+
+  .box-item:hover{
+    .hover{display:block;}
+    .default{ display: none; }
+  }
+
+  .box-item{ 
+    cursor: pointer;
+    width: auto;
+    height: 200px;  
+    padding-top:2px; 
+
+    img{ width: 142px; height: 63px;  }
+    display:block;  
+    margin-right: 20px;
+
+    background: #FFFFFF;
+    box-shadow: 1px 3px 10px #CBCBCB;
+    border-radius: 10px;
+    .hover{
+      display:none;
+    }
+
+    .hover button{ 
+      width: 122px;
+      height: 39px; 
+  
+      background: #6E9C36;
+      border-radius: 10px; 
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 25px; 
+  
+      text-align: center;
+      letter-spacing: 0.47px;
+  
+      color: #FFFFFF; 
+      border:none!important;
+      margin-top:54px;
+      margin-left:6px;
+      filter: drop-shadow(1px 3px 10px #CBCBCB);     
+  }
+
+  
+
+  .small-points{ 
+      margin:10px 10px 0px;
+      display:block; 
+      padding-right:15px; 
+      background:url(/assets/images/cart/star.svg) no-repeat #EDEDED; 
+      padding:2px 0px 0px 5px;    
+      background-position:37px 2px;   
+      width: 53.44px;
+      height: 19px; 
+      border-radius: 35.625px;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.192104px; 
+      color: #5EB700; 
+    }
+
+    .amount-off{
+      margin-top:27px;
+      margin-left:10px;
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 33px; 
+      letter-spacing: 0.47px; 
+      color: #354C1A;
+    }
+
+    .your-order{
+      margin-left:10px;
+      font-family: Open Sans;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.47px; 
+      color: #A8A8A8;
+    }
+  }
+}
+
+}

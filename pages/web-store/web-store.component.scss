@@ -1,0 +1,101 @@
+#edit-design-container{
+
+    .select-l {
+        outline: 0px !important;
+        border: 0px;
+        border-radius: 0px;
+        border-bottom: 1px solid !important;
+        background: #f8f9fa;
+        font-size: 1em;
+    }
+    
+    .select-l:focus {
+        // border-color: #66afe9;
+        outline: 0;
+        // -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+        box-shadow: none;
+    }
+
+    .form-header{ background: #3e5538; color:#fff; 
+        margin-top:30px;
+        padding:10px;
+        h1{ 
+            font-size: 22px;       
+        }
+    }
+
+    .form-body{
+        margin-top:10px;
+        background: #f3f8ec;
+        padding:10px;  
+        border-radius: 10px;
+        border-style: solid;
+        border-width: 1px;
+    }
+
+    h1.title {
+        margin-bottom: 0rem !important;
+    }
+
+    div.align-center {
+        margin-top: 10%;
+    }
+
+    img.img-prop {
+        margin-left: 5%;
+    }
+
+    .p-10 {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .fa-prop {
+        font-size: 3em;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+
+    .upload-action {
+        margin-top: 2%;
+    }
+
+    .label-prop {
+        margin-top: 10px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .btn-prop {
+        margin-left: 8px;
+        border-color: #416330;
+    }
+
+    .btn-prop:hover {
+        background: #6ea951;
+      }
+  
+      .btn-prop:focus {
+        background: #6ea951;
+      }
+  
+      .btn-prop:disabled {
+        background: #c3c3c3;
+      }
+  
+      .icon-prop {
+        margin-left: 10px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+
+      .fa-close-prop {
+          margin-top: 2%;
+          font-size: 18px;
+          cursor: pointer;
+      }
+
+      .btn-upload {
+          margin-left: 8%;
+      }
+}

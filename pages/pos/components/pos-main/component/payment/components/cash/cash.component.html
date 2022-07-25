@@ -1,0 +1,84 @@
+<div class="cash">
+    <div class="d-flex justify-content-center">
+        <div class="input-card">
+            <div class="input-label unselectable">
+                {{ currencyView() | currency }}
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="calc-card" (click)="onNumberTap('7')">
+            <div class="calc-label">
+                7
+            </div>
+            
+        </button>
+        <button class="calc-card" (click)="onNumberTap('8')">
+            <div class="calc-label">
+                8
+            </div>
+        </button>
+        <button class="calc-card" (click)="onNumberTap('9')">
+            <div class="calc-label">
+                9
+            </div>
+        </button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="calc-card" (click)="onNumberTap('4')">
+            <div class="calc-label">
+                4
+            </div>
+        </button>
+        <button class="calc-card" (click)="onNumberTap('5')">
+            <div class="calc-label">
+                5
+            </div>
+        </button>
+        <button class="calc-card" (click)="onNumberTap('6')">
+            <div class="calc-label">
+                6
+            </div>
+        </button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="calc-card" (click)="onNumberTap('1')">
+            <div class="calc-label">
+                1
+            </div>
+        </button>
+        <button class="calc-card" (click)="onNumberTap('2')">
+            <div class="calc-label">
+                2
+            </div>
+        </button>
+        <button class="calc-card" (click)="onNumberTap('3')">
+            <div class="calc-label">
+                3
+            </div>
+        </button>
+    </div>
+    <div class="d-flex justify-content-center">
+        <button class="calc-card">
+            <div class="calc-label" (click)="onDeleteTap()">
+                Delete
+            </div>
+        </button>
+        <button class="calc-card" (click)="onNumberTap('0')">
+            <div class="calc-label">
+                0
+            </div>
+        </button>
+        <button class="calc-card" (click)="onClearTap()">
+            <div class="calc-label" >
+                Clear
+            </div>
+        </button>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <button class="btn button-card" (click)="onTakePayment($event)" [class]="isInsufficient ? 'insufficient' : ''">
+            Take Payment
+        </button>
+    </div>
+</div>

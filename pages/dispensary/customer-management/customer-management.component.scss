@@ -1,0 +1,26 @@
+@import 'src/app/styles/core/variables';
+
+.customer-management {
+  .table {
+    color: $black;
+
+    td {
+      &.text-bold {
+        font-weight: 600;
+      }
+
+      &.toke {
+        background: #EDF3E5;
+      }
+    }
+
+    .profile-container {
+      .img-container {
+        img {
+          position: relative;
+          top: -5px;
+        }
+      }
+    }
+  }
+}

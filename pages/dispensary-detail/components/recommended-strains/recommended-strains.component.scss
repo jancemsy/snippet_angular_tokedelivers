@@ -1,0 +1,168 @@
+@import 'src/app/styles/core/variables';
+.recommended-strains{
+    margin: 0 95px;
+    .card{
+      background-color: transparent;
+      border: none;
+      padding : 3rem 0;
+      .card-body { padding: 0; }
+    }
+
+    .recommended-strains-header{
+      line-height: 41px;
+      letter-spacing: 0.466667px;
+      color: $primary;
+      padding: 0 50px;
+    }
+
+    .recommended-strains-container {
+      margin: 0 5vw;
+    }
+
+    .recommended-strains-carousel{
+      width: 100%;
+      height: 100%;
+      margin-left: 100px;
+      margin-right: 100px;
+      .recommended-strain-card{
+        box-shadow: 2.24721px 3.74535px 11.2361px $xlight-gray;
+        background-color: $white;
+        width: 100%;
+        border-radius: 14.9814px;
+        .recommended-strain-image{
+          border-top-left-radius:  14.9814px;
+          border-top-right-radius: 14.9814px;
+          .card-image-top{
+            border-top-left-radius:  14.9814px;
+            border-top-right-radius: 14.9814px;
+            background-size: cover;
+            background-position: center center;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            max-height: 100%;
+            max-width: 100%;
+          }
+          height: 40vw;
+          min-height: 540px;
+          position: relative;
+        }
+
+
+        .recommended-strain-logo:hover .recommendation-container {
+          display: block !important;
+        }
+
+
+        .recommended-strain-logo{
+            position: absolute;
+            right : 10%;
+            bottom: 7%;
+            background: transparent;
+            background-image: url('/assets/images/products/budtender-icon.svg');
+            background-position: center;
+            background-size: contain;
+            background-repeat: no-repeat;
+            width: 25%;
+            height: 25%;
+            .tokeSvg{
+              width: 78.2px;
+              height: 78.2px;
+            }
+
+            .recommendation-container {
+              display: none;
+              position: absolute;
+              background: #fff;
+              z-index: 1000000000 !important;
+              box-shadow: 0 0 10px rgb(202, 202, 202);
+              border: 1px solid #eee;
+              border-radius: 10px;
+              width: 265px;
+              height: auto;
+              padding: 15px;
+              text-align: center;
+              font-family: Open Sans;
+
+              .thumb {
+                .avatar {
+                  border-radius: 50%;
+                  background-size: cover;
+                  background-position: center center;
+                  width: 150px;
+                  height: 150px;
+                  margin: auto;
+                  margin-top: 40px;
+                  position: relative;
+                }
+              }
+
+              .message {
+                margin-top: 20px;
+                font-size: 15px;
+                font-weight: 600;
+              }
+
+              .name {
+                margin-top: 0.5rem;
+                font-size: 12px;
+                margin-bottom: 20px;
+              }
+
+              i.heart {
+                color: $peach;
+                right: 7px;
+                bottom: -5px;
+                font-size: 40px;
+                position: absolute;
+                width: 48.25px;
+                height: 44.03px;
+                background-image: url('/assets/images/products/heart.svg');
+              }
+            }
+
+        }
+
+        .recommended-strain-details{
+            min-height: 100px;
+            height: 6vw;
+            max-height: 150px;
+            .recommended-strain-title{
+                text-align: center;
+                color: $primary;
+            }
+            .recommended-strain-desc{
+                text-align: center;
+
+                span{
+                    font-size: 80%;
+                    width: fit-content;
+                    padding : 5px 10px 5px 10px;
+                    border-radius: 1rem;
+                    border: solid;
+                    text-transform: uppercase;
+                }
+
+                .Indica{
+                  color: $returned;
+                }
+
+                .Sativa{
+                  color: $processing;
+                }
+
+                .Hybrid{
+                  color: #894699;
+                }
+            }
+        }
+
+      }
+    }
+
+
+
+  }

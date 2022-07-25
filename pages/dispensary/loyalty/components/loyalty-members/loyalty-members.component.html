@@ -1,0 +1,55 @@
+<div class="loyalty table-responsive card shadow mb-4 full-height">
+  <table class="table mgt-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Tier</th>
+        <th>Available Points</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of loyaltyMembers" (click)="onMemberSelected(item)">
+        <td class="pl-4 py-4">
+          <div class="profile-container">
+            <div class="img-container --sm tier-{{item.tier}}">
+              <!-- <img src="../../../../../../assets/icons/top-nav/fa-user.svg" alt="img" *ngIf="!item.user.imgUrl"> -->
+              <img [src]="item.user.imgUrl" alt="img" *ngIf="item.user.imgUrl">
+            </div>
+            <div class="label tier-{{item.tier}} --text">
+              {{ item.user.first_name }}&nbsp;{{ item.user.last_name }}
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="text-center">
+            {{ item.user.phone }}
+          </div>
+        </td>
+        <td>
+          <div class="text-center">
+            {{ item.user.email }}
+          </div>
+        </td>
+        <td>
+          <div class="content-container">
+            <div class="tier tier-{{item.tier}} --bg">
+              {{ item.tier }}
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="points-container">
+            <div class="points">
+              {{ item.availablePoints }}
+            </div>
+            <div class="grass-icon">
+              <img src="../../../../../../assets/icons/grass.svg" alt="grass-icon">
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

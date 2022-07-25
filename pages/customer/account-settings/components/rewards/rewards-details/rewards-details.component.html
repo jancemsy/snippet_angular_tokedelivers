@@ -1,0 +1,90 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="onClose()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="rewards-details">
+    <div *ngIf="(rewards$ | async) as rewards">
+      <select class="form-control inline small"
+        [(ngModel)]="selected"
+        (change)="onRewardSelected()">
+        <option *ngFor="let reward of rewards"
+          [value]="reward.id">
+          {{ reward.dispensary.name }}
+        </option>
+      </select>
+    </div>
+
+    <div class="dispensary-logo">
+      <img src="../../../../../../../assets/images/dispensaries/resinate.png" alt="logo">
+    </div>
+
+    <div class="rewards-tier" *ngIf="selectedReward">
+      <div class="points-container col-5">
+        <div class="section">
+          <div class="section-title">
+            <p>Available Points</p>
+          </div>
+          <div class="section-content">
+            <span class="points">{{ selectedReward.points }}</span>
+            <div class="icon">
+              <img src="../../../../../../assets/icons/grass.svg" alt="grass">
+            </div>
+          </div>
+        </div>
+        <div class="section" *ngIf="selectedReward.totalPoints">
+          <div class="section-title">
+            <p>Total Earned</p>
+          </div>
+          <div class="section-content {{selectedReward.totalPoints | tier}} --text">
+            <span class="points-value">{{ selectedReward.totalPoints  }} </span><span class="points-label">Points</span>
+          </div>
+        </div>
+      </div>
+      <div class="tier-container col-7">
+        <div class="tier">
+          <div class="tier-icon">
+            <img src="../../../../../../../assets/images/app/discount-promo/tier-hex.svg" alt="tier-icon">
+          </div>
+          <div class="tier-label {{ selectedReward.totalPoints | tier}}">
+            <p class="text">You are a</p>
+            <p class="--label">
+              <span class="user-tier">{{ selectedReward.totalPoints | tier:'label'}}</span>
+              <span class="user">User</span>
+            </p>
+          </div>
+        </div>
+        <app-rewards-progress
+          componentClass="lg"
+          [showPoints]="true"
+          [rewardsItem]="selectedReward">
+        </app-rewards-progress>
+
+        <p class="footer-label">Redeeming points won't affect your tier progress</p>
+      </div>
+    </div>
+
+    <div class="tabs-container">
+      <tabset class="loyalty-tabset lg">
+        <tab heading="Rewards Available">
+          <div class="tab-contents">
+            <div class="rewards-card-container" *ngFor="let item of availableRewards">
+              <app-available-rewards-card
+                [item]="item">
+              </app-available-rewards-card>
+            </div>
+          </div>
+        </tab>
+        <tab heading="Reward History">
+          <div class="tab-contents">
+            <app-rewards-points-history
+              [history$]="history$"
+              componentClass="lg">
+            </app-rewards-points-history>
+          </div>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

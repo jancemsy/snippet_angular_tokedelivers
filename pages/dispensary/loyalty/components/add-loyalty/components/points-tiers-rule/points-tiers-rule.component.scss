@@ -1,0 +1,38 @@
+@import 'src/app/styles/core/variables';
+
+h2 {
+    font-size: 24px;
+    font-family: Open Sans;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+  .next-button {
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+  }
+  
+  ::ng-deep .card-form {
+    box-shadow: 1px 3px 10px $xlight-gray;
+    border-radius: 15px;
+    background-color: $white;
+    .card-header {
+      background-color: $white;
+      border-radius: 15px;
+      outline: none;
+      border: 0;
+    }
+  }
+  
+  ::ng-deep .label-preview {
+    color: lighten($dark, 21%);
+    font-size: 12px;
+    font-weight: 600;
+    font-family: Open Sans;
+  }
+  
+  .definition-container {
+    min-height: 430px;
+    font-family: Open Sans;
+  }
+    

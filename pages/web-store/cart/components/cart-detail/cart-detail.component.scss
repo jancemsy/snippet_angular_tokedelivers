@@ -1,0 +1,178 @@
+#cart-detail-container{
+    *:not(.fa) { font-family: Open Sans;}
+    padding-top:100px;
+    padding-bottom:300px; 
+    width: auto;  
+    margin-left:150px;
+    margin-right:150px;
+  
+
+    h1{font-weight: bold; font-size: 50px; line-height: 68px;  letter-spacing: 0.777778px;  color: #354C1A; margin-bottom: 53px;} 
+
+
+ 
+    .rewards-box{ 
+        
+
+         h5{ 
+            cursor: pointer;
+            svg{ margin-right:18px; }
+            font-weight: bold;
+            font-size: 15px;
+            line-height: 20px;
+            letter-spacing: 0.233333px; 
+            color: #354C1A; 
+            text-shadow: 1px 3px 10px #CBCBCB;
+         }
+
+         .reward-item{ 
+            padding:10px 10px 10px 10px;  
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;  
+            letter-spacing: 0.233333px; 
+            color: #354C1A; 
+
+            width: 143px;
+            height: 45px;  
+            background: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 1px 3px 10px #CBCBCB;
+            display:block; float:left; 
+            margin-right:10px;
+
+           .amount-off{  font-weight: 600; font-size: 18px; line-height: 25px; 
+             letter-spacing: 0.233333px; color: #354C1A; }
+           .points{
+            margin-top:5px;
+            display:block; 
+            padding-right:15px;
+            float:right;
+            background:url(/assets/images/cart/star.svg) no-repeat #EDEDED; 
+            padding:2px 0px 0px 5px;    
+            background-position:37px 2px;   
+            width: 53.44px;
+            height: 19px; 
+            border-radius: 35.625px;
+            font-weight: 600;
+            font-size: 12px;
+            line-height: 16px;
+            letter-spacing: 0.192104px; 
+            color: #5EB700;
+
+           }
+         }
+
+        .reward-item.added{
+            background: #EDF3E5;
+            .remove-btn{ 
+                margin-top:5px;
+                display:block;
+                float:right; 
+                font-weight: bold;
+                font-size: 12px;
+                line-height: 16px;
+                letter-spacing: 0.192104px; 
+                color: #354C1A;
+            }
+        }
+    }
+
+
+    .promo-input{
+        width: 292px;
+        height: 48px;  
+        background: #EEEEEE;
+        border-radius: 30px; 
+        padding:5px 10px 10px 20px;
+        border:none;
+     }
+ 
+     .apply-btn{
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: 0.466667px; 
+        color: #919d84; 
+        position:absolute;
+        margin-top:13px;
+        margin-left:-53px;   
+    }
+
+     .discounts-box.full{
+        height: auto!important; 
+        overflow-y: auto;
+     }
+     
+     .discounts-box{
+         
+        width: 471px;
+        height: 119px;
+        left: 820px;
+        top: 788px;
+        padding:15px 25px;
+
+
+      
+         background: #FFFFFF;
+         box-shadow: 1px 3px 10px #CBCBCB;
+         border-radius: 20px;
+ 
+         .total-discount, .discount-text{ 
+            font-weight: 600; font-size: 18px; line-height: 33px;  
+            text-align: left; letter-spacing: 0.233333px; color: #354C1A;
+            text-align: left;
+        }
+
+         .discount-items-container{ 
+             padding-top:15px; 
+             padding-left:20px;
+
+            .discount-item-line{  
+                padding-bottom: 10px;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 22px;
+
+                 
+    
+                
+                letter-spacing: 0.233333px;
+                color:#DD9B02;
+                }
+            .row.promotion{  color: #5EB700;}
+
+            
+             
+        }
+     }
+     
+     .total-box{ 
+        .total, 
+        .total-text{ font-weight: 700; font-size: 24px; line-height: 33px;  
+            text-align: left; letter-spacing: 0.233333px; color: #354C1A; }
+
+        .total{ text-align: right;} 
+     } 
+
+
+
+    
+
+    
+ 
+ 
+    .checkout-btn{
+        margin-top:83px;
+        background: #354C1A;
+        box-shadow: 1px 4px 6px #CBCBCB;
+         border-radius: 23.75px;
+
+    }
+
+
+    
+
+
+}

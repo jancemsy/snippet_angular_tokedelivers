@@ -1,0 +1,66 @@
+@import 'src/app/styles/core/variables';
+.pos-dialog {
+  width: 80vw;
+  font-family: Open Sans;
+  font-size: 2vh;
+  padding: 0.5vw 2vw;
+
+  .pos-dialog-content {
+    padding: 3vw;
+    .available-points {
+      p {
+        font-weight: 600;
+      }
+      .points {
+        color: $jade-green;
+        font-size: 7vw;
+        font-weight: 700;
+        img {
+          width: 5.5vw;
+          margin-left: 2vw;
+          margin-top: -1.5vw;
+        }
+      }
+    }
+
+    .choose-points {
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+
+      .card {
+        width: 30%;
+        margin-right: 2vw;
+        padding: 2vw;
+        box-shadow: 0.1vw 0.2vw 0.6vw $xlight-gray !important;
+        border-radius: 2vh;
+        padding-bottom: 8vh;
+        .point-badge {
+          background-color: $light-gray;
+          color: $jade-green;
+          padding: 0.5vw 0.7vw;
+          border-radius: 2vh;
+          font-size: 1vw;
+          font-weight: 600;;
+          margin-bottom: 1vh;
+          img {
+            width: 1.1vw;
+            margin-top: -0.2vw;
+          }
+        }
+
+        .resinate {
+          width: 100%;
+          margin-left: -1.5vw;
+        }
+
+        h5 {
+          margin-top: 5vh;
+          font-size: 3vw;
+          font-weight: 600;
+          color: $primary;
+        }
+      }
+
+    }
+  }
+}

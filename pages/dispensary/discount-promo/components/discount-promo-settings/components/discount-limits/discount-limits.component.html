@@ -1,0 +1,81 @@
+<div class="slide-content">
+  <div class="discount-limits" *ngIf="promoLimit">
+    <p>Maximum discount on order:</p>
+    <div class="row">
+      <div class="col-md-4 offset-md-4 has-input-1">
+        <app-custom-input
+          type="number"
+          style="width: 58px;"
+          [isActive]="!promoLimit.discount_percent_no_max"
+          [value]="promoLimit.discount_percent_max">
+        </app-custom-input>
+        <span class="ml-1">%</span>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check">
+          <input
+            id="percent-nomax"
+            [checked]="promoLimit.discount_percent_no_max"
+            type="checkbox"
+            class="form-check-input check-input-new ml-3"
+            (change)="onNoMax('percentage', $event)">
+          <label for="percent-nomax">No Max</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <app-range-slider
+          [value]="promoLimit.discount_percent_max"
+          [disabled]="promoLimit.discount_percent_no_max"
+          (onChange)="promoLimit.discount_percent_max = $event">
+        </app-range-slider>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <p class="mt-3 mb-3 or">or</p>
+      </div>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-4 offset-md-4 has-input-2">
+        <span class="mr-1">$</span>
+        <app-custom-input
+          type="number"
+          style="width: 58px;"
+          [isActive]="!promoLimit.discount_amount_no_max"
+          [value]="promoLimit.discount_amount_max"
+          (onChange)="onChangeAmount($event)">
+        </app-custom-input>
+      </div>
+      <div class="col-md-4">
+        <div class="form-check">
+          <input
+            id="amount-nomax"
+            type="checkbox"
+            [checked]="promoLimit.discount_amount_no_max"
+            class="form-check-input check-input-new"
+            (change)="onNoMax('amount', $event)">
+          <label for="amount-nomax">No Max</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <app-range-slider
+          [min]="amountMin"
+          [max]="amountMax"
+          [value]="promoLimit.discount_amount_max"
+          [disabled]="promoLimit.discount_amount_no_max"
+          (onChange)="promoLimit.discount_amount_max = $event">
+        </app-range-slider>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a (click)="onSavePromoLimit()" class="btn save-button" >Save</a>
+
+

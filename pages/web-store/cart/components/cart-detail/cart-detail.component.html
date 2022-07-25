@@ -1,0 +1,96 @@
+<div id="cart-detail-container">
+    <h1>Your Cart</h1>
+ 
+    <ng-container *ngFor="let item of cart"> 
+        <app-cart-item [item]="item"></app-cart-item> 
+    </ng-container>
+
+ 
+ <div class="row">
+  <div class="col-4">
+    <div class="promo-box"> 
+      <input type="text" class="promo-input" placeholder="Enter Promo Code"   [(ngModel)]="input_promo_code"  />
+      <span class="apply-btn" title="Click to apply code" (click)="clickApplyPromo()">Apply</span>
+    </div>
+    
+  </div>
+ 
+
+  <div class="col-4">
+     <div class="rewards-box">
+
+         <h5 title="Click to redeem reward" >
+          <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="15" fill="#354C1A"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2255 9.22554C16.2255 8.72129 15.8167 8.3125 15.3125 8.3125C14.8083 8.3125 14.3995 8.72129 14.3995 9.22554V14.3995H9.22554C8.72129 14.3995 8.3125 14.8083 8.3125 15.3125C8.3125 15.8167 8.72129 16.2255 9.22554 16.2255H14.3995V21.3995C14.3995 21.9037 14.8083 22.3125 15.3125 22.3125C15.8167 22.3125 16.2255 21.9037 16.2255 21.3995V16.2255H21.3995C21.9037 16.2255 22.3125 15.8167 22.3125 15.3125C22.3125 14.8083 21.9037 14.3995 21.3995 14.3995H16.2255V9.22554Z" fill="#FBFBFB"/>
+            </svg>
+            
+
+           <span (click)="clickUseReward()">
+           Use Rewards
+          </span> </h5> 
+ 
+     </div>  
+  </div>
+ 
+   <div class="col-4">    
+
+    <div class="discounts-box pull-right"  [ngClass]="{'full': is_discount_show }"  >
+      <div class="row"> 
+        <div class="col-6 discount-text">Discounts</div> 
+        <div class="col-5 total-discount text-right">-$20.00</div>
+
+      <div class="col-1  "> 
+        <svg *ngIf="is_discount_show" (click)="is_discount_show=false" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="10" transform="rotate(-180 10 10)" fill="#F0F0F0"/>
+          <path d="M5.38642 11.282L10.0018 6.6666L14.6172 11.282" stroke="#797979" stroke-width="1.66069"
+           stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+          
+
+        <svg *ngIf="!is_discount_show"  (click)="is_discount_show=true" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="10" cy="10" r="10" transform="rotate(-180 10 10)" fill="#F0F0F0"/>
+          <path d="M5.38642 11.282L10.0018 6.6666L14.6172 11.282" stroke="#797979" stroke-width="1.66069"
+           stroke-linecap="round" stroke-linejoin="round"
+           transform="rotate(-180 10 10)"
+           />
+        </svg>
+      </div>  
+    </div>
+
+        
+       <div class="discount-items-container">
+        <ng-container *ngIf="is_discount_show"> 
+            <ng-container *ngFor="let item of discounts" > 
+              <div class="row discount-item-line"   [ngClass]="{'promotion': item.type === 'promotion'}">
+                <div class="col-6 discount-item-name">{{item.name}}</div>
+                <div class="col-5 text-right">-${{item.discount}}</div>
+                <div class="col-1">
+                    <a  *ngIf="item.type !== 'promotion'" (click)="clickDeletePromo(item.id,item.code)"><i class="fa fa-times"></i></a> 
+                </div>
+              </div> 
+            </ng-container>
+      </ng-container>
+    </div>
+
+      <div class="total-box">
+        <div class="row">
+          <div class="col-6 total-text"> Total</div>
+          <div class="col-5 total text-right"> ${{total}}</div>
+          <div class="col-1"></div>
+        </div>           
+      </div>
+
+    </div>
+ 
+  </div>   
+ </div> 
+
+ 
+ <app-reward-popup *ngIf="is_show_reward_popup" (reward_parent)="reward_popup_state($event)"></app-reward-popup>
+
+  
+ <button type="submit" class="btn btn-md checkout-btn pull-right" (click)="clickCheckOut()" >Checkout</button>
+ <button type="submit" class="btn btn-md checkout-btn pull-left"  (click)="clickEmptyCart()" >Empty Cart</button>
+ 
+ </div> 

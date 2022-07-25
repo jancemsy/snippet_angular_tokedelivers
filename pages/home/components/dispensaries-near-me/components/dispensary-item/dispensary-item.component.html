@@ -1,0 +1,29 @@
+<div class="dispensary p-0 clickable" [routerLink]="['/dispensary-detail/', dispensary.company_id]">
+  <div class="dispensary-content">
+    <div class="image-container">
+      <img src="../../../../../../../assets/images/app/dispensaries/etain.png" alt="dispensay-store">
+    </div>
+    <div class="details">
+      <div class="details-content">
+        <p class="details-title">{{ dispensary.dispensary_name }}</p>
+        <p class="details-sub">{{ dispensary. dispensary_address_line_1  }}</p>
+        <p class="details-sub">{{ dispensary.dispensary_number}}</p>
+      </div>
+      <div class="d-flex details-footer">
+        <div class="col-6 p-0 footer-content">
+          <span class="details-sub">{{ dispensary.distance | number:'1.1-2' || 'Nearby'}} miles</span>
+        </div>
+        <div class="col-6 p-0 footer-content">
+          <div>
+            <p class="details-sub text-right mb-2">
+              <span class="store text-uppercase" [ngClass]="dispensary.details.working_hours | operationTime:'class'">
+                {{ dispensary.details.working_hours | operationTime:'status' }}
+              </span>
+            </p>
+            <p class="details-sub text-right">{{ dispensary.details.working_hours | operationTime:'remarks'}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

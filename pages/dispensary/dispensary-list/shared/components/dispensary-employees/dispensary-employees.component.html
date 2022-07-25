@@ -1,0 +1,40 @@
+<div class="section-subtitle">
+  <p>Enter the information for the Dispensary manager and employees that will be responsible for this dispensary on the Toke Platform. NOTE: You will be able to add additional employees later on in the process with various access levels.</p>
+</div>
+<div class="d-flex justify-content-end">
+  <button class="btn btn-pill" (click)="onCreateNewEmployee()">Create New Employee</button>
+</div>
+<div class="d-flex justify-content-betweem mt-3">
+  <div class="d-flex col-md-9 pl-0">
+    <select class="custom-select mr-2" [(ngModel)]="employeeToAdd.employee_id">
+      <option selected [value]="null">Employee Name</option>
+      <option *ngFor="let employee of existingEmployees"  [value]="employee.id">
+          {{ employee.name }}
+        </option>
+    </select>
+    <select class="custom-select" [(ngModel)]="employeeToAdd.role_id">
+      <option selected [value]="null">Role</option>
+      <option *ngFor="let role of roles"  [value]="role.id">{{ role.name }}</option>
+    </select>
+  </div>
+  <div class="col-md-3">
+    <button class="btn transparent"
+      [disabled]="!employeeToAdd.employee_id || !employeeToAdd.role_id"
+      (click)="onAddEmployee()">
+      <i class="fa fa-plus-circle"></i>
+      <span>&nbsp; Add Existing Employee</span>
+    </button>
+  </div>
+</div>
+<div class="my-2">
+  <app-custom-data-table
+    [headers]="headers"
+    [data]="employees"
+    [dtActionButtons]="dtActionButtons"
+    (actionEvent)="employeeTableActions($event)">
+  </app-custom-data-table>
+</div>
+<div class="d-flex">
+  <button class="btn btn-pill" [disabled]="!employees.length" (click)="onNext()">Next</button>
+  <button class="btn transparent" (click)="onBack()">Back</button>
+</div>

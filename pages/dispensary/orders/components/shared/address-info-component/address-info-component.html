@@ -1,0 +1,16 @@
+<div class="info-box" *ngIf="addressInfo !== null">
+    <div class="top-header">
+        {{addressInfo.address_title_info}}
+    </div>
+    <div class="box-body">
+        <div class="row">
+            <div class="col-4 label">Address:</div>
+            <div class="col-8"> 
+                <div>{{addressInfo.address_line_1}}</div>
+                <div>{{addressInfo.address_line_2}}</div>
+                <div>{{addressInfo.address_line_3}}</div>
+                <div>{{addressInfo.contact_number}}</div> 
+             </div> 
+        </div>
+    </div>
+</div>

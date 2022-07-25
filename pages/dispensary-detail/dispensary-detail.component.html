@@ -1,0 +1,71 @@
+<div class="dispensary-container">
+  <div *ngIf="dispensary" class="row no-gutters justify-content-center dispensary-detail">
+    <div class="col-md-6 col-lg-6 col-12 col-xl-4">
+      <div class="dispensary-banner">
+        <img class="img-fluid" [src]="dispensary.banner_url" alt="">
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-6 col-12 col-xl-8 pl-md-4">
+      <div *ngIf="social_medias" class="d-flex dispensary-socials mt-2 mt-md-0">
+        <a class="btn rounded-circle" [href]="social_medias.facebook || '#'">
+          <i class="fa fa-facebook-f"></i>
+        </a>
+        <a class="btn rounded-circle" [href]="social_medias.twitter || '#'"><i class="fab fa-twitter"></i></a>
+        <a class="btn rounded-circle" [href]="social_medias.instagram || '#'"><i class="fab fa-instagram"></i></a>
+        <a class="btn rounded-circle" [href]="social_medias.google || '#'"><i class="fab fa-google-plus"></i></a>
+      </div>
+
+      <div class="dispensary-content mt-4">
+        <h2 class="dispensary-title">{{ dispensary.dispensary_name }}</h2>
+
+        <div class="dispensary-info mt-3">
+          <div class="my-1">
+            <label class="mr-1">Phone: </label> <a [href]="'tel:+' + dispensary.phone_number">{{ dispensary.phone_number }}</a>
+          </div>
+          <div class="d-flex align-items-center my-1">
+            <label class="mb-0">Hours: </label>
+            <span class="status mx-1" [ngClass]="working_hours | operationTime:'class'">{{ working_hours | operationTime: 'status' }}</span>
+
+            <div class="dropdown mx-1 working-hours">
+              <a class="dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ working_hours | operationTime:'remarks' }}
+              </a>
+              <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+                <div class="d-flex justify-content-between mt-1" *ngFor="let workhour of working_hours" [ngClass]="isDayToday(workhour.day)">
+                  <div>{{ workhour.day | titlecase }}</div>
+                  <div>{{ toDate(workhour.start) | date:'shortTime' }} - {{ toDate(workhour.end) | date:'shortTime' }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-2 d-flex">
+            <label class="mr-1">Address:</label>
+            <address>
+              <span>{{ dispensary.dispensary_address_line_1 }}</span>
+            </address>
+          </div>
+        </div>
+
+        <div class="mt-3 mb-3 d-flex">
+          <div class="mr-4" *ngIf="dispensary.pick_up == 1">
+            <i class="fa fa-check text-success"></i> Pickup
+          </div>
+          <div *ngIf="dispensary.delivery == 2">
+              <i class="fa fa-check text-success"></i> Delivery
+          </div>
+        </div>
+
+        <p class="license-no">License #{{ dispensary.dispensary_number }}</p>
+      </div>
+    </div>
+  </div>
+
+  <app-special-deals *ngIf="special_deals" [specialDeals]="special_deals"></app-special-deals>
+
+  <app-recommended-strains  *ngIf="recommended_strains" [recommendedStrains]="recommended_strains"></app-recommended-strains>
+</div>
+<app-store-list-product *ngIf="dispensary" [title]="'Our Products'" [filter_dispensary]="dispensary.dispensary_id" ></app-store-list-product>
+
+
+
+

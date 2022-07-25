@@ -1,0 +1,37 @@
+
+<div class="loyalty-settings">
+    <div class="d-flex justify-content-end">
+        <button  class="close-button" aria-label="Close" (click)="onModalClose()">
+            <img src="../../../../../../assets/icons/close.svg" alt="trash icon">
+        </button>
+
+        <button *ngIf="slugStack" type="button" class="back-button" (click)="onBackButton()" [class]="slugStack.length > 1 ? '' : 'hidden'">
+            <svg  width="8" height="17" viewBox="0 0 8 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 16L1 8.5L7 1" stroke="#3A471E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="ml-2">{{ getBackLabel() }}</span>
+        </button>
+    </div>
+    <div class="modal-header justify-content-between align-items-end">
+        <div>{{ this.title }}</div>
+        <button
+            *ngIf="getLastSlug() == 'tier-detail'"
+            (click)="onRevert()"
+            class="btn transparent text-muted mb-1">
+            Revert to Original
+        </button>
+    </div>
+    <div class="modal-body d-flex">
+        <container-element [ngSwitch]="getLastSlug()">
+
+            <app-loyalty-tiers
+                *ngSwitchCase="'settings'"
+                (onSaved)="onSettingsSaved($event)">
+            </app-loyalty-tiers>
+
+            <app-loyalty-tiers-detail
+                *ngSwitchCase="'tier-detail'">
+            </app-loyalty-tiers-detail>
+        </container-element>
+    </div>
+</div>

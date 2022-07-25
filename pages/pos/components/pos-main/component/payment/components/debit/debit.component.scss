@@ -1,0 +1,48 @@
+@import 'src/app/styles/core/variables';
+.debit{
+    height: 90vh;
+    width: 65vw;
+    position: relative;
+
+    top : 20vh;
+
+    .debit-header{
+        text-align: center;
+        position: relative;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: bold;
+        color: $primary;
+        font-size: 2.5vw;
+    }
+
+    @keyframes processing {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
+            opacity: 0.5;
+            transform: scale(0.5);
+        }
+    }
+
+    .debit-svg{
+        position: relative;
+        top : 10vh;
+        height: 5vh;
+        width: 8vw;
+    }
+
+    .toke-svg{
+        position: relative;
+        top : 10vh;
+        height: 5vh;
+        width: 8vw;
+
+        animation: processing 0.5s infinite;
+        animation-direction: alternate;
+    }
+
+    
+}

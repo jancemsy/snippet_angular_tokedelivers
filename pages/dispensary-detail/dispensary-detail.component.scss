@@ -1,0 +1,147 @@
+@import 'src/app/styles/core/variables';
+
+.dispensary-container {
+
+  position: relative;
+  a {
+    color:inherit;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .product-detail-info-container-overlay {
+    position: absolute !important;
+  }
+
+  .dispensary-detail {
+
+    margin-left: 147px;
+    margin-right: 147px;
+    // main css for dispensary detail
+    padding-top: 100px;
+    padding-bottom: 10rem;
+    position: relative;
+
+    // bg design
+    &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: 100%;
+      background-repeat: no-repeat;
+      top: 0;
+      left: 0;
+    }
+
+
+    .dispensary-banner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 250px;
+      border-radius: 1rem;
+      overflow: hidden;
+      img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        min-height: 250px;
+        object-fit: cover;
+        object-position: center;
+      }
+    }
+
+    .dispensary-socials {
+      .btn {
+        width: 45px;
+        height: 45px;
+        min-width: 0;
+        padding: 0.5rem;
+        margin: 0;
+        background-color: $gray-900;
+
+        * {
+          font-size: 20px;
+          margin-top: 3px;
+          color: $white;
+        }
+
+        &:hover {
+          * { color: $gray-100; }
+        }
+      }
+    }
+
+    .dispensary-info {
+      label {
+        font-weight: 500;
+      }
+    }
+
+    .schedule-info {
+      cursor: pointer;
+    }
+
+    .working-hours {
+      width: 100%;
+      position: relative;
+      max-width: 350px;
+
+      .dropdown-menu {
+        width: 100%;
+        padding: 1.5rem;
+      }
+
+      .active { font-weight: bold; }
+    }
+
+    .status {
+      border-radius: 20px;
+      background: $white;
+      min-width: 3.5rem;
+      font-size: 0.75rem;
+      font-weight: bold;
+      display: inline-block;
+      border: 2px solid $jade-green;
+      color: $jade-green;
+      text-align: center;
+      padding: 0 10px;
+      line-height: 2;
+      &.closed {
+        border-color: $brick-red;
+        color: $brick-red;
+      }
+      &.warning {
+        border-color: $tint-yellow;
+        color: $tint-yellow;
+      }
+    }
+
+    .license-no {
+      font-weight: 500;
+      font-size: 14px;
+    }
+  }
+}
+
+::ng-deep .brand-logo {
+  padding: 0!important;
+  .logo-img {
+    width: 130px!important;
+    height: 130px!important;
+    border-radius: 50%;
+    padding: 0!important;
+  }
+}
+
+::ng-deep .bg-img-home {
+  background:none;
+  background-image: url('/assets/images/bg-cows-print-main.svg');
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position-y: -32vh;
+  background-position-x: center;
+
+}

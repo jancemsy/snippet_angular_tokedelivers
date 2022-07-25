@@ -1,0 +1,10 @@
+table.table {
+  > tbody {
+    tr {
+      td {
+        padding-bottom: .25rem;
+        vertical-align: baseline;
+      }
+    }
+  }
+}

@@ -1,0 +1,48 @@
+<div class="rewards-container" *ngIf="(member$ | async) as member">
+  <div class="card-list slide">
+    <div class="card-list-container" #cardSlider>
+      <div class="card-item" *ngFor="let item of member.rewards; let i = index">
+        <div class="rewards-card" [class.--last]="(i + 1) === member.rewards.length">
+          <p class="dispensary-name">{{ item.dispensary.name }}</p>
+          <div class="section">
+            <div class="section-title">
+              <p>Available Points</p>
+            </div>
+            <div class="section-content">
+              <span class="points">{{ item.points }}</span>
+              <div class="icon">
+                <img src="../../../../../../assets/icons/grass.svg" alt="grass">
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <div class="section-title">
+              <p>Tier</p>
+            </div>
+            <app-rewards-progress
+              [rewardsItem]="item">
+            </app-rewards-progress>
+          </div>
+          <div class="section text-center">
+            <button class="btn primary btn-pill w-100" (click)="onRewardSelected(item)">See your Rewards</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" role="button"
+      *ngIf="member.rewards.length > 4"
+      [disabled]="atTop"
+      [class.disabled]="atTop"
+      (click)="scroll('left')">
+      <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" role="button"
+      *ngIf="member.rewards.length > 4"
+      [disabled]="atBottom"
+      [class.disabled]="atBottom"
+      (click)="scroll('right')">
+      <span class="carousel-control-next-icon"></span>
+    </button>
+  </div>
+</div>

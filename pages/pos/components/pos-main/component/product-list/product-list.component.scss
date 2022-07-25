@@ -1,0 +1,60 @@
+@import "src/app/styles/core/variables";
+:host {
+  background-color: $off-white-2;
+  height: 100vh;
+  display: block;
+
+}
+.product-list {
+  * {
+    font-size: 1.2vw;
+  }
+
+  .product-list-options {
+    padding: 1%;
+    padding-top: 2%;
+  }
+
+  .form-search {
+    width: 31vw;
+    // height: 5vw;
+    font-size: 1.5vw;
+    &:before {
+      border-radius: 0 3vw 3vw 0;
+    }
+    &:after {
+      right: 1.5vw;
+    }
+
+    input {
+      width: 100%;
+      height: 100%;
+      padding: 0.5vw 2vw;
+      border-radius: 3vw;
+      font-size: 1.5vw;
+
+      &:focus, &:focus{
+        outline: none;
+      }
+    }
+  }
+
+  .product-list-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 79vh;
+    position: relative;
+    padding-bottom: 1%;
+    margin-top: 1%;
+  }
+
+  .product-list-no-content {
+    margin: 2vw;
+    * {
+      font-size: 3vw;
+      font-weight: 900;
+      color: $dark;
+    }
+  }
+
+}

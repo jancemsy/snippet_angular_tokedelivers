@@ -1,0 +1,11 @@
+@import 'src/app/styles/core/variables';
+
+.license-info-section {
+  form {
+    h2, label {
+      color: $dark;
+      font-family: ProximaNova Bold;
+      font-weight: .75rem;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+<div class="customers">
+  <div class="d-flex justify-content-between pos-margin-tb">
+    <div class="form-search">
+      <input type="text" class="input-search input-oval" placeholder="Search Customer" (keyup)="keyUp.next($event)">
+    </div>
+
+    <button
+      (click)="onNewCustomer()"
+      class="btn btn-oval btn-new-customer pos-shadow">
+      + New Customer
+    </button>
+  </div>
+
+  <div class="customer-list" *ngIf="( customers$ | async ) as customers">
+    <div
+      *ngFor="let customer of customers"
+      class="customer-list-item d-flex justify-content-between align-items-center pos-shadow"
+      [ngClass]="'color-' + customerColor()">
+
+      <div class="icon"><img src="http://placehold.it/200x200" alt=""></div>
+      <div class="name">{{ customer.user.first_name }} {{ customer.user.last_name }}</div>
+      <div class="email">{{ customer.user.email }}</div>
+      <!-- temporary handling type -->
+      <div class="type" *ngIf="customerType() as type" [ngClass]="'type-' + type.toLowerCase()">{{ type  }}</div>
+    </div>
+  </div>
+</div>
+
+<app-pos-scan class="pos-scanner"></app-pos-scan>

@@ -1,0 +1,71 @@
+@import 'src/app/styles/core/variables';
+.btn-option {
+  width: 15vw;
+  padding: 0.8vw 1.4vw;
+  border-radius: 3vw;
+  font-size: 1.5vw;
+  box-shadow: 0.1vw 0.3vw 1.1vw $xlight-gray;
+  margin: 0;
+
+  &:after {
+    padding: 0;
+    height: 1.8vw;
+    width: 1.8vw;
+    line-height: 1.8vw;
+    transition: transform 0.3s ease-out;
+  }
+}
+
+.group-options {
+  &.active {
+    position: relative;
+    .btn-option {
+        box-shadow: none!important;
+        z-index: 4;
+        position: relative;
+        border-radius: 2vw 2vw 0 0!important;
+        &::after {
+            transform: rotate(-180deg);
+        }
+    }
+    border-radius: 2.7vw 2.7vw 0 0;
+    background-color: $white;
+    box-shadow: 0.1vw 0.3vw 1.1vw $xlight-gray;
+
+    .option-list {
+        position: absolute;
+        background-color: inherit;
+        display: block;
+        width: 100%;
+        height: auto;
+        z-index: 3;
+        padding: 0;
+        opacity: 1;
+        padding-bottom: 0.7vw;
+        border-radius: 0 0 1.5vw 1.5vw;
+        box-shadow: 0.1vw 0.3vw 1.1vw $xlight-gray;
+        li {
+            opacity: 1;
+            transform: translateY(0%);
+            list-style-type: none;
+            font-size: 1.5vw;
+            padding: 0.8vw 1.4vw;
+            font-weight: 600;
+            color: $primary;
+            cursor: pointer;
+        }
+    }
+  }
+
+  .option-list {
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    margin: 0;
+    li {
+      opacity: 0;
+      transition: opacity 0.1s ease-in, transform 0.3s ease-in-out;
+      transform: translateY(-50%);
+    }
+  }
+}

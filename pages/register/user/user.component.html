@@ -1,0 +1,72 @@
+
+<div class="landing-container">
+    <div class="row">
+       <div class="landing-left col-md-6">
+            <form [formGroup]="regForm" (ngSubmit)="submitForm()">
+                <h2>Join <span>Toke</span></h2>
+                <h1>Creat Your Account</h1>
+                <div class="label">Email</div>
+                <div class="field">
+                    <input type="email" formControlName="email" (focusout)="validateEmail()" /> <br>
+                    <span *ngIf="regForm.controls['email'].hasError('emailExists')" class="validation-error">That email is already associated with a Toke account.</span>
+                    <span *ngIf="regForm.controls['email'].hasError('pattern')" class="validation-error">Please enter a valid email address.</span>
+                </div>
+
+                <div class="label">Password</div>
+                <div class="field">
+                    <div class="input-group">
+                        <input class="input-pw" [type]="fieldTextType ? 'text' : 'password'" formControlName="password" />
+                        <!-- <svg class="show-password" width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.5 0C4.48442 0 1.78929 1.60114 0 4.11533C1.78929 6.62967 4.48442 8.23066 7.5 8.23066C10.5154 8.23066 13.2107 6.62967 15 4.11533C13.2107 1.60114 10.5154 0 7.5 0ZM7.50016 6.80822C6.01293 6.80822 4.80711 5.60272 4.80711 4.11533C4.80711 2.62794 6.01293 1.42244 7.50016 1.42244C8.98739 1.42244 10.1926 2.62794 10.1926 4.11533C10.1926 5.60272 8.98739 6.80822 7.50016 6.80822Z" fill="#868686"/>
+                        </svg> -->
+                        <div class="input-group-append">
+                            <span class="input-group-text show-pw">
+                            <i class="fa"
+                            [ngClass]="{
+                                'fa-eye-slash': !fieldTextType,
+                                'fa-eye': fieldTextType
+                            }"
+                            (click)="toggleFieldTextType()"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <p class="password-info">8 character or more, including at least one number and one
+                        special character (e.g !#%)
+                    </p>
+                    <span *ngIf="regForm.controls['password'].hasError('pattern')" class="validation-error">Password does not meet the stated requirements.</span>
+                </div>
+
+                <div class="label">Confirm Password</div>
+                <div class="field">
+                    <input type="password" formControlName="password_confirmation" /><br>
+                    <span *ngIf="regForm.controls['password_confirmation'].hasError('notMatch')" class="validation-error">Passwords do not match, please check and try again.</span>
+                </div>
+
+                <button [disabled]="regForm.invalid" class="btn btn-dispensary signup-btn" type="submit">Sign Up</button>
+                <p class="signup-info">
+                    By using Toke, I agree to the <u>Terms of use</u> and <u>Privacy Policy</u>.
+                </p>
+
+                <div class="already-have-account">
+                    Already have an account? <a href="/auth/login">Sign in</a>
+                </div> 
+            </form>
+       </div>
+       <div class="landing-right col-md-6">
+
+        <div class="did-you-know-container">
+            <div class="avatar"  > 
+                <img src="https://loremflickr.com/240/240/nature" />
+            </div>
+            
+            <h1>Did you know...</h1>
+            <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            </p> 
+        </div>
+       </div> 
+    </div>
+   
+   
+   </div>
+   

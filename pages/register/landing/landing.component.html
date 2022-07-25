@@ -1,0 +1,68 @@
+
+<div class="landing-container">
+    
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+
+
+
+    <div class="row"   >
+       <div class="landing-left col-md-6">
+           
+
+          <div class="step1" *ngIf="step === 1"  >
+           <h2>Welcome to <span>Toke</span></h2>
+           <h1>Are you 21 or older?</h1>
+           <p>
+               This site requires you to be 21 years of age
+               or older. Please verify your age to continue, 
+               or click "Exit" to leave.
+           </p> 
+   
+           <div class="button-container">
+                <button class="btn btn-confirm" (click)="step = 2">I am 21 or older</button>
+                <button class="btn btn-exit" onclick="location.href='/store'" >Exit</button> 
+            </div>
+        </div>
+
+        <div class="step2" *ngIf="step === 2" >
+            <h2>Welcome to <span>Toke</span></h2>
+            <h1>Great! Let's get started</h1>
+            <p>
+                To best assist you, please tell us what
+                type of Toke account you would like to set up.
+            </p> 
+    
+            <div class="button-container">
+                <button class="btn btn-dispensary" onclick="location.href='/register/dispensary'">Dispensary</button>
+                <button class="btn btn-user" onclick="location.href='/register/user'">Cannabis User</button> 
+            </div>
+         </div>
+
+
+       </div>
+       <div class="landing-right col-md-6">
+
+        <div class="did-you-know-container">
+            <div class="avatar"  > 
+                <img src="https://loremflickr.com/240/240/nature" />
+            </div>
+            
+            <h1>Did you know...</h1>
+            <p class="text">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+            </p> 
+        </div>
+       </div> 
+    </div>
+   
+ 
+
+
+</div>
+</div> 
+</div>
+
+
+</div> 

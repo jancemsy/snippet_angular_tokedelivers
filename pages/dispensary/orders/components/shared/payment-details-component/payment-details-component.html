@@ -1,0 +1,50 @@
+<div class="info-box">
+    <div class="top-header">
+        payment details
+    </div>
+    <div class="box-body">
+         
+            <div class="row">
+                    <div class="col-6 ">
+                            <label>Payment Type:</label>
+                            <div>CanPay</div>
+                            <div>{{paymentDetails.canpay_email}}</div> 
+                    </div> 
+                    
+                    <div class="col-6 left-borderline">
+                    
+                        <div class="row">
+                            <div class="col-8"> <label>Subtotal:</label> </div>
+                            <div class="col-4"> ${{paymentDetails.subtotal}}</div>
+                        </div>
+                    
+                        <div class="row">
+                            <div class="col-8"> <label>Discounts:</label> </div>
+                            <div class="col-4"> -${{paymentDetails.discounts}} </div>
+                        </div>
+                    
+                        <ng-container *ngFor="let item of paymentDetails.discount_items">
+                                <div class="row" [ngClass]="item.type === 'coupon'  ? ' discount-sub' : 'discount-sub-promo '">
+                                    <div class="col-8"> <label>{{item.name}}:</label> </div>
+                                    <div class="col-4"> -${{item.amount}} </div>
+                                </div>
+                        </ng-container>  
+
+                        <div class="row">
+                            <div class="col-8">
+                            <label>Taxes:</label>
+                            </div>
+                            <div class="col-4"> ${{paymentDetails.taxes}} </div>
+                        </div>
+                    
+                    
+                        <div class="row overline">
+                            <div class="col-8"> <span class="total">Total</span> </div>
+                            <div class="col-4"> ${{paymentDetails.total}} </div>
+                        </div>
+                    
+                    </div>
+                    
+         
+    </div>
+</div>

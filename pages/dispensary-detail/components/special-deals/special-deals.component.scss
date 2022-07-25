@@ -1,0 +1,80 @@
+@import "src/app/styles/core/variables";
+
+.special-deals{
+    margin: 50px 95px 100px;
+    height: 100%;
+    .card{
+      background-color: $light-gray;
+      border-radius: 20px;
+      border-color: $light-gray;
+      padding : 1rem 2rem 2rem 2rem;
+    }
+    .special-deals-header{
+      line-height: 41px;
+      letter-spacing: 0.466667px;
+      color: $primary;
+      font-family: Open Sans;
+      font-weight: 600;
+      font-size: 30px;
+    }
+
+
+    .special-deals-carousel{
+      border-radius: 1rem;
+      width: 100%;
+      height: 100%;
+
+      .special-deal-card{
+        box-shadow: 3px 4px 13px $xlight-gray;
+        background-color: $white;
+        width: 95%;
+        border-radius: 8.5px;
+
+        .special-deal-image{
+          position: relative;
+          border-top-left-radius:  8.5px;
+          border-top-right-radius: 8.5px;
+          .card-image-top{
+            border-top-left-radius:  8.5px;
+            border-top-right-radius: 8.5px;
+            background-position: center center;
+            margin: auto;
+            min-height: 200px;
+            height: 20vh;
+            object-fit: cover;
+          }
+        }
+
+        .special-deal-promo-label{
+          position: absolute;
+          width: 30%;
+          right: 10%;
+          bottom: 29%;
+          border: solid;
+          color : white;
+          background-color: $faded-jade-green;
+          border: solid;
+          border-color: $faded-jade-green;
+          border-radius: 5px;
+          padding : 2px 2px 2px 2px;
+          font-size: 65%;
+          text-align: center;
+
+      }
+
+      .special-deal-details{
+            margin: 20px 20px 20px 20px ;
+            height: 60px;
+            .special-deal-title{
+              font-size: 100%;
+          }
+            .special-deal-desc{
+                font-size: 60%;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
+            }
+        }
+      }
+    }
+  }

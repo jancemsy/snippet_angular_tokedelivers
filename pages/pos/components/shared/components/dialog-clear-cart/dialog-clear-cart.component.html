@@ -1,0 +1,11 @@
+<div class="pos-dialogs d-flex flex-column justify-content-center align-items-center">
+  <div class="cart-message">Are you sure you want to clear this cart?</div>
+  <div class="mt-auto">
+    <button class="btn cancel-button" (click)="dialogRef.close()">
+      Cancel
+    </button>
+    <button class="btn main-button" (click)="clearCartItems()">
+      Clear
+    </button>
+  </div>
+</div>

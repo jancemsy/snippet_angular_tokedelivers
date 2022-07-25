@@ -1,0 +1,10 @@
+<app-banner-section></app-banner-section>
+
+<app-dispensaries-near-me
+  (dispensarySelected)="onSelectedDispensary($event)">
+</app-dispensaries-near-me>
+
+<app-products-section
+  *ngIf="(selectedDispensary$ | async) as selectedDispensary"
+  [selectedDispensary]="selectedDispensary">
+</app-products-section>

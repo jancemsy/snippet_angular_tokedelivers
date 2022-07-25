@@ -1,0 +1,120 @@
+<div *ngIf="phase" >
+    <div class="container-fluid" [ngClass]="{ 'loading' : isLoading }">
+        <div class="row">
+          <div class="col-md-4">
+            <app-name-form-card
+                (onCard)="onNameCardClick()"
+                (next)="onNameFormNext()"
+                (onChange)="onNameChanged($event)"
+                [isActive]="isNameFormActive"
+                [value]="_config.name"
+                [title]="title">
+
+            </app-name-form-card>
+
+          </div>
+          <div class="col-md-8">
+              <!-- Step 1 -->
+              <app-nav-steps-slider
+              [navs]="navoptions"
+              (onChange)="onNavStepChange($event)"
+              [isActive] = "isStepsActive"
+              #navComp>
+            </app-nav-steps-slider>
+
+            <container-element [ngSwitch]="phase.step">
+                <app-definition-card
+                    *ngSwitchCase="1"
+                    [isActive]="isStepsActive"
+                    (onCard)="onStepCardClick()"
+                    >
+                    <div class="definition-container d-flex flex-column" >
+                        <span class="label-preview">Define</span>
+                        <!-- conditions  -->
+                        <!-- conditions  -->
+                        <div class="d-flex">
+                            <label for="trade">
+                            When a customer
+                            <app-form-multi-select
+                                [isActive]="isStepsActive"
+                                class="ml-3 mr-3"
+                                [selectedItem]="_pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo)"
+                                (onSelected)="handleFlow(1, $event)"
+                                [setOptions]="selectOptions">
+                            </app-form-multi-select>
+                            </label>
+                            <label for="for" *ngIf="flow > 1">
+                            
+                            <app-custom-input
+                                [value]="_pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineGetFor)"
+                                [isActive]="isStepsActive"
+                                class="ml-3 mr-3"
+                                (onChange)="handleFlow(2, $event)" >
+                            </app-custom-input> 
+                            </label>
+                        </div>
+
+                        <div class="d-flex">
+                            <label for="get" *ngIf="flow > 1">
+                            {{ _pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo) == 'spends' ? ", they'll receive " : '' }}
+                            {{ _pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo) == 'places' ? " orders, they'll receive " : '' }}
+                            {{ _pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo) == 'buys' ? " products, they'll receive " : '' }}
+                            {{ _pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo) == 'collects' ? " points, they'll be upgraded to Tier " : '' }}
+                            
+                            
+                            <app-custom-input
+                                *ngIf="_pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo) != 'collects'"
+                                [value]="_pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineGetPoints)"
+                                [isActive]="isStepsActive"
+                                class="ml-3 mr-3"
+                                (onChange)="handleFlow(3, $event)">
+                            </app-custom-input> 
+
+                            <app-form-multi-select
+                                *ngIf="_pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo) == 'collects'"
+                                [isActive]="isStepsActive"
+                                class="ml-3 mr-3"
+                                [selectedItem]="_pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineGetPoints)"
+                                (onSelected)="handleFlow(3, $event)"
+                                [setOptions]="selectTierOptions">
+                            </app-form-multi-select>
+                            {{ _pointsTiersRuleStateService.getDefinitionConfigs(ptrDefineForTo) == 'collects' ? "." : ' points.' }}
+                           
+                            </label>
+                        </div>
+
+                        <!-- preview -->
+                        <app-alert-preview
+                            class="mt-auto"
+                            label="preview"
+                            [message]="previewMsg">
+                        </app-alert-preview>
+
+                    </div>
+                </app-definition-card>
+
+                <!-- Step 2 -->
+                <app-timing-location-card
+                    *ngSwitchCase="2"
+                    [isActive]="isStepsActive"
+                    [config]="_config.timingLocationConfig"
+                    (onCard)="onStepCardClick()"
+                    (onConfigChange)="handleFlow(4, $event)" >
+                </app-timing-location-card>
+
+            </container-element>
+
+
+          </div>
+        </div>
+    </div>
+
+    <div class="next-button" *ngIf="phase.nav_next">
+        <button
+            class="btn btn-oval"
+            (click)="onNext()"
+            [ngClass]="(phase.nav_button == 'Finish') ? 'btn-highlight' : 'btn-primary'">
+            {{ phase.nav_button }}
+        </button>
+    </div>
+</div>

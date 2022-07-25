@@ -1,0 +1,37 @@
+
+<!-- DataTales Example -->
+<div class="dispensary-list card shadow mb-4 full-height">
+  <div class="card-header py-3 d-flex bg-none">
+    <div class="col-md-6 px-0">
+      <form [formGroup]="form" class="d-none d-sm-inline-block form-inline mr-auto my-2 my-md-0 mw-100 navbar-search w-50">
+        <div class="input-group">
+          <input type="text" class="form-control bg-light border-0 small"
+            placeholder="Search for..."
+            aria-label="Search"
+            aria-describedby="basic-addon2"
+            formControlName="searchText">
+          <div class="input-group-append">
+            <button class="btn icon" type="button">
+              <i class="fas fa-search fa-sm"></i>
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-6 px-0 text-right">
+      <button class="btn transparent" (click)="onAddDispensary()">
+        <i class="fa fa-plus"></i>
+        Add Dispensary
+      </button>
+    </div>
+  </div>
+  <div class="card-body">
+    <app-custom-data-table
+      [searchText]="f.searchText.value"
+      [headers]="dtHeaders"
+      [data]="filteredDispensary"
+      [dtActionMenu]="dtActions"
+      (actionEvent)="tableActions($event)">
+    </app-custom-data-table>
+  </div>
+</div>

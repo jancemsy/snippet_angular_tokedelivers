@@ -1,0 +1,12 @@
+<div class="percent-bar" *ngIf="item !== null">
+  <div class="row">
+    <div class="col-sm-4 first-box">
+      {{ caption }}
+    </div>
+
+    <div class="col-sm-8">
+      <div class="second-box"></div>
+      <div class="third-box" [style.width]="percent_string"></div>
+    </div>
+  </div>
+</div>

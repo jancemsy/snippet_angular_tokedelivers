@@ -1,0 +1,70 @@
+@import 'src/app/styles/core/variables';
+.discount-promo-heading{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 41px;
+    /* identical to box height */
+
+    letter-spacing: 0.466667px;
+    color: $primary;
+    display: flex;
+    justify-content: space-between;
+
+    .action-container {
+      margin-left: 55px;
+    }
+}
+
+.discount-promo-button{
+    float: right;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: 0.233333px;
+
+    color: $primary;
+
+    text-shadow: 1px 3px 10px $xlight-gray;
+    border: none;
+    outline: none;
+    background: none;
+
+}
+
+::ng-deep .add-discount-promo-modal .modal-content{
+    border-radius: 30px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: $off-white-2;
+}
+
+::ng-deep .add-discount-promo-modal .modal-dialog {
+    max-width: 1086px;
+    max-height: 613px;
+  }
+
+::ng-deep .edit-discount-promo-modal .modal-content{
+    border-radius: 30px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: $off-white-2;
+}
+
+::ng-deep .edit-discount-promo-modal .modal-dialog {
+    max-width: 1086px;
+    max-height: 613px;
+  }
+
+
+  ::ng-deep .discount-promo-settings .modal-content{
+    border-radius: 30px;
+    box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.5);
+    background-color: $off-white-2;
+    
+}
+
+::ng-deep .discount-promo-settings .modal-dialog {
+    min-width: 394px;
+  }

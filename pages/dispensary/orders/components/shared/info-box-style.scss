@@ -1,0 +1,35 @@
+.info-box{
+    background: #FFFFFF;
+    border:1px solid #eee;
+    box-sizing: border-box;
+    border-radius: 10px;
+    margin-bottom:15px; 
+    *:not(.fa) { font-family: Open Sans;}
+    font-style: normal; font-weight: 600; font-size: 12px; line-height: 16px; letter-spacing: 0.186667px; 
+    color: #3A471E;
+    a:hover{ text-decoration: underline; }
+
+    label , .label{ color:#919191; }
+    .product-count{ right:30px; top:10px; position:absolute;  font-weight:normal; text-transform:lowercase;  } 
+    .overline{ border-top:1px solid #eeeeee; padding-top:15px; }
+    .left-borderline{ border-left:1px solid #eeeeee; padding-left:30px; } 
+    .discount-sub, .discount-sub label{ color:#90cd50; }
+    .discount-sub-promo, .discount-sub-promo label{ color:#DD9B02; }
+    .discount-sub label, .discount-sub-promo label{ padding-left:20px; } 
+    span.total{ color: #333333; }
+ 
+    width:100%;
+    float:left;  
+    height: auto; 
+
+    .top-header{ background: #FFFFF3;   box-sizing: border-box; 
+                  font-weight: bold; font-size: 12px; line-height: 16px; letter-spacing: 0.186667px; color: #3A471E; 
+                  border-bottom:1px solid #eee; border-radius: 10px; border-bottom-left-radius: none; border-bottom-right-radius: none; 
+                  text-transform: uppercase; height: 37px; padding-left:22px; padding-top:11px;
+    }
+    
+    .box-body{
+        padding:20px; 
+    }
+        
+}

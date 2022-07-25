@@ -1,0 +1,32 @@
+<div class="profile-stats" *ngIf="product">
+  <div class="profile-stats-inner">
+    <div class="flavour-profile">
+      <div class="profile-title">Flavor Profile</div>
+      <div class="profile-content">
+        <div class="row circle-container"  >
+         
+          <ng-container *ngFor="let item of product.flavours">
+            <div class="clearfix" ng-if="$index % 3 == 0"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4  flavour-item">
+              <app-circle-bar [item]="item"></app-circle-bar>
+            </div>
+          </ng-container> 
+
+        </div>
+      </div>
+    </div>
+
+    <div class="effect-profile">
+      <div class="profile-title">Effect Profile</div>
+      <div class="profile-content">
+        <ul>
+          <ng-container *ngFor="let item of product.effects">
+            <li>
+              <app-percent-bar [item]="item"></app-percent-bar>
+            </li>
+          </ng-container>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

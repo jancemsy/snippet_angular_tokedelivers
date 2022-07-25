@@ -1,0 +1,26 @@
+<!-- product list options -->
+<div class="product-list">
+  <div class="product-list-options d-flex justify-content-end">
+    <app-product-options
+      [settings]="pOtions"
+      (onSelected)="onProductOptionChange($event)"
+      class="mr-auto">
+    </app-product-options>
+
+    <div class="form-search">
+      <input type="text" class="input-search input-oval product-search" placeholder="Search" (keyup)="keyUp.next($event)">
+    </div>
+  </div>
+
+  <div
+    class="product-list-content d-flex flex-wrap"
+    *ngIf="products"
+    (scroll)="onScroll($event)"
+    [@listAnimation]="products.length">
+    <app-product-card *ngFor="let item of products" [product]="item"></app-product-card>
+  </div>
+
+  <div *ngIf="products && products.length == 0" class="product-list-no-content">
+    <h5>No Products Found.</h5>
+  </div>
+</div>

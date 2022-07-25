@@ -1,0 +1,52 @@
+<div class="card shadow">
+  <div class="card-header">
+    <h1>Edit Dispensary Details - {{ dispensaryInfo.dispensary_name }}</h1>
+  </div>
+  <div class="card-body">
+    <section>
+      <div class="section-tab">
+        <h2>Dispensary Information</h2>
+      </div>
+      <div class="section-content">
+        <app-dispensary-info-section
+          (sectionChange)="onChange($event)"
+          [dispensaryInfo]="dispensaryInfo">
+        </app-dispensary-info-section>
+      </div>
+    </section>
+    <section>
+      <div class="section-tab">
+        <h2>Dispensary License</h2>
+      </div>
+      <div class="section-content">
+        <app-dispensary-license-section
+          (sectionChange)="onChange($event)"
+          [dispensaryInfo]="dispensaryInfo">
+        </app-dispensary-license-section>
+      </div>
+    </section>
+    <section>
+      <div class="section-tab">
+        <h2>Opening Times</h2>
+      </div>
+      <div class="section-content">
+        <app-operating-time-section
+          (sectionChange)="onChange($event)"
+          [dispensaryInfo]="dispensaryInfo">
+        </app-operating-time-section>
+      </div>
+    </section>
+    <section>
+      <div class="section-tab">
+        <h2>Employees</h2>
+      </div>
+      <div class="section-content">
+        <app-employee-list-section [dispensaryInfo]="dispensaryInfo"></app-employee-list-section>
+      </div>
+    </section>
+  </div>
+  <div class="card-footer text-right">
+    <button class="btn transparent btn-danger" (click)="onCancel()">Cancel</button>
+    <button class="btn" (click)="onSave()" [disabled]="!formHasChanged">Save</button>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+
+<div class="login-form">
+  <form [formGroup]="form" novalidate (ngSubmit)="onSubmit()">
+    <div class="inner-container">
+      
+      <h1>Welcome to <span>Toke</span></h1>
+      <h2>Sign In</h2>
+       
+
+      <div > 
+            <label>Email</label> 
+            
+            <div class="form-group mb-4" [class.is-invalid]="emailInvalid">
+
+  
+              <input class="form-control text-input" name="email" 
+                [class.is-invalid]="emailInvalid"
+                type="text" formControlName="email" autocomplete="false"> 
+
+                <!-- error notifications -->
+                <div class="invalid-feedback" ngxErrors="email" #emailErrors="ngxErrors">
+                  <span ngxError="required" when="touched">Email is required</span>
+                  <span ngxError="pattern" when="dirty">You must include a valid email address.</span>
+                </div>
+            </div>
+ 
+            <label>Password</label>
+            <div class="form-group mb-4" [class.is-invalid]="passwordInvalid">
+              <input class="form-control text-input" name="password"  
+                [class.is-invalid]="passwordInvalid"  [type]="fieldTextType ? 'text' : 'password'" formControlName="password" autocomplete="false">
+
+                <div class="input-group-append">
+                  <span class="input-group-text show-pw">
+                  <i class="fa"
+                  [ngClass]="{
+                      'fa-eye-slash': !fieldTextType,
+                      'fa-eye': fieldTextType
+                  }"
+                  (click)="toggleFieldTextType()"></i>
+                  </span>
+              </div>
+
+              <!-- error notifications -->
+              <div class="invalid-feedback" ngxErrors="password" #passwordErrors="ngxErrors">
+                <span ngxError="required" when="touched">Password is required</span>
+                <span ngxError="pattern" when="dirty">You must include a valid password pattern.</span>
+              </div>
+            </div>
+
+           
+      </div>
+      
+      <div>
+        <button class="btn btn-small"  type="submit" 
+        [class.transition]="is_signin_disabled" 
+        [disabled]=" is_signin_disabled || form.invalid">{{signin_text}}</button>
+      </div>
+
+      <div class="footer-links"> 
+        <div><a [routerLink]="['/auth/reset-password-request']"  >Forgot Password?</a> </div>
+        <div>Don't have an account?  <a href="/register" >Sign Up</a></div>
+      </div>
+
+    </div>
+  </form>
+
+</div>
+
+</div>
+</div>
+</div>
+

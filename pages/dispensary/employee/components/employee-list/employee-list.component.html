@@ -1,0 +1,134 @@
+
+
+<div class="container-fluid"   class=" full-height  card shadow mb-4 full-height " >
+
+  
+
+    <div id="employe-list-container"    > 
+
+      <div class="lds-ripple" *ngIf="dataSource === null" ><div></div><div></div></div>
+
+      
+        <div class="row" *ngIf="standalone"> 
+          <div class=" col-md-6 "   >
+            <mat-form-field   class="custom-mat-form-field"  > 
+              <mat-select [(ngModel)]="selected_dispensary" name="selected_dispensary" (selectionChange)="changeEmployeeFilter($event)" >
+                <mat-option *ngFor="let item of dispensaryList" [value]="item.value">
+                 {{item.caption}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>  
+          </div>
+
+          <div class=" col-md-6 text-right "  >
+            <div class="search-box">
+              <i class="fa fa-search"></i>
+              <input  name="search_employee" (input)="searchEmployee($event)" placeholder="Search employee" type="text"   />
+            </div>
+          </div> 
+      </div>
+          
+    
+            
+        <table mat-table [dataSource]="dataSource" matSort matSortActive="id"  matSortDirection="desc" class="mat-elevation-z8">
+
+          <!-- Position Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef ></th>
+            <td mat-cell *matCellDef="let element"></td>
+          </ng-container>
+        
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+            <td mat-cell *matCellDef="let element"> <b>{{element.name}}</b> </td>
+          </ng-container>
+        
+          <!-- Weight Column -->
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone </th>
+            <td mat-cell *matCellDef="let element"> {{element.phone}} </td>
+          </ng-container>
+
+          
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+          </ng-container>   
+
+          <!-- Symbol Column -->
+          <ng-container matColumnDef="roles">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Roles </th>
+            <td mat-cell *matCellDef="let element">
+              <ul>
+                <li *ngFor="let item of element.roles_caption" > <b>{{item}}</b></li>
+              </ul> 
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="dispensaries">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Dispensary </th>
+            <td mat-cell *matCellDef="let element"> 
+              <ul>
+                <li *ngFor="let item of element.dispensaries_caption" > {{item}}</li>
+              </ul> 
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef > 
+              <button type="submit" class="add-employee-btn" (click)="clickModalAddEmployee(employeeModalForm)"  >
+                <i class="fa fa-plus-circle"></i>
+                Add New Employee</button>      
+            </th>
+            <td mat-cell *matCellDef="let element">    
+              <button type="submit" class="btn btn-sm view-id-btn" title="view id" (click)="clickViewId()"  >View ID</button>
+              <button type="submit" class="btn btn-sm  edit-btn" title="edit" (click)="clickModalEditEmployee(employeeModalForm, element.id)" >Edit</button>
+              <button type="submit" class="delete-btn" title="delete" *ngIf="element.can_be_deleted" (click)="clickConfirmDeleteModal(confirmModal, element.id )" > <i class="fa fa-trash"></i> </button> 
+              
+            </td>
+          </ng-container>
+        
+        
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table> 
+        
+          <mat-paginator [pageSizeOptions]="[10, 10, 20]" showFirstLastButtons></mat-paginator>
+      
+
+       
+    
+    
+
+
+      <ng-template #confirmModal>
+          <div class="modal-body text-center">
+            <p>Are you sure that do you want to delete this employee? #{{targetDeleteId}} </p>
+            <button type="button" class="btn btn-default" (click)="deleteEmployee();" >Yes</button>
+            <button type="button" class="btn btn-primary" (click)="bsModalRef.hide()" >No</button>
+          </div>
+      </ng-template>
+
+      <ng-template  class="edit-employee-modal" #employeeModalForm   >
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">{{ isEditEmployeeModal ? "Edit Employee" :  "Add Employee" }}</h4>
+          
+
+          <button type="button" class="close pull-right" aria-label="Close" (click)="bsModalRef.hide()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body"> 
+          <app-edit-employee (notifyParent)="employeeEditNotification($event)" [subjectEmployee]="subjectEmployee" ></app-edit-employee> 
+        </div>
+      </ng-template>
+
+
+
+
+    
+    </div>
+</div>

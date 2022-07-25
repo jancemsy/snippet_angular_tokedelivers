@@ -1,0 +1,59 @@
+<div class="box-container"    >
+  <!--[@fadeAnimation]="item ? 'in' : 'leave'"-->
+
+
+  <ng-container *ngIf="item">
+    <div class="image-container">
+    <img title="click to preview" src="{{item.image}}"  /> 
+  </div>
+
+    <div class="fix-container-reserve-y-gap"  style="height:85px;"> <!---style="height:55px; -->
+        <div class="title">{{ item.name }}</div>
+        <div class="brand">{{ item.brand }}</div>
+        <span class="sold_by"> Sold By: {{ item.dispensary_name }}</span>
+    </div> 
+    <div class="weight">{{ weight }}</div>
+  
+  
+
+  <div class="row"  >
+    <div class="col-md-7 col-sm-8">
+      <div class="price">
+        <span class="currency">{{ currency }}</span>
+        <span class="amount">{{ amount }}</span>
+        <span class="decimal">{{ decimal }}</span>        
+      </div>
+    </div>
+
+
+    <div class="col-md-5 col-sm-4 pull-right"    >
+      <div class="dispensary"   *ngIf="item.review" >
+        <div class="recommendation-container">
+          <div class="thumb">
+            
+            <div class="avatar" [ngStyle]="{'background-image': 'ur1l(' + item.review.avatar + ')'}"> 
+              <img class="heart" src="//cdn.tokedelivers.com/images/products/budtender-heart.svg" />
+            </div>
+            <div class="avatar" *ngIf="!item.review.avatar" >  
+              <img class="heart" src="//cdn.tokedelivers.com/images/products/budtender-heart.svg" />
+            </div>
+            
+           
+              
+
+              
+          
+          </div>
+          <div class="message">"{{ message }}"</div>
+          <div class="name">~Budtender {{ item.review.name }}</div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+
+</ng-container>
+
+
+</div>

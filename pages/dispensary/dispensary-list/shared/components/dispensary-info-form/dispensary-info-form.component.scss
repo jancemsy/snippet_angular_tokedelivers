@@ -1,0 +1,21 @@
+.card {
+  .card-header {
+    h1 {
+      font-size: 1rem;
+    }
+  }
+
+  .card-footer {
+    border-top: none;
+    background: none;
+  }
+}
+
+form {
+  .form-header {
+    h1 {
+      font-size: 1rem;
+      text-transform: uppercase;
+    }
+  }
+}

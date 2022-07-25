@@ -1,0 +1,29 @@
+<!-- this expired function should be transfered in other area-->
+<div class="once-cart-container" *ngIf="is_session_expired">
+    <h1>Your session has expired!</h1>
+
+    <h3>Please login to continue.</h3> 
+
+    <div class="button-container"> 
+        <button class="btn no-btn" (click)="clickLogin()" >Take me to login page</button> 
+    </div>
+
+    <div class="button-container"> 
+    <button class="btn no-btn" (click)="clickContinueAsGuest()" >Keep browsing as guest</button> 
+    </div>
+</div>
+ 
+
+<div class="once-cart-container" *ngIf="on_cart_dispensary_error">
+    <h1>One Cart, one shop at a time</h1>
+
+    <h3>You can start a new cart, but it will empty your current cart</h3>
+    
+    <div class="button-container">
+    <button class="btn yes-btn" (click)="clickStartNewCart()">Yes, start a new cart</button>
+</div>
+    <div class="button-container"> 
+    <button class="btn no-btn" (click)="clickKeepExisting()" >No, keep existing cart</button> 
+    </div>
+</div>
+ 

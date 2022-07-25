@@ -1,0 +1,35 @@
+
+<div class="dispensaries-near-me">
+  <section class="container full-width"
+    *ngIf="(dispensaries$ | async) as dispensaries">
+    <div class="row">
+      <h1 class="content-header">Dispensaries Near Me</h1>
+    </div>
+
+    <div class="card-list slide">
+      <div class="card-list-container" #cardSlider>
+        <div class="card-item" *ngFor="let item of dispensaries">
+          <app-dispensary-item [dispensary]="item" (click)="selectDispensary(item)"></app-dispensary-item>
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" role="button"
+        [disabled]="atTop"
+        [class.disabled]="atTop"
+        (click)="scroll('left')">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" role="button"
+        [disabled]="atBottom"
+        [class.disabled]="atBottom"
+        (click)="scroll('right')">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <app-location-input
+    *ngIf="!(dispensaries$ | async) as dispensaries"
+    (locationSearch)="getDispensaries($event)">
+  </app-location-input>
+</div>

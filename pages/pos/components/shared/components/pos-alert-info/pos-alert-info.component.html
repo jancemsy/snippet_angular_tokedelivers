@@ -1,0 +1,9 @@
+<div *ngIf="(posAlert$ | async) as alert" class="pos-alert" [ngClass]="{ 'show': alert.activate }">
+  <div class="d-flex">
+    <!-- <img [src]="imgSrc" alt="icon info"> -->
+    <div class="pos-alert-icon">
+      <i class="fas fa-check" [ngClass]="alert.icon"></i>
+    </div>
+    <p>{{ alert.message }}</p>
+  </div>
+</div>

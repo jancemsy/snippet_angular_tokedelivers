@@ -1,0 +1,135 @@
+#edit-profile-container{
+
+    .full-height {
+      height: 70% !important;
+    }
+
+    div.container {
+      padding: 20px !important;
+    }
+
+    .no-p {
+      padding: 0px !important;
+    }
+  
+    .col-md-6.adjust-padding{
+      padding:0px!important;
+    }
+  
+    .form-header{ background: #3e5538; color:#fff; 
+      margin-top:30px;
+      padding:10px;
+      h1{ 
+        font-size: 22px;       
+      }
+    }
+  
+    .form-body{
+      margin-top:10px;
+      background: #f3f8ec;
+      padding:10px;  
+      border-radius: 10px;
+      border-style: solid;
+      border-width: 1px;
+   }
+  
+    
+    .btn-sm{
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: normal;  
+      padding:2px;
+      min-width: 50px; 
+      background: #6a9733;
+   }
+  
+  
+   .drivers-license-area{
+    color: #6a9733;
+    .fa-upload{ margin-right:10px; }  
+   }
+   
+   .delete-btn{
+    border:none!important; background: none!important;
+  } 
+  
+    .bottom-buttons{
+      margin-top:20px;
+    }
+  
+    .btn-save, .btn-cancel{
+      background: #6a9733;  
+      color:#fff;
+      padding:10px; 
+      width:50px;
+    }
+  
+    .btn-cancel{
+      background: none;  
+      color: red;
+    }
+
+    .p-10 {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+
+    .fa-prop {
+      font-size: 3em;
+      margin-left: 15px;
+      cursor: pointer;
+    }
+
+    .label-prop {
+      margin-top: 10px;
+      margin-left: 10px;
+      cursor: pointer;
+    }
+
+    .btn-prop {
+      margin-left: 8px;
+      border-color: #416330;
+    }
+
+    .btn-prop:hover {
+      background: #6ea951;
+    }
+
+    .btn-prop:focus {
+      background: #6ea951;
+    }
+
+    .btn-prop:disabled {
+      background: #c3c3c3;
+    }
+
+    .icon-prop {
+      margin-left: 10px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    td.mat-cell{
+      border-bottom-style: none;
+      height: 10%;
+    }
+    
+    th.mat-header-cell{
+        border-bottom-style: none;
+        height: 90%;
+        font-size: 1.5em;
+    }
+
+    .mat-column-Dispensary {
+      width: 40% !important;
+    }
+
+    table.tbl-roles {
+      width: 100%; 
+      background: #f3f8ec;
+    }
+
+    .clickable {
+      cursor: pointer;
+    }
+}

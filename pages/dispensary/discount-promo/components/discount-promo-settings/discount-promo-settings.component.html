@@ -1,0 +1,48 @@
+
+<div class="discount-promo-settings">
+    <div class="d-flex justify-content-end ">
+        <button *ngIf="!hasTrashButton" class="close-button" aria-label="Close" (click)="onModalClose()">
+            <img src="../../../../../../assets/icons/close.svg" alt="">
+        </button>
+        <button
+            *ngIf="hasTrashButton"
+            class="btn inverted btn-icon icon badge trash-button"
+            aria-label="Close"
+            (click)="onConfirmTrash()">
+            <img src="../../../../../../../../assets/icons/icon-trash.svg" alt="trash icon">
+        </button>
+
+        <button type="button" class="back-button" (click)="onBackButton()" [class]="slugStack.length > 1 ? '' : 'hidden'">
+            <svg  width="8" height="17" viewBox="0 0 8 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M7 16L1 8.5L7 1" stroke="#3A471E" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span class="ml-2">{{ getBackTitle() }}</span>
+        </button>
+    </div>
+    <div class="modal-header">
+        <div *ngIf="!isHideTitle()">{{ title }}</div>
+        <app-custom-input
+            *ngIf="editModeFor == 'dc_group_name'"
+            placeholder="Enter Group Name"
+            (onChange)="groupName = $event"
+            style="width: 100%;">
+        </app-custom-input>
+    </div>
+    <div class="modal-body">
+
+        <div class="list-group" *ngIf="getLastSlug() == 'settings'">
+            <a class="list-group-item list-group-item-action next"  *ngFor="let item of navItems" (click)="onNavSelect(item)">
+                <img class="pr-3" [src]="item.icon" alt="">
+                {{ item.title }}
+            </a>
+        </div>
+        <div *ngIf="getLastSlug() == 'discount-limits'">
+            <app-discount-limits (onSave)="onUpdatePromoLimit($event)"></app-discount-limits>
+        </div>
+
+        <div *ngIf="isSlugForDCGroup()">
+            <app-discount-groups [setGroupChanges]="groupChanges" (onSelect)="selectedGroupId = $event" (onAdd)="onAddGroupConfirm($event)" (onUpdate)="onUpdateGroupConfirm($event)"></app-discount-groups>
+        </div>
+
+    </div>
+</div>

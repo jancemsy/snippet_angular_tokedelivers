@@ -1,0 +1,110 @@
+
+
+
+#employe-list-container{  
+
+  *:not(.fa) {   font-family: ProximaNova Regular; } 
+
+  ul{
+    padding:0px; 
+    li{  list-style: none; padding:0px; }
+  }
+
+   width:100%;   
+   padding:20px;   
+ 
+
+  .custom-mat-form-field{ 
+    width:300px;
+  }
+
+
+  .search-box{
+      border:1px solid #979797; display:inline-block; padding:10px; width:300px;  background:#f3f8ec;  
+    input{ 
+      border:1px solid #979797; 
+      border-radius:8px; 
+      width:90%;
+      margin-left:10px;
+      font-size:12px;     
+   }
+  
+  }
+ 
+  
+
+
+  table {
+    width: 100%; 
+  } 
+  ///*
+  table th{
+     background: #f3f8ec;
+     color:#343537;
+  } 
+//*/
+  th.mat-sort-header-sorted {
+    color: black;
+  } 
+
+  .mat-column-id {
+    width:0%;
+  }
+
+  .mat-column-name {
+    width:15%;
+  }
+
+  
+  .mat-column-phone {
+    width:10%;
+  } 
+  
+  .mat-column-email {
+    width:15%;
+  }
+
+  .mat-column-dispensaries{
+    width:auto;
+  }
+
+  .mat-column-roles{
+    width:15%;
+  }
+
+  .mat-column-action{
+    width:200px;
+  }
+
+
+  .btn-sm{
+     border-radius: 10px;
+     font-size: 10px;
+     font-weight: normal;  
+     padding:2px;
+     min-width: 50px; 
+  }
+
+  .add-employee-btn{ 
+    border:none!important; background: none!important;
+    font-size:14px;
+    color:#86be42;
+  }
+  
+  .delete-btn{
+    border:none!important; background: none!important;
+  } 
+
+  .delete-btn:hover{ 
+    opacity: 0.5; 
+  }
+
+  .view-id-btn{ 
+    background-color: #85BD40;
+  } 
+  
+  .dit-btn{
+
+  }
+
+} 

@@ -1,0 +1,106 @@
+@import 'src/app/styles/core/variables';
+
+.location-input {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 6.25rem;
+
+  .input-container {
+    min-height: 558px;
+    position: relative;
+
+    .bg-container {
+      width: 100%;
+      max-height: 558px;
+      position: absolute;
+
+      .input-bg {
+        width: 100%;
+      }
+    }
+
+    .content-container {
+      width: 60%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding-left: 4.4rem;
+      padding-right: 7.4rem;
+      padding-top: 7.4rem;
+
+      .content {
+        z-index: 1;
+
+        h1 {
+          font-family: 'Open Sans', sans-serif;
+          font-size: 3.125rem;
+          font-weight: 700;
+          color: $white;
+          margin-bottom: 4.45rem;
+          letter-spacing: 0.1388rem;
+          line-height: 1.5;
+        }
+      }
+
+      .input-group {
+        height: 3.8125rem;
+        width: 27.125rem;
+        margin-bottom: 8.8375rem;
+
+        .input-group-text {
+          border-radius: 2.2188rem;
+          background-color: $white;
+          border: none;
+        }
+
+        .input-group-prepend {
+          .input-group-text {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+            padding-left: 1.45rem;
+
+            img {
+              width: 1.5rem;
+            }
+          }
+        }
+
+        .input-group-append {
+          .input-group-text {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding-right: 0.4375rem;
+
+            .btn {
+              width: 6rem;
+              height: 3rem;
+              border-radius: 1.25rem;
+              font-size: 1.2rem;
+              font-family: 'Open Sans', sans-serif;
+              font-weight: 700;
+            }
+          }
+        }
+
+        input {
+          height: 3.8125rem;
+          border: none;
+
+          &.form-control {
+            font-family: 'Open Sans', sans-serif;
+            text-align: left;
+            font-size: 1.2rem;
+            font-weight: 400;
+            padding-left: 0;
+            letter-spacing: 0.0175rem;
+
+            &:focus {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}

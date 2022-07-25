@@ -1,0 +1,22 @@
+<div class="pos-main"  *ngIf="posMode != 'scan'">
+
+   <div class="container-flex">
+      <container-element [ngSwitch]="posMode">
+         <div *ngSwitchCase="'register'">
+            <app-product-list></app-product-list>
+
+            <ng-container *ngIf="(_product$ | async) as product">
+               <app-product-details [product]="product"></app-product-details>
+            </ng-container>
+
+         </div>
+         <div *ngSwitchCase="'checkout'">
+            <app-payment (complete)="onTransactionComplete()">
+
+            </app-payment>
+         </div>
+
+      </container-element>
+   </div>
+
+</div>

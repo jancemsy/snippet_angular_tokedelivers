@@ -1,0 +1,60 @@
+<div class="pos-top" *ngIf="posMode != 'scan'">
+    <container-element [ngSwitch]="posMode">
+
+        <!-- REGISTER -->
+        <div *ngSwitchCase="'register'">
+            <div class="order-nav">
+                <div class="text-center">
+                    <div class="menu-container">
+                        <a (click)="onMenu()">
+                            <img src="../../../../../assets/images/pos/menu.svg" alt="menu">
+                        </a>
+                    </div>
+                    <div class="logo-container">
+                        <img src="../../../../../assets/images/pos/logo.svg" alt="logo">
+                    </div>
+                    <div class="add-customer">
+                        <a (click)="onAddCustomer()">
+                            <img src="../../../../../assets/images/pos/add-customer.svg" alt="customer">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- CHECKOUT -->
+        <div *ngSwitchCase="'checkout'">
+            <div class="back-nav d-inline-block">
+                <a (click)="onBack()">
+                    <img src="../../../../../assets/images/pos/back.svg" alt="back">
+                </a>
+
+                <div class="d-flex align-items-center justify-content-around h-100 w-100">
+                    <div>Payment</div>
+                </div>
+            </div>
+            <div class="summary-nav d-inline-block">
+                <div class="d-flex align-items-center justify-content-around bd-highlight h-100 w-100">
+                    <div>Summary</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CUSTOMER -->
+        <div *ngSwitchCase="'customers'">
+            <div class="back-nav d-inline-block w-100">
+                <a (click)="onBack()">
+                    <img src="../../../../../assets/images/pos/back.svg" alt="back">
+                </a>
+                <div class="d-flex align-items-center justify-content-center bd-highlight h-100 w-100">
+                    <div>Attach Customer</div>
+                </div>
+            </div>
+        </div>
+
+
+    </container-element>
+
+</div>
+

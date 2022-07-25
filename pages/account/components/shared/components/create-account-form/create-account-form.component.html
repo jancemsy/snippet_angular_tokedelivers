@@ -1,0 +1,94 @@
+<form [formGroup]="form" novalidate (ngSubmit)="onProceed()">
+  <div class="form-header">
+    <h1>Account Creation</h1>
+  </div>
+
+  <div class="card border-0">
+    <div class="card-body p-0">
+      <div class="text-center">
+        <!-- email -->
+        <div class="form-group" [class.is-invalid]="emailInvalid">
+          <div class="text-center">
+            <label for="email" [class.text-danger]="emailInvalid">Email Address &nbsp;</label>
+            <span
+              popover="Your Email Address will be your username to Log into the Toke Platform."
+              placement="auto">
+              <i class="fa fa-info-circle"></i>
+            </span>
+          </div>
+          <input class="form-control" name="email"
+            placeholder="Enter email"
+            [class.is-invalid]="emailInvalid"
+            type="email"
+            formControlName="email">
+
+            <!-- success notifications -->
+            <div class="success-feedback" *ngIf="vm.email?.success && f.email.valid">
+              <span *ngFor="let message of vm.email.message">{{ message }}</span>
+            </div>
+            <!-- error notifications -->
+            <div class="invalid-feedback" *ngIf="showErrors" ngxErrors="email" #emailErrors="ngxErrors">
+              <span ngxError="required" when="touched">Email is required</span>
+              <span ngxError="pattern" when="dirty">You must include a valid email address.</span>
+              <span ngxError="exists" when="dirty">Email address is already taken.</span>
+            </div>
+        </div>
+
+        <!-- password -->
+        <div class="form-group" [class.is-invalid]="passwordInvalid">
+          <label for="password" [class.text-danger]="passwordInvalid">Password</label>
+          <input class="form-control" name="password" placeholder="Password"
+            [class.is-invalid]="passwordInvalid"
+            type="password"
+            formControlName="password">
+
+          <!-- error notifications -->
+          <div class="invalid-feedback" *ngIf="isFormSubmitted" ngxErrors="password" #passwordErrors="ngxErrors">
+            <span ngxError="required" when="touched">Password is required</span>
+            <span ngxError="pattern" when="dirty">You must include a valid password pattern.</span>
+          </div>
+
+          <small class="form-text text-muted">Password should be at least 8 characters and include one unique character (@#$%)</small>
+        </div>
+
+        <!-- confirm password -->
+        <div class="form-group" [class.is-invalid]="confirmPasswordInvalid">
+          <label for="confirmPassword" [class.text-danger]="confirmPasswordInvalid">Confirm Password</label>
+          <input class="form-control" name="confirmPassword" placeholder="Confirm Password"
+            [class.is-invalid]="confirmPasswordInvalid"
+            type="password"
+            formControlName="confirmPassword">
+
+            <!-- error notifications -->
+            <div class="invalid-feedback" *ngIf="showErrors" ngxErrors="confirmPassword" #confirmPasswordErrors="ngxErrors">
+              <span ngxError="required" when="touched">Confirm Password is required</span>
+              <span ngxError="equalTo" when="dirty">Passwords did not matched.</span>
+            </div>
+        </div>
+
+        <div class="form-comments">
+          <p>To Proceed setting up an account on the Toke Platform you will be asked to upload information to confirm and identify you legal entity status, your cannabis licensing information and your personal identification information.</p>
+        </div>
+      </div>
+
+      <div class="form-group form-check">
+        <input class="form-check-input" name="chkTermsAgreed"
+          id="chkTermsAgreed"
+          type="checkbox"
+          formControlName="termsAgreed">
+        <label class="form-check-label" for="chkTermsAgreed">I Agree to Terms and Conditions</label>
+      </div>
+      <div class="form-group form-check">
+        <input class="form-check-input" name="chkPrivacyAgreed"
+          id="chkPrivacyAgreed"
+          type="checkbox"
+          formControlName="privacyAgreed">
+        <label class="form-check-label" for="chkPrivacyAgreed">I Agree to Privacy Terms</label>
+      </div>
+
+    </div>
+    <div class="card-footer border-0 w-100 text-right">
+      <button type="submit" class="btn btn-sm" [disabled]="form.invalid">Next</button>
+    </div>
+  </div>
+</form>

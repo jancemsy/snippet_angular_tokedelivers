@@ -1,0 +1,50 @@
+<div class="pos-payment">
+
+
+    <div *ngIf="!isTransactionComplete; else elseBlock">
+        <div *ngIf="posPaymentMode == 'menu'">
+            <div class="cash-button" (click)="onCash()">
+                <div class="cash-label">
+                    Cash
+                </div>
+            </div>
+
+            <div class="debit-button" (click)="onDebit()">
+                <div class="debit-label">
+                    Debit
+                </div>
+            </div>
+
+            <div class="can-pay-button" (click)="onCanPay()">
+                <div class="can-pay-svg">
+                    <img src="../../../../../../../assets/images/payments/canpay.svg" alt="can pay">
+                </div>
+            </div>
+
+            <button class="discount-button" (click)="onShowLoyaltyPoints()">
+                <i class="fas fa-plus"></i>
+                 Apply Rewards
+            </button>
+        </div>
+
+        <div *ngIf="posPaymentMode == 'cash'" >
+            <app-cash></app-cash>
+        </div>
+
+        <div *ngIf="posPaymentMode == 'debit'">
+            <app-debit></app-debit>
+        </div>
+
+        <div *ngIf="posPaymentMode == 'can-pay'">
+            <app-can-pay></app-can-pay>
+        </div>
+    </div>
+
+    <ng-template #elseBlock>
+        <div>
+            <app-trans-complete></app-trans-complete>
+        </div>
+    </ng-template>
+
+
+</div>

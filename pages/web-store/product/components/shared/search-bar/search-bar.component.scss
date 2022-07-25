@@ -1,0 +1,46 @@
+@media only screen and (max-width: 800px) {  
+}
+
+ 
+.search-box:hover {
+  background: #fafafa;
+}
+
+.search-box {
+  input:focus::placeholder {
+    color: transparent;
+  }
+  position: relative;
+  text-align: left;
+  width: 100%;
+  
+  height:30px!important;
+
+  background: #EEEEEE;
+  border: 0.6px solid #AAAAAA;
+  border-radius: 3.06px; 
+  background: #eeeeee;
+  border-radius: 5px;
+  input { 
+    margin-left:20px;
+    border: none; 
+    outline: none;
+    padding: 5px 10px 5px 10px;
+    font-size: 12px;
+    width: 70%;
+    min-width: 100px;
+    background: none; 
+    float:left;
+    display:block;
+  }
+  .search-icon {  
+    text-align: center;
+    padding-top: 3px;
+    width: 30px;
+    display: block;
+    color: #AAAAAA;
+    font-size: 12px;
+    position: absolute; 
+    right: 0px;
+  }
+}

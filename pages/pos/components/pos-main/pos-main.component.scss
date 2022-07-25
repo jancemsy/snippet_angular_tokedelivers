@@ -1,0 +1,32 @@
+@import 'src/app/styles/core/variables';
+
+.pos-main{
+    width: 65vw;
+    height: 90vh;
+
+    left: 0vw;
+    bottom: 0vh;
+    right : 35vw;
+    top : 10vh;
+    position: absolute;
+    overflow: hidden;
+
+    // background-color: #FBFBFB;
+
+    background-color:  $light-grey;
+
+    ::ng-deep {
+        ::-webkit-scrollbar {
+            width: 0.5vw;
+        }
+        ::-webkit-scrollbar-track {
+            background: $lighter-gray;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: $primary;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: $light-jade-green;;
+        }
+    }
+}

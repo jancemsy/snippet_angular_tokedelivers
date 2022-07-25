@@ -1,0 +1,16 @@
+<div class="lockscreen-container flex-column d-flex justify-content-center align-items-center">
+  <div class="lockscreen-logo d-flex justify-content-center align-items-center">
+    <img src="../../../../../../../assets/icons/top-nav/fa-cannabis.svg" alt="">
+  </div>
+  <div class="lockscreen-input">
+    <p *ngIf="isInvalid" class="text-danger lockscreen-error">Incorrect pin</p>
+    <p *ngIf="message != ''" class="text-success lockscreen-message">{{ message }}</p>
+    <input
+      [(ngModel)]="value"
+      (ngModelChange)="onChanging()"
+      type="password"
+      max="6"
+      [disabled]="isLoading"
+      placeholder="Enter pin to unlock">
+  </div>
+</div>

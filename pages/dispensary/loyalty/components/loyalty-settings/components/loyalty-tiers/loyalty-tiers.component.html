@@ -1,0 +1,65 @@
+<div class="loyalty-tiers d-flex flex-column" *ngIf="loyaltyTierSetting">
+
+    <div class="row tier-info">
+        <div class="col-sm-8">
+            <span class="tier-label">Tiers</span>
+            <p class="tier-desc">Customize your company's loyalty program with Tiers.</p>
+        </div>
+        <div class="col-sm-4">
+            <label class="switch float-right">
+                <input (change)="onToggleActive()" [checked]="loyaltyTierSetting.status" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </div>
+
+    <div *ngIf="loyaltyTierSetting.status == 1" class="list-group">
+        <div
+            class="list-group-item"
+            [ngClass]="showActions ? 'edit' : 'next'"
+            *ngFor="let tier of loyaltyTierSetting.tiers; let i = index"
+            (click)="onSelected(tier)">
+            <!-- <div class="tier-icon" [ngStyle]="{backgroundColor: tier.color}">{{ i + 1 }}</div> -->
+            <app-loyalty-icon
+                [color]="tier.color"
+                [type]="tier.icon"
+                [label]="(i + 1)">
+            </app-loyalty-icon>
+            <div class="tier-name">{{ tier.name }}</div>
+
+            <button *ngIf="showActions" class="ml-auto tier-remove" (click)="onDelete(tier)"><i class="fa fa-minus"></i></button>
+        </div>
+        <div *ngIf="showActions && loyaltyTierSetting.tiers.length < 4" class="list-group-item no-hover flex-wrap">
+            <button
+                class="btn btn-block btn-add"
+                (click)="onAdd()">
+                <i class="fa fa-plus"></i> Add Tier
+            </button>
+        </div>
+    </div>
+
+    <!-- <a (click)="onToggleEdit()" class="float-right tier-toggle">
+        {{ !isEditMode ? 'Change Tier Titles' : 'Revert to Original' }}
+    </a> -->
+
+
+    <div *ngIf="loyaltyTierSetting.status == 1" class="actions mt-auto">
+        <button
+            *ngIf="!showActions"
+            (click)="showActions = true"
+            class="btn btn-block">
+            Add/Remove Tiers
+        </button>
+        <div class="d-flex" *ngIf="showActions">
+            <button class="btn btn-cancel" (click)="onCancel()">Cancel</button>
+            <button
+                class="btn btn-save"
+                [disabled]="removeTiers.length <= 0 && addTiers.length <= 0"
+                (click)="onSave()">
+                Save
+            </button>
+        </div>
+    </div>
+
+
+</div>

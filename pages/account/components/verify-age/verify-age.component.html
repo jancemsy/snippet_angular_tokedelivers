@@ -1,0 +1,15 @@
+<div class="full-height center-accross-hw">
+  <app-card-dialog
+    *ngIf="!isUnderAged"
+    header="Welcome!"
+    bodyMessage="Before we get started. Are you over the age of 21?"
+    [buttons]="['Yes', 'No']"
+    (clickEvent)="handleDialogClick($event)"
+  ></app-card-dialog>
+
+  <app-card-dialog
+    *ngIf="isUnderAged"
+    header="Aw Snap!"
+    bodyMessage="Looks like you aren't old enough just yet."
+  ></app-card-dialog>
+</div>

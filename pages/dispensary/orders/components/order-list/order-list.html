@@ -1,0 +1,42 @@
+<div class="order-list-container">
+    
+    <div class="row">              
+         <div class="col-6">
+                <h1>Order Management</h1>
+         </div>
+         <div class="col-6 ">
+                <input type="text" class="search-box pull-right" placeholder="Search" />
+        </div> 
+     </div>
+
+    <div class="discount-promo table-responsive card shadow mb-4" >
+        <table class="table mgt-table">
+        <thead>
+            <tr>
+            <th class="number"><span>Number <span class="sorter" (click)="clickSort('number')"></span></span></th>
+            <th class="name"><span>Name <span class="sorter"  (click)="clickSort('name')"></span></span></th>
+            <th class="date"><span>Date <span class="sorter"  (click)="clickSort('date')"></span></span></th>
+            <th class="revenue"><span>Revenue <span class="sorter"  (click)="clickSort('revenue')"></span></span></th>
+            <th class="type"><span>Type <span class="sorter"  (click)="clickSort('type')"></span></span></th>
+            <th class="status"><span>Status <span class="sorter"  (click)="clickSort('status')"></span></span></th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngFor="let item of orders">
+                <tr>
+                    <td class="bold">#{{item.id}}</td> 
+                    <td><span class="field-outer-box"><img src="{{item.thumbnail}}" class="thumbnail" /> {{item.name}}</span></td>
+                    <td  class="bold">{{item.date}}</td>
+                    <td>${{item.revenue.toFixed(2)}}</td>
+                    <td> <span [ngClass]="'type-' + item.type">{{item.type.replaceAll('-',' ')}} </span></td>
+                    <td> <span title="Click to open order detail." (click)="clickOpenDetail(item.id)"   [ngClass]="'status-' + item.status" >{{item.status.replaceAll('-',' ')}}</span> </td>
+                </tr>
+            </ng-container>
+        </tbody>
+        </table>
+    </div>
+
+ 
+            <app-admin-order-detail-popup [orderId]="orderId" (popupState)="popupState($event)" ></app-admin-order-detail-popup>
+
+</div>

@@ -1,0 +1,63 @@
+<div class="cart-item-container"  > 
+            <div class="row"> 
+                <div class="col-md-4 col-sm-4 col-4">
+                <div class="thumb"><img src="{{item.thumb}}" /></div>
+                </div>
+
+                <div class="col-md-8 col-sm-8 col-8">
+
+                    <div class="row top-content"> 
+                            <div class="col-md-10" >
+                               <div class="title">{{item.title}}</div> 
+                            </div> 
+
+                            
+
+                            <div class="col-md-2 pull-right"  >
+                              <div class="price">${{item.amount}}</div> 
+                            </div>
+                    </div> 
+
+                    <div class="brand">{{item.brand}}</div>  
+                    <div class="sold_by">Sold By: {{item.dispensary_name}}</div>
+
+                    <div class="row bottom-content" > 
+                                <div class="col-md-10" >
+                                    
+                                    <div class="row">
+                                    <div class="col-md-3 measurement">
+                                        <select
+                                            [(ngModel)]="variation"
+                                            (change)="clickUpdate()" >
+                                            <ng-container *ngFor="let variation of item.variations; let index = index">
+                                            <option [ngValue]="variation">
+                                                {{ variation.measurement }}{{ variation.unit}}
+                                            </option>
+                                            </ng-container>
+                                        </select>                                         
+                                    </div>   
+
+                                    <div class="col-md-9 quantity">
+                                        <span class="caption">Quantity</span> 
+                                        <button type="submit" class="btn btn-md decrement-btn"  (click)="clickDecrement()" >
+                                            <i class="fa fa-minus"></i>
+                                        </button> 
+                                        <span  class="text-box"><input type="text"  [(ngModel)]="qty"  > 
+
+                                        </span>  
+                                        <button type="submit" class="btn btn-md increment-btn" (click)="clickIncrement()"  >
+                                            <i class="fa fa-plus"></i>
+                                        </button> 
+                                    </div>    
+                                </div>
+
+                                </div>
+                                <div class="col-md-2  pull-right" > 
+                                        <button type="submit" class="btn btn-md delete-btn " (click)="clickDelete()"  >delete</button> 
+                                </div>         
+                    </div>         
+
+
+                </div>
+            </div>    
+</div>

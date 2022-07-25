@@ -1,0 +1,72 @@
+@import 'src/app/styles/core/variables';
+.pos-dialog {
+  width: 40vw;
+  min-width: 40vh;
+  font-family: Open sans;
+  font-size: 2vh;
+  padding-top: 1.5vw;
+  padding-bottom: 1.5vw;
+  color: #000;
+
+  .cart-section-header {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cart-section-body {
+    background-color: darken($light-peach, 5%);
+
+    .table {
+      font-size: 1.5vh;
+      font-family: Open sans;
+      padding-bottom: 1.5vh;
+      &.no-border {
+        td {
+          border: 0;
+        }
+      }
+      td, p { padding: 0; }
+      td {
+        padding-top: 1.5vh;
+        padding-bottom: 1.5vh;
+      }
+
+      img {
+        border-radius: 0.5vh;
+      }
+
+      // special stylings
+      &.table-discounts {
+        td:first-child {
+          width: 70%;
+        }
+      }
+
+    }
+  }
+
+  // Reusable styles
+  .horizontal-padding {
+    padding-left: 1.5vw;
+    padding-right: 1.5vw;
+  }
+
+  .margin-top {
+    margin-top: 1.5vh;
+  }
+
+  .emphasized {
+    font-weight: 700;
+    font-size: 2.5vh;
+  }
+
+  .cart-success {
+    color: $jade-green;
+  }
+  .cart-error {
+    color: $light-red;
+  }
+  .cart-warning {
+    color: $tint-yellow;
+  }
+}

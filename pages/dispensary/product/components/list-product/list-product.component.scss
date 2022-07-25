@@ -1,0 +1,144 @@
+#products-container {
+
+    table{
+        width: 100%;
+    }
+
+    .fs-15 {
+        font-size: 15px;
+    }
+
+    .mat-header-cell {
+        background: #416330;
+        color: white;
+        font-size: 15px;
+    }
+
+    .mat-row {
+        height: auto;
+    }
+    
+    .mat-cell {
+        padding: 20px 8px 8px 0px;
+        border-bottom-width: none;
+        border-bottom-style: none;
+    }
+
+    .mat-column-Name {
+        width: 25%;
+        height: auto;
+        margin-right: 10px !important;
+    }
+    .mat-column-Image {
+        width: 10%;
+        height: auto;
+        padding-left: 20px;
+        padding-right: 30px;
+    }
+
+    .mat-column-SKU {
+        width: 10%;
+        height: auto;
+    }
+
+    .mat-column-Price {
+        width: 7%;
+        height: auto;
+    }
+
+    .mat-column-Size {
+        width: 5%;
+        height: auto;
+    }
+
+    .mat-column-Use {
+        width: 5%;
+        height: auto;
+    }
+
+    .mat-column-Category {
+        width: 10%;
+        height: auto;
+    }
+
+    .mat-column-THC {
+        width: 5%;
+        height: auto;
+        font-size: 15px;
+    }
+
+    .mat-column-CBD {
+        width: 5%;
+        height: auto;
+    }
+
+    .mat-column-Actions {
+        width: 15%;
+        height: auto;
+    }
+
+    .description{
+        font-size: 12px;
+        margin-right: 2% !important;
+    }
+
+    div.sub-cat {
+        margin-top: 20px;
+    }
+
+    .badge-light {
+        color: #85BD40;
+        background-color: #ffffff;
+        padding: 8px 30px 8px 30px;
+        border: 1px solid;
+        border-color: #b9babb;
+        border-radius: 8px;
+    }
+
+    .badge-secondary {
+        padding: 8px 16px 8px 16px;
+        font-size: 15px;
+    }
+
+    .shape {
+        width: 50px;
+        height: 50px;
+    }
+
+    i.btn-icon {
+        cursor: pointer;
+        font-size: 25px;
+        margin-top: 5px;
+        color: #85BD40;
+    }
+
+    span.mr-10 {
+        margin-right: 10px;
+    }
+
+    div.mb-30 {
+        margin-bottom: 30px;
+    }
+
+    .svg {
+        position: relative;
+        text-align: center;
+        color: white;
+        font-weight: bold;
+    }
+    .value {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+}
+
+::ng-deep .mat-progress-bar-fill::after {
+    background-color: #85BD40;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+    background: #E4E8EB;
+}

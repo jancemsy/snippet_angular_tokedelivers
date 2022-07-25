@@ -1,0 +1,19 @@
+<div class="slide-content" *ngIf="!dcGroup && !dcGroupAdd">
+  <div class="list-group">
+    <a class="list-group-item list-group-item-action next"  *ngFor="let group of dcGroups" (click)="onSelectGroup(group)">
+        {{ group.name }}
+    </a>
+  </div>
+  <div class="text-center mt-5">
+    <img
+      src="../../../../../../../../assets/icons/plus.svg"
+      alt="plus"
+      class="discount-group-add"
+      (click)="onAddGroup()">
+  </div>
+</div>
+
+<div class="group-content">
+  <app-discount-group-list *ngIf="dcGroup" [group]="dcGroup" (onSave)="onUpdateGroupConfirm($event)"></app-discount-group-list>
+  <app-discount-group-add *ngIf="dcGroupAdd" (onSave)="onAddGroupConfirm($event)"></app-discount-group-add>
+</div>

@@ -1,0 +1,16 @@
+<container-element *ngIf="( posMode$ | async) as posMode" [ngSwitch]="posMode">
+    <div class="pos" *ngSwitchDefault>
+        <app-pos-top></app-pos-top>
+        <app-pos-main></app-pos-main>
+        <app-pos-side></app-pos-side>
+        <!-- <app-pos-scan></app-pos-scan> -->
+    </div>
+
+    <!-- customers  -->
+    <div class="pos" *ngSwitchCase="'customers'">
+        <app-pos-top></app-pos-top>
+        <app-customers></app-customers>
+    </div>
+    <app-lockscreen *ngSwitchCase="'lockscreen'"></app-lockscreen>
+</container-element>
+<app-pos-alert-info></app-pos-alert-info>

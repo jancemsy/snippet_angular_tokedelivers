@@ -1,0 +1,22 @@
+@import "src/app/styles/core/variables";
+
+.description-left {
+  border-right: 2px solid lighten($primary, 20%);
+  font-size: 1.5vw;
+  font-weight: 300;
+}
+
+.description-right {
+  border-left: 1px solid $light-black-gray;
+  font-size: 1.5vw;
+  padding-left: 3vw;
+  font-weight: 300;
+}
+
+.brand-badge {
+  font-size: 1.2vw;
+  padding: 0.3vw 1vw;
+  color: #fff;
+  border-radius: 1vw;
+  font-weight: 600;
+}

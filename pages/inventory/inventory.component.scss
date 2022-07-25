@@ -1,0 +1,44 @@
+@import 'src/app/styles/core/variables';
+
+.card {
+  .card-header {
+    border-bottom: none;
+    background: none;
+
+    h1 {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+table {
+  border-collapse: separate;
+  border-spacing:0 5px;
+
+  tbody {
+    padding-left: .25rem;
+    padding-right: .25rem;
+
+    .item-row {
+      .item-cell {
+        border-top: 1px solid $gray;
+        border-bottom: 1px solid $gray;
+        margin-left: 1px;
+        margin-right: 1px;
+        vertical-align: baseline;
+
+        &:first-child {
+          border-left: 1px solid $gray;
+          border-top-left-radius: 5px;
+          border-bottom-left-radius: 5px;
+        }
+
+        &:last-child {
+          border-right: 1px solid $gray;
+          border-top-right-radius: 5px;
+          border-bottom-right-radius: 5px;
+        }
+      }
+    }
+  }
+}

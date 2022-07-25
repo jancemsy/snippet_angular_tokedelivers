@@ -1,0 +1,43 @@
+@import 'src/app/styles/core/variables';
+
+#customer-account-settings {
+  margin-top: 8rem;
+  padding-left: 120px;
+  padding-right: 120px;
+  padding-bottom: 30px;
+  color: $primary;
+  font-size: 15px;
+
+  h1 {
+    font-size: 50px;
+    &.main-title { margin-bottom: 40px; }
+  }
+
+}
+
+.card-settings {
+  border-radius: 20px;
+  background-color: #EFEFEF;
+  height: 100%;
+  h3 {
+    margin-top: 25px;
+    margin-left: 4px;
+    font-size: 30px;
+  }
+  .card-body {
+    padding-left: 35px;
+    padding-right: 35px;
+  }
+}
+
+a { font-weight: 500; }
+
+.btn-link {
+  background-color: transparent!important;
+  color: $primary;
+  font-size: 15px;
+  padding-right: 0!important;
+  padding-left: 0!important;
+
+  &:focus, &:active { outline: none !important; box-shadow: none; }
+}

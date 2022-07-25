@@ -1,0 +1,37 @@
+@import 'src/app/styles/core/variables';
+
+.carousel {
+  .carousel-item {
+    background-color: $beige;
+  }
+
+  .carousel-control-next {
+    .carousel-control-next-icon {
+      background-image: url(../../../../../assets/images/app/controls/carousel-next.svg);
+    }
+  }
+
+  .carousel-control-prev {
+    .carousel-control-prev-icon {
+      background-image: url(../../../../../assets/images/app/controls/carousel-prev.svg);
+    }
+  }
+}
+
+.carousel-indicators {
+  li {
+    height: 0;
+    width: 101px;
+    border-radius: 6px;
+    border-top: 6px solid $primary;
+    border-bottom: 6px solid $primary;
+    opacity: .3;
+    margin-right: 14px;
+    margin-left: 15px;
+
+    &.active {
+      border-color: $primary;
+      opacity: 1;
+    }
+  }
+}

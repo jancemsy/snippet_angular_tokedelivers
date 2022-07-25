@@ -1,0 +1,58 @@
+<div class="trans-complete">
+    <div class="d-flex justify-content-center">
+        <div class="complete-header">
+            ✔  Transaction Complete
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center">
+        <div class="complete-details" *ngIf="posPaymentMode == 'cash'">
+            <div class="detail-label">
+                Change Due
+            </div>
+            <div class="detail-number">
+                {{ posChange | currency }}
+            </div>
+        </div>
+        <div class="complete-details" >
+            <div class="detail-label">
+                Order Number
+            </div>
+            <div class="detail-number">
+                {{ posOrderNumber }}
+            </div>
+        </div>
+    </div>
+    <div *ngIf="!isBackToRegister">
+        <div class="d-flex justify-content-center">
+            <div class="btn complete-button" (click)="onPrintReceipt()" [class]="isReceiptFinished ? 'no-bg' : ''">
+                <div class="button-label" [class]="isReceiptFinished && !isPrinted ? 'no-display' : ''">
+                    {{ !isReceiptFinished ? 'Print Receipt' : 'Receipt Printed' }}
+                </div>
+
+            </div>
+            <div class="btn complete-button" (click)="onEmailReceipt()" [class]="isReceiptFinished ? 'no-bg' : ''">
+                <div  class="button-label" [class]="isReceiptFinished && !isEmailed ? 'no-display' : ''">
+                    {{ !isReceiptFinished ? 'Email Receipt' : 'Receipt Emailed' }}
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="btn complete-button" (click)="onNonReceipt()" [class]="isReceiptFinished ? 'no-bg' : ''">
+                <div  class="button-label" [class]="isReceiptFinished && !isNonReceipt ? 'no-display' : ''">
+                    {{ !isReceiptFinished ? 'No Receipt' : 'No Receipt Issued' }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="isBackToRegister">
+        <div class="d-flex justify-content-center">
+            <div class="btn complete-button" (click)="onBackToRegister()">
+                <div  class="button-label">
+                    Back to Register
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

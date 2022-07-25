@@ -1,0 +1,132 @@
+@import "src/app/styles/core/variables";
+
+@media only screen and (max-width: 800px) {
+   .first-box,.third-box{display:none!important;}
+   .second-box{  display:block; margin:auto; }
+}
+
+
+
+.padding-20 {
+  padding: 20px;
+}
+
+.product-detail-info-container-overlay {
+  background: #333;
+  opacity: 0.2;  
+  top: 0px;
+  left: 0px;
+  margin: 0px;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 22;
+}
+
+.pop-detail-content{
+  padding:0px;  
+}
+
+.pop-detail-content-body{
+  margin-top:46px;
+  padding:0px 10px; 
+}
+
+
+
+.product-detail-info-container { 
+
+    color: $primary;
+    width: 1080px;
+    height: 524px;
+    background: rgb(255, 255, 255);
+
+    box-shadow: 0 0 30px rgb(138, 137, 137);
+    border-radius: 15px;
+    border: 1px solid #fff;    
+
+    z-index: 23;
+    
+    border: 1px solid #eee;
+    overflow: hidden;
+
+    position:relative;
+    margin-top:calc((100vh - 524px) / 2) ; 
+
+    left: 50%; margin-left: -540px; 
+
+  .close-btn {     
+    color: #8c8c8c;
+    cursor: pointer;
+    position: absolute;  right:0px;
+    top:0px;
+    margin-top: 10px;
+     margin-right: 20px;  
+  }
+
+  .col-md-4 {
+    height: 420px;
+  }
+
+  .third-box { 
+  }
+
+  .second-box { 
+  }
+
+  .first-box {
+    overflow: hidden; 
+    margin-top:33px;
+
+    .thumb { 
+      width: 300px;
+      height: 300px;
+      display: block;  
+      background-repeat: no-repeat;
+      //background-size: cover;
+      background-position: center center;
+    }
+  }
+
+  .add-cart-button {
+    width: 100%;
+    .btn {
+      width: 100%;
+    }
+  }
+
+  .more-button:hover {
+    i {
+      margin-top: -5px;
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .more-button:not(:hover) {
+    i {
+      transition: all 0.2s ease-in-out reverse;
+    }
+  }
+
+  .more-button {
+    .button {
+      margin-top:-10px;
+      color:#354C1A; 
+      position: fixed;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    height: 80px; 
+    text-align: center;
+    font-weight: normal;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(249, 249, 249, 1) 28%,
+      rgba(221, 221, 221, 1) 100%
+    );
+  }
+
+}

@@ -1,0 +1,13 @@
+@import 'src/app/styles/core/variables';
+
+@media (min-width: 576px) {
+  form {
+    width: 100%;
+  }
+
+  .card {
+    .card-footer {
+      background-color: $white;
+    }
+  }
+}

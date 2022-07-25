@@ -1,0 +1,115 @@
+
+<div class="form-header" [ngClass]="is_open ?  'active' : 'inactive'">
+    <h1>Batch Variations</h1>
+    <div class="d-flex pull-right  form-toggle"  > 
+      <button   (click)="is_open = !is_open"   > 
+         <i class="fa " [ngClass]="is_open ?  'fa-angle-up' : 'fa-angle-down'   " ></i>
+      </button>  
+    </div> 
+ </div>
+ 
+ 
+<div class="form-body   " [ngClass]="{'disabled': is_disabled }"  *ngIf="is_open"  [@fadeAnimation]="is_open ? 'in' : 'leave'">
+   <div class="disable-overlay"  ></div>
+
+   <div class="errors" *ngIf="errors.length > 0"  (click)="errors = [];" >
+      <ul><li *ngFor="let item of errors">{{item.message}}</li></ul>
+   </div>
+
+    
+    <div class="row" *ngIf="batch"> 
+        <div class="form-group col-md-4" >
+           Batch Number
+           <input class="form-control"  [(ngModel)]="batch.batch_number"  placeholder="Batch Number" type="text" > 
+        </div>
+ 
+        <div class="form-group col-md-2"  >
+           Batch Date
+           <input class="form-control"   [(ngModel)]="batch.batch_date"  placeholder="Batch Date" type="date"  > 
+        </div>
+
+        <div class="form-group col-md-2" >
+            Exp Date
+            <input class="form-control" [(ngModel)]="batch.exp_date"  placeholder="Exp Date" type="date"   > 
+         </div>
+
+         <div class="form-group col-md-2" >
+            Status 
+            <select  [(ngModel)]="batch.status"  > 
+               <option>active</option> 
+               <option>inactive</option> 
+             </select>
+         </div>
+ 
+
+         <div class="form-group col-md-2" > 
+            <button type="submit" class="btn btn-sm add-variation-button"  style="margin-top:10px;" (click)="clickAddBatch()" >
+               <i class="fa " [ngClass]="batch.id  === -1 ?  'fa-plus-circle' : 'fa-check'   "></i>  
+               {{ batch.id  === -1 ?  "Add Batch" : "Update Batch" }}  
+            </button>
+         </div>           
+     </div>
+
+     <div class="row"> 
+        <div class="form-group col-md-4" >
+           Batch Number 
+        </div>
+ 
+        <div class="form-group col-md-2"  >
+           Batch Date 
+        </div>
+
+        <div class="form-group col-md-2" >
+            Exp Date 
+         </div>
+
+         <div class="form-group col-md-2" >
+            Status 
+         </div> 
+
+         <div class="form-group col-md-1" > 
+            Edit 
+         </div>           
+         <div class="form-group col-md-1" > 
+            Delete
+         </div>           
+     </div>
+
+
+
+     <ul class="ul-animation" [@listAnimation]="product.batches.length" >
+      <li  class="item" *ngFor="let item of product.batches" [ngClass]="batch.id === item.id ?  'selected' : ''   "> 
+            <div class="row" > 
+               <div class="form-group col-md-4" >
+                  {{item.batch_number}}
+               </div>
+
+               <div class="form-group col-md-2"  >
+                  {{item.batch_date}}
+               </div>
+
+               <div class="form-group col-md-2" >
+                  {{item.exp_date}}
+               </div>
+
+               <div class="form-group col-md-2" >
+                  <span class="{{item.status}}">{{item.status}}</span>
+               </div> 
+
+
+               <div class="form-group col-md-1" > 
+                  <button type="submit" class="btn btn-sm small-button-icons"  (click)="clickEdit(item)"  >
+                     <i class="fa fa-edit"></i> 
+                  </button>
+               </div>           
+               <div class="form-group col-md-1" > 
+                  <button type="submit" class="btn btn-sm small-button-icons" (click)="clickDelete(item)"    >
+                     <i class="fa fa-trash"></i>
+                  </button> 
+               </div>     
+            </div>
+       </li>
+       </ul>
+   
+      
+</div>

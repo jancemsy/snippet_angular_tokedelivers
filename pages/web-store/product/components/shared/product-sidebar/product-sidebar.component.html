@@ -1,0 +1,76 @@
+<div class="product-sidebar" *ngIf="filterOptions" style="padding:0px;">
+
+  <ng-container *ngFor="let item of filterOptions">
+
+    <ng-container *ngIf="(filter_dispensary !== '' &&  item.category_name !== 'Dispensary') ||   filter_dispensary == ''">
+    
+
+        <div class="filter-box" [ngClass]="item.is_expanded ? '' : 'minimize'"> 
+          <div  class="row heading-category"
+            (click)="item.is_expanded = !item.is_expanded"  >
+            <div class="text-heading"  >
+              <b>{{ item.category_name }} </b>
+            </div>
+            <div class="hideshow-handle" >
+              <i
+                class="fa"
+                [ngClass]="item.is_expanded ? 'fa-minus' : 'fa-plus'"
+              ></i>
+            </div>
+          </div>
+
+          <div *ngIf="item.is_expanded" class="sidebar-body" [@fadeAnimation]="item.is_expanded ? 'in' : 'leave'" >
+            <div class="search-container">
+              <app-search-bar (search)="search($event,item)" [onkey]="true"></app-search-bar>
+            </div>
+
+            <ul>
+              <ng-container *ngFor="let optionitem of item.category_items; let index = index">
+              <li *ngIf="item.category_items[index].isVisible" >
+                <label><input type="checkbox"   [(ngModel)] = "item.category_items[index].isChecked"     (click)="clickSidebarItem(optionitem)" /><span>{{ optionitem.name }}</span> </label>
+              </li>
+            </ng-container>
+            </ul>
+          </div>
+        </div>
+
+    
+
+
+        <ng-container *ngIf="item.category_name === 'Category' && subcategories && subcategories.length > 0 && item.category_name === 'Category' &&  item.is_expanded "  >   
+          <div class="filter-box"  > 
+            <div  class="row heading-category"  >
+              <div class="col-sm-9">
+                <b>Subcategories </b>
+              </div>
+              <div class="col-sm-2">
+                <i class="fa" fa-minus  ></i>
+              </div>
+            </div>
+      
+            <div  class="sidebar-body"   >
+              <div class="search-container">
+                <app-search-bar></app-search-bar>
+              </div>
+      
+              <ul>
+                <li *ngFor="let subcat of subcategories">
+                  <label><input type="checkbox" /><span>{{ subcat.name }}</span> </label>
+                </li>
+              </ul>
+            </div>
+          </div> 
+      </ng-container>
+
+   </ng-container>
+  
+
+
+
+  </ng-container>
+
+  
+ 
+
+  <div style="height: 200px; display: block"></div>
+</div>

@@ -1,0 +1,354 @@
+<div id="customer-account-settings" class="container-fluid">
+
+    <div class="row">
+        <div class="col">
+          <h1 class="main-title">Checkout</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-6 mb-3">
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <div class="shipping-type">
+                        <div *ngIf="shipping_type === 'Delivery'" (click)="selectType('Delivery')" class="round-border-btn type-selected">
+                            Delivery
+                        </div>
+                        <div *ngIf="shipping_type != 'Delivery'" (click)="selectType('Delivery')" class="round-border-btn">
+                            Delivery
+                        </div>
+                        <div *ngIf="shipping_type === 'Pickup'" (click)="selectType('Pickup')" class="round-border-btn type-selected">
+                            Pick-up
+                        </div>
+                        <div *ngIf="shipping_type != 'Pickup'" (click)="selectType('Pickup')" class="round-border-btn">
+                            Pick-up
+                        </div>
+                        <div *ngIf="shipping_type === 'In-Store'" (click)="selectType('In-Store')" class="round-border-btn type-selected">
+                            In-Store
+                        </div>
+                        <div *ngIf="shipping_type != 'In-Store'" (click)="selectType('In-Store')" class="round-border-btn">
+                            In-Store
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <!-- Personal Information Block -->
+                    <div class="personal-information">
+                        <div class="custom-card">
+                            <h5 class="custom-title">Personal Information</h5>
+                            <div class="row lines">
+                                    <div class="col-md-3 mb-3">
+                                        <div class="underline-bold"></div>
+                                    </div>
+                                    <div class="col-md-9 mb-3">
+                                        <div class="underline-light"></div>
+                                    </div>
+                            </div>
+                            <div class="address-content">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="st-text" for="first_name">First Name</label>
+                                            <input (focusout)="updatePersonalInfo()" [(ngModel)]="personal_info.first_name" type="text" class="form-control st-input" id="first_name">
+                                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label class="st-text" for="last_name">ID</label>
+                                            <div class="id-card-back"></div>
+                                            <div class="id-card-front">
+                                                <div *ngIf="!identification?.identification_id" class="d-flex justify-content-xl-center">
+                                                    <span class="content-text" (click)="onOpenCardIdentification()">
+                                                        <div class="card-content">
+                                                            <i class="fa fa-plus"></i>
+                                                            Add ID
+                                                        </div>
+                                                    </span>
+                                                </div>
+                                                <div *ngIf="identification?.identification_id">
+                                                    <span class="ch-1">{{identification.identification_details.type | titlecase}}</span><br>
+                                                    <div class="ch-2">
+                                                        <span>{{ identification.identification_details.name }}</span><br>
+                                                        <span>{{ identification.identification_details.number }}</span>
+                                                        <div class="d-flex align-items-end flex-column">
+                                                            <div class="chip d-flex justify-content-center">
+                                                                <span class="chip-text">{{ identification.identification_details.state }}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="st-text" for="last_name">Last Name</label>
+                                            <input (focusout)="updatePersonalInfo()" [(ngModel)]="personal_info.last_name" type="text" class="form-control st-input" id="last_name">
+                                            <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+                                        <div class="form-group">
+                                            <label class="st-text" for="last_name">DOB</label>
+                                            <input (blur)="updatePersonalInfo()" [(ngModel)]="personal_info.birth_date" type="text" class="form-control st-input" bsDatepicker>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+                                <div class="d-flex justify-content-end" style="margin-right: 20px;">
+                                    <!-- <button class="btn btn-primary save-personal-info">Save</button> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Address Block -->
+                    <div class="address">
+                        <div class="custom-card">
+                            <h5 class="custom-title">{{shipping_type}} Address</h5>
+                            <div class="row lines">
+                                    <div class="col-md-3 mb-3">
+                                        <div class="underline-bold"></div>
+                                    </div>
+                                    <div class="col-md-9 mb-3">
+                                        <div class="underline-light"></div>
+                                    </div>
+                            </div>
+                            <div class="address-content">
+                                <span class="fullName">{{customer.user?.first_name}} {{customer.user?.last_name}}</span>
+                                <br>
+                                <span class="line-1">{{address.address_line_1}}</span>
+                                <br>
+                                <span class="line-1">{{address.city}}, {{address.state}} {{address.zip}}</span>
+                                <br>
+                                <span class="line-1">{{address.phone_number}}</span>
+                            </div>
+                            <div class="d-flex align-items-end flex-column">
+                                <span class="change" (click)="onOpenAddresses()">Change</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End of Address Block -->
+        
+                    <!-- Payment Block -->
+                    <div class="payment">
+                        <div class="custom-card">
+                            <h5 class="custom-title">Payment</h5>
+                            <div class="row lines">
+                                    <div class="col-md-3 mb-3">
+                                        <div class="underline-bold"></div>
+                                    </div>
+                                    <div class="col-md-9 mb-3">
+                                        <div class="underline-light"></div>
+                                    </div>
+                            </div>
+                            <div class="payment-card">
+                                <div class="payment-logo">
+                                    <img [src]="paymentItem.payment_method?.logo" [alt]="paymentItem.id"
+                                    class="logo-img"
+                                    *ngIf="paymentItem?.payment_method?.logo">
+                                </div>
+                                <div class="payment-content">
+                                    <span class="content-text">{{paymentItem?.payment_method?.name}}</span>
+                                    <br>
+                                    <span class="content-text">{{paymentItem?.email}}</span>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-end flex-column">
+                                <span class="change" (click)="viewPaymentMethods()">Change</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mb-3 align-components">
+            <div class="row">
+                <div class="review-order">
+                    <h5 class="custom-title" style="margin-top: 5%; margin-left: 9%;">Review Order</h5>
+                    <div class="row lines" style="margin-top: -2.5%;">
+                            <div class="col-md-7 mb-3">
+                                <div class="underline-bold" style="margin-left: 17%;"></div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="underline-light" style="margin-right: 21%;"></div>
+                            </div>
+                    </div>
+
+                    <!-- Cart Items-->
+                    <div class="row d-flex justify-content-center" style="width: 100%;" *ngFor="let item of cart.items; let i = index">
+                        <div class="row" style="width: 69%;">
+                            <div class="col-md-3">
+                                <img [src]="item.item.product[0].images[0].file.path" [alt]="product-image"
+                                class="item-img">
+                            </div>
+                            <div class="col-md-6" style="margin-left: 22%; margin-top: 7%;">
+                                <div class="row d-flex">
+                                    <div class="mr-auto p-2">
+                                        <span class="product-name">
+                                            {{item.item.product[0].name}}
+                                        </span>
+                                    </div>
+                                    <div class="p-2">
+                                        <span class="product-name">
+                                            {{ item.item.price * item.quantity | currency:"USD"}}
+                                        </span>
+                                    </div>
+                                </div>
+                                <br>
+                                <div *ngIf="!isEdit" class="row">
+                                    <span class="variant">
+                                        {{item.item.measurement}} {{item.item.unit}} &nbsp; Qty {{item.quantity}}
+                                    </span>
+                                </div>
+                                <div *ngIf="isEdit" class="row">
+                                    <span class="variant">
+                                        <select [(ngModel)]="item.item.product_variant_id" name="selectedItem" class="custom-select item-select">
+                                            <option *ngFor="let variant of item.item.product[0].variants" [value]="variant.id">
+                                                {{variant.measurement}} {{variant.unit}}
+                                            </option>
+                                        </select>
+                                    </span>
+                                    <span class="qty">
+                                        Qty &nbsp;
+                                        <!-- <button class="btn decrement-btn" (click)="minusQty(item.quantity)"> <i class="fa fa-minus"></i> </button> -->
+                                        <input (change)="changeQty($event, item.cart_item_id)"  class="qty-input" [(ngModel)]="item.quantity" type="number" min="1" max="10" id="qty" value="{{item.quantity}}" style="margin-left:1px;max-width:40px;">
+                                        <!-- <button class="btn increment-btn" (click)="addQty(item.quantity, item.cart_item_id)"> <i class="fa fa-plus"></i> </button> -->
+                                    </span>
+                                </div>
+                                <div *ngIf="isEdit" class="row actions">
+                                    <button class="btn delete-btn" (click)="deleteItem(item.cart_item_id)"> Delete </button>
+                                    <button class="btn update-btn" (click)="updateItem(item.quantity, item.item.product_variant_id, item.cart_item_id)"> Update </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="i != (cart.items.length - 1)" class="cart-items"></div>
+                    </div>
+
+                    <div class="d-flex align-items-end flex-column">
+                        <span *ngIf="!isEdit" class="change" (click)="editCart()">Edit</span>
+                        <span *ngIf="isEdit" class="change" (click)="doneEdit()">Done</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Apply Coupon/Promo -->
+            <div class="row">
+                <div class="promo-card">
+                    <div class="row promo-input">
+                        <div class="col-md-7">
+                            <div class="input-group mb-3">
+                                <input #promoCode type="text" class="form-control input-group-add" id="promo_code" placeholder="Enter Promo Code" aria-describedby="basic-addon2">
+                                <div class="input-group-append" (click)="usePromoCode(promoCode.value)">
+                                    <span class="input-group-text append-prop" id="basic-addon2">Apply</span>
+                                </div>
+                            </div>
+                            <small *ngIf="promoCodeInvalid" class="form-text error-txt">{{promoAlertMessage}}</small>
+                            <small *ngIf="!promoCodeInvalid" class="form-text info-txt">{{promoAlertMessage}}</small>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row" style="cursor: pointer;">
+                                <div class="col-md-3  icon-prop"><i class="fa fa-plus-circle"></i> </div>
+                                <div class="col-md-9 use-rewards" (click)="openRedeemRewardsDialog()" ><span>Use Rewards</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <!-- Total Block -->
+                <div class="total-card">
+                    <div class="card-content">
+                        <div class="d-flex">
+                            <div class="mr-auto p-2">
+                                <span class="subtotal">
+                                    Subtotal
+                                </span>
+                            </div>
+                            <div class="p-2">
+                                <span class="subtotal">
+                                    {{cart.subtotal | currency:"USD"}}
+                                </span>
+                            </div>
+                        </div>
+                        <div *ngIf="!discountsExpanded" class="d-flex discounts">
+                            <div class="mr-auto p-2">
+                                <span>
+                                    Discounts
+                                </span>
+                            </div>
+                            <div class="p-2">
+                                <span>
+                                    {{cart.discounts | currency:"USD"}}
+                                </span>
+                            </div>
+                            <i (click)="expandDiscounts()" class="fa fa-chevron-circle-down toggle-icon"></i>
+                        </div>
+                        <div *ngIf="discountsExpanded" class="discounts-expanded">
+                            <div class="row discount-total">
+                                <div class="mr-auto p-2">
+                                    <span>
+                                        Discounts
+                                    </span>
+                                </div>
+                                <div class="p-2">
+                                    <span>
+                                        {{cart.discounts | currency:"USD"}}
+                                    </span>
+                                </div>
+                                <i style="margin-right: 35px;" (click)="shrinkDiscounts()" class="fa fa-chevron-circle-up toggle-icon"></i>
+                            </div>
+                            <!-- Discount Details -->
+                            <div *ngFor="let discount of discounts" class="row discount-details">
+                                <div class="mr-auto p-2">
+                                    <span>
+                                        {{discount.name}}
+                                    </span>
+                                </div>
+                                <div class="p-2">
+                                    <span>
+                                        {{discount.value | currency:"USD"}}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex tax">
+                            <div class="mr-auto p-2">
+                                <span>
+                                    Taxes
+                                </span>
+                            </div>
+                            <div class="p-2">
+                                <span>
+                                    {{cart.tax | currency:"USD"}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex total">
+                            <div class="mr-auto p-2">
+                                <span>
+                                    Total
+                                </span>
+                            </div>
+                            <div class="p-2">
+                                <span>
+                                    {{cart.total | currency:"USD"}}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button [disabled]="!canPlaceOrder" (click)="placeOrder()" _ngcontent-wbf-c209="" type="submit" class="btn btn-pill" style="height: 45px; width: 182px;"> <span class="text"> Place Order </span> </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

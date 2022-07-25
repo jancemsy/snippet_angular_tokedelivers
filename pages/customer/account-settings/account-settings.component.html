@@ -1,0 +1,30 @@
+<div id="customer-account-settings" class="container-fluid">
+  <div class="row">
+    <div class="col">
+      <h1 class="main-title">Your Account</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6 mb-3">
+      <div class="card card-settings shadow">
+        <div class="card-body">
+          <app-personal-information [customer]="customer"></app-personal-information>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-6 mb-3">
+      <app-login-information [customer]="customer"></app-login-information>
+    </div>
+  </div>
+
+  <div class="col-12 card card-settings shadow px-4 py-0 mb-3">
+    <h3>Rewards</h3>
+    <app-rewards [member$]="customer$"></app-rewards>
+  </div>
+
+  <div class="col-12 card card-settings shadow px-4 py-0">
+    <h3>Your Orders</h3>
+    <app-order-history></app-order-history>
+  </div>
+</div>

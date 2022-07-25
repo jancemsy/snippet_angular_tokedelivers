@@ -1,0 +1,27 @@
+@import 'src/app/styles/core/variables';
+
+.dispensaries-near-me {
+  position: relative;
+  margin-top: 5.4375rem;
+  font-family: 'Open Sans', sans-serif;
+  padding-left: 3.75rem;
+  padding-right: 3.75rem;
+  z-index: 1;
+
+  .container {
+    border-radius: 20px;
+    background-color: $light-gray;
+    padding: 40px 75px;
+    margin: 0;
+    max-width: none;
+  }
+
+  h1.content-header {
+    font-family: Open Sans;
+    font-weight: 600;
+    font-size: 1.875rem;
+    color: $primary;
+    padding: 0 0.6875rem;
+    margin-bottom: 40px;
+  }
+}

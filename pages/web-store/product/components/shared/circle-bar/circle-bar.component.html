@@ -1,0 +1,24 @@
+<div class="circle-bar" *ngIf="item !== null">  
+  <div class="secondary-box">
+    <svg width="100px" height="100px" viewBox="2 -1.9 29.6 46">
+      <path
+        class="path"
+        d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+        fill="none"
+        [attr.stroke]="[color]"
+        [attr.stroke-width]="[7]"
+        [attr.stroke-dasharray]="[percentage_string]"
+      />
+    </svg>
+  </div>
+
+  <div class="third-box"   >
+    <div class="caption"   [ngStyle]="{'color': icon_color } " >
+      {{caption}}
+    </div> 
+
+    <div class="tabon"> 
+      <div class="svg" [ngStyle]="{ 'background-color' : icon_color ,'-webkit-mask-image':'url(' + icon + ')','mask-image': 'url(' + icon + ')' } "  ></div>    
+    </div> 
+  </div> 
+</div> 
